@@ -1,0 +1,21 @@
+Title:
+Spectral Diagnostic Trajectories (SDT): A Hypergraph-Spectral Framework for Adaptive Clinical Decision Support and Operational Optimization in EHR Systems
+
+Authors:
+Hemanth Manchabale Papachappa, Aniruddha Ganguly
+
+Abstract:
+Emergency and critical care physicians must synthesize extensive, multi-modal electronic health record (EHR) data under stringent time constraints. While modern hospital systems capture dense longitudinal histories, structured laboratory orders, and continuous physiological telemetry, accessing decision-critical evidence during active patient workups remains cognitively demanding. Standard clinical information retrieval pipelines treat clinician interactions as isolated, stateless queries, overlooking the iterative, non-monotonic progression of diagnostic reasoning. When an initial working diagnosis is contradicted by new clinical findings—such as when an apparent community-acquired pneumonia abruptly deteriorates into an acute pulmonary embolism—conventional interfaces continue to surface results biased toward the earlier working hypothesis, contributing to cognitive anchoring, search distraction, and diagnostic delay.
+
+Recent attempts to model clinical workflow continuity, such as the Geodesic Diagnostic Trajectories (GDT) framework, represent clinical intent as a continuous trajectory on the Riemannian manifold of Symmetric Positive Definite (SPD) covariance matrices. Although geometrically elegant, GDT incurs significant computational overhead (O(d^3) per Riemannian matrix logarithm and exponential map), cannot natively represent multi-way interactions among disparate clinical modalities, and suffers from numerical instability when digesting high-frequency (125 Hz) physiological telemetry streams.
+
+In this work, we present Spectral Diagnostic Trajectories (SDT), a graph-theoretic framework that models the diagnostic search space as an evolving multi-modal hypergraph. In SDT, clinical text, structured events, and continuous waveforms (encoded via Mamba selective state-space models) are represented as heterogeneous nodes interconnected by multi-way hyperedges. Our formulation introduces four methodological components:
+(1) Spectral Pivot Detection, which tracks the algebraic connectivity (Fiedler value \lambda_2) of the normalized hypergraph Laplacian in real time, identifying hypothesis shifts in O(|E_t|) time;
+(2) Graph-Signal Context Attenuation, which employs a Chebyshev high-pass filter and the Fiedler vector to sever obsolete diagnostic subgraphs with provable Cheeger conductance bounds;
+(3) Spectrally-Biased Anticipatory Prefetching, formulating prospective record retrieval as a biased random walk over the Laplacian eigenspace of the institutional patient graph; and
+(4) Cognitive-Load-Bounded Delivery, which selects prefetched records via a greedy 0/1 knapsack optimization based on Sweller's cognitive load theory.
+
+In a nine-arm within-condition repeated-measures simulation across 1,000 standardized diagnostic vignettes (9,000 evaluated sessions) calibrated against empirical EHR workflow studies, SDT reduced mean time-to-correct-information (TTCI) by 28.9% relative to standard search (62.97 s vs. 88.52 s) and by 8.7% relative to GDT (68.96 s), while improving diagnostic retrieval accuracy from 86.8% to 93.9% and decreasing modeled cognitive load by 32.2%. Average algorithmic response latency was 112.9 ms. Translating these findings into an Erlang C (M/M/c) emergency department operational model demonstrates that individual per-encounter time savings compound non-linearly, yielding an estimated 12.3-minute reduction in patient queue waiting times under near-saturation conditions.
+
+Keywords:
+Hypergraph Neural Networks; Spectral Graph Theory; Algebraic Connectivity; Fiedler Vector; Clinical Decision Support; EHR Information Retrieval; Cognitive Load Theory; NASA-TLX; Erlang C Queueing; Mamba State-Space Models.

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expanded Research Plan: Spectral Diagnostic Trajectories (SDT)</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            line-height: 1.6;
+            color: #000;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1, h2, h3 {
+            font-family: Arial, sans-serif;
+            color: #2F5496; /* Standard Word Heading Blue */
+        }
+        h1 {
+            font-size: 24pt;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        h2 {
+            font-size: 18pt;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 14pt;
+            margin-top: 20px;
+        }
+        p, li {
+            font-size: 12pt;
+            margin-bottom: 12px;
+        }
+        .equation {
+            display: block;
+            text-align: center;
+            font-style: italic;
+            margin: 15px 0;
+            font-family: "Courier New", Courier, monospace;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 3px solid #2F5496;
+        }
+        .inline-math {
+            font-style: italic;
+            font-family: "Courier New", Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Expanded Research Plan: Spectral Diagnostic Trajectories (SDT)</h1>
+
+    <h2>Executive Summary</h2>
+    <p>This document outlines the next evolutionary phase of the Geodesic Diagnostic Trajectories (GDT) framework. While GDT successfully models clinical intent as a continuous trajectory on the Riemannian manifold of Symmetric Positive Definite (SPD) matrices <span class="inline-math">S_d^+</span>, its reliance on sliding-window covariance bounds its ability to natively ingest highly unstructured, continuous, and multi-modal physiological streams.</p>
+    
+    <p>The <strong>Spectral Diagnostic Trajectories (SDT)</strong> framework transitions the state space from a Riemannian manifold to a dynamic multi-modal hypergraph. It replaces the geodesic shift ratio <span class="inline-math">&kappa;_t</span> with spectral gap analysis (Fiedler value <span class="inline-math">&lambda;_2</span>) for pivot detection, and replaces JEPA-driven latent prefetching with spectrally-biased random walks over the global EHR graph.</p>
+
+    <h2>Phase 1: Hypergraph Construction & Multimodal State Space</h2>
+    <p><strong>Objective:</strong> Encode the physician's cognitive path and the patient's physical state into a unified, continuous hypergraph topology, building upon the differential geometry established in GDT.</p>
+
+    <h3>Node Initialization and Embedding Formulation</h3>
+    <ul>
+        <li>The raw query or clinical action initiated by a clinician at turn <span class="inline-math">t</span> is denoted as <span class="inline-math">q_t</span>.</li>
+        <li><strong>Textual & Semantic Nodes:</strong> Ingest clinical notes, query logs, and discrete EHR events. These are processed into a dense embedding <span class="inline-math">e_t = Encoder(q_t) &isin; &#8477;<sup>d</sup></span> using models like ClinicalBERT. To maintain computational efficiency, the original 768-dimensional embeddings are projected down to a 128-dimensional subspace using a learned linear layer, preserving the semantic geometry established in GDT.</li>
+        <li><strong>Physiological Nodes:</strong> Expand the state space to ingest continuous data (e.g., MIMIC-IV PPG-ECG waveforms, HiRID continuous vitals). These nodes represent high-frequency physiological states encoded via 1D-CNN or state-space models (e.g., Mamba).</li>
+    </ul>
+
+    <h3>Covariance Elicitation and Baseline State Tracking</h3>
+    <ul>
+        <li>As a foundational bridge from GDT, the local semantic intent at turn <span class="inline-math">t</span> is initially represented by a symmetric positive definite (SPD) matrix computed over a sliding window:
+            <div class="equation">S_t = (1/k) &sum;<sub>i=t-k+1</sub><sup>t</sup> (e_i - &mu;_t)(e_i - &mu;_t)<sup>T</sup> + &lambda;I_d</div>
+            where <span class="inline-math">k</span> is the sliding window size, <span class="inline-math">&mu;_t</span> represents the local mean of the embeddings, and <span class="inline-math">&lambda;I_d</span> strictly guarantees numerical stability and positive definiteness.
+        </li>
+        <li>The state matrix <span class="inline-math">S_t</span> resides in the Riemannian manifold of SPD matrices <span class="inline-math">S_d^+</span>, equipped with the affine-invariant metric tensor:
+            <div class="equation">g_S(u,v) = Tr(S<sup>-1</sup>u S<sup>-1</sup>v)</div>
+        </li>
+        <li>The evolving diagnostic uncertainty is quantified through the differential entropy of the Gaussian density:
+            <div class="equation">H(S_t) = (1/2) log det(2&pi;e S_t)</div>
+        </li>
+    </ul>
+
+    <h3>Evolution to Hyperedge Formation</h3>
+    <ul>
+        <li>While GDT relies entirely on the covariance matrix <span class="inline-math">S_t</span>, SDT transitions this into a dynamic active subgraph <span class="inline-math">G_t = (V_t, E_t)</span> to accommodate the multimodal nodes.</li>
+        <li>Unlike GDT's pairwise covariance, hyperedges can connect multiple nodes simultaneously.</li>
+        <li>Edges are weighted based on a combination of the clinician's temporal clickstream sequences (sequential proximity) and cosine similarity in the latent embedding space.</li>
+        <li>The instantaneous diagnostic hypothesis is thus continuously tracked as this evolving active subgraph <span class="inline-math">G_t</span>, expanding upon the foundational Riemannian state tracking.</li>
+    </ul>
+
+    <h2>Phase 2: Pivot Detection & The Interference Gate (GDT to SDT Evolution)</h2>
+    <p><strong>Objective:</strong> Mathematically detect abrupt changes in diagnostic intent to trigger the interference gate, transitioning from GDT's differential geometry to SDT's spectral graph theory.</p>
+
+    <h3>The Legacy GDT Geodesic Trigger</h3>
+    <p>In the foundational GDT model, sudden cognitive pivots were detected by measuring the acceleration of the state matrix <span class="inline-math">S_t</span> across the Riemannian manifold.</p>
+    <ul>
+        <li><strong>Geodesic Distance:</strong> The distance between consecutive states is measured as:
+            <div class="equation">d_g(S<sub>t-1</sub>, S_t) = ||log(S<sub>t-1</sub><sup>-1/2</sup> S_t S<sub>t-1</sub><sup>-1/2</sup>)||<sub>F</sub></div>
+        </li>
+        <li><strong>The Shift Ratio (<span class="inline-math">&kappa;_t</span>):</strong> To differentiate between normal evidence accumulation and an abrupt pivot, GDT calculates the ratio of the current step to the historical moving average:
+            <div class="equation">&kappa;_t = d_g(S<sub>t-1</sub>, S_t) / [ (1/k) &sum;<sub>i=1</sub><sup>k</sup> d_g(S<sub>t-i-1</sub>, S<sub>t-i</sub>) ]</div>
+        </li>
+    </ul>
+
+    <h3>The SDT Spectral Trigger Evolution</h3>
+    <p>While the geodesic shift ratio <span class="inline-math">&kappa;_t</span> is highly effective for discrete semantic embeddings, it becomes computationally unstable when applied to continuous, high-frequency physiological nodes. SDT resolves this by mapping the pivot detection to the eigenvalues of the evolving hypergraph <span class="inline-math">G_t</span>.</p>
+    
+    <ul>
+        <li><strong>Clique Expansion (Bridging the Topology):</strong> 
+            To resolve the structural gap between the multi-modal hypergraph and the pairwise Laplacian, the adjacency matrix <span class="inline-math">A_t</span> is derived via clique expansion. For a hypergraph with hyperedges <span class="inline-math">E_t</span> and weights <span class="inline-math">W(e)</span>, the standard edge weight between nodes <span class="inline-math">i</span> and <span class="inline-math">j</span> is defined as:
+            <div class="equation">A<sub>t, ij</sub> = &sum;<sub>e &isin; E_t | i,j &isin; e</sub> [ W(e) / (|e| - 1) ]</div>
+        </li>
+        <li><strong>Laplacian Monitoring:</strong> At each time step <span class="inline-math">t</span>, compute the normalized graph Laplacian matrix for the active subgraph <span class="inline-math">G_t</span> using the expanded adjacency matrix:
+            <div class="equation">L_t = I - D_t<sup>-1/2</sup> A_t D_t<sup>-1/2</sup></div>
+            where <span class="inline-math">D_t</span> is the degree matrix.
+        </li>
+        <li><strong>Fiedler Value Tracking (<span class="inline-math">&lambda;_2</span>):</strong> Monitor the spectrum of <span class="inline-math">L_t</span>, specifically the second smallest eigenvalue, known as the Fiedler value <span class="inline-math">&lambda;_2(L_t)</span>. Steady growth represents corroborating evidence.</li>
+        <li><strong>Spectral Interference Gating:</strong> A sudden, precipitous drop in <span class="inline-math">&lambda;_2</span> mathematically indicates that the active subgraph is fracturing into distinct clusters. The interference gate triggers when the spectral gap expands rapidly:
+            <div class="equation">&Delta;&lambda;_2 &gt; &tau;<sub>pivot</sub></div>
+        </li>
+    </ul>
+
+    <h2>Phase 3: Graph-Signal Context Attenuation</h2>
+    <p><strong>Objective:</strong> Bound context contamination and prevent stale hypotheses from polluting downstream trajectory simulation by executing a mathematically rigorous Fiedler cut.</p>
+    <ul>
+        <li><strong>Spectral Filtering:</strong> Upon trigger activation, a high-pass graph filter <span class="inline-math">H(L_t)</span> is applied to actively suppress low-frequency structural components associated with the pre-pivot stale context.</li>
+        <li><strong>Subgraph Decoupling (The Fiedler Cut):</strong> The system isolates the structural fracture using the Fiedler vector <span class="inline-math">v_2</span>. The graph is mathematically partitioned into two disjoint sets based on the algebraic sign of the Fiedler vector components:
+            <div class="equation">V<sub>stale</sub> = {i &isin; V_t | v_2(i) &lt; 0}</div>
+            <div class="equation">V<sub>active</sub> = {i &isin; V_t | v_2(i) &ge; 0}</div>
+        </li>
+        <li><strong>Severing Edges:</strong> All hyperedges connecting <span class="inline-math">V<sub>stale</sub></span> and <span class="inline-math">V<sub>active</sub></span> are systematically severed, providing an instantaneous bound on information interference.</li>
+        <li><strong>Embedding Formulation:</strong> The cleanly filtered nodes in <span class="inline-math">V<sub>active</sub></span> are aggregated to generate the seed for the next query state.</li>
+    </ul>
+
+    <h2>Phase 4: Anticipatory Prefetch Engine & Simulation Interface</h2>
+    <p><strong>Objective:</strong> Evolve the retrieval engine into a predictive world model driven by optimal control constraints.</p>
+    <ul>
+        <li><strong>Optimal Control Formulation:</strong> The system optimizes a continuous loss function <span class="inline-math">J(u_t)</span> that balances temporal retrieval delay, structural relevance, and cognitive load bounds:
+            <div class="equation">J(u_t) = E[ &alpha;&Lscr;<sub>delay</sub>(G<sub>t+1</sub>, u_t) - &beta;&Rscr;<sub>struct</sub>(u_t) + &gamma;&Omega;(u_t) ]</div>
+        </li>
+        <li><strong>Spectrally-Biased Random Walk:</strong> The system computes a transition probability mapping nodes into a spectral embedding space <span class="inline-math">&phi;(v)</span> to weight trajectories structurally similar to the active subgraph:
+            <div class="equation">P(v_j | v_i) = [ P_0(v_j | v_i) exp(-&tau; ||&phi;(v_i) - &phi;(v_j)||<sub>2</sub><sup>2</sup>) ] / [ &sum;<sub>k &isin; N(i)</sub> P_0(v_k | v_i) exp(-&tau; ||&phi;(v_i) - &phi;(v_k)||<sub>2</sub><sup>2</sup>) ]</div>
+        </li>
+        <li><strong>Cognitive Gating:</strong> The prefetch volume is mathematically restricted to prevent overwhelming the clinician's cognitive bandwidth:
+            <div class="equation">&sum;<sub>v &isin; u_t</sub> H(v | G_t) &le; C<sub>max</sub></div>
+        </li>
+    </ul>
+
+    <h2>Phase 5: Evaluation & Operational Analytics</h2>
+    <p><strong>Objective:</strong> Validate SDT and quantify the downstream operational impact on hospital throughput.</p>
+    <ul>
+        <li><strong>Crossover Benchmark Metrics:</strong> Time-to-Correct-Information (TTCI), Mean Reciprocal Rank (MRR), and Contextual Precision.</li>
+        <li><strong>Queueing Model Translation (M/M/c):</strong> To measure system-wide impact, the clinical time saved is mapped into an Erlang C queueing model representing Emergency Department (ED) operations.</li>
+        <li>With an accelerated service rate <span class="inline-math">&mu;' = 1 / (&mu;<sup>-1</sup> - &Delta;t)</span>, the ED traffic intensity updates to <span class="inline-math">&rho;' = &lambda; / (c&mu;')</span>.</li>
+        <li><strong>Impact on Wait Time (<span class="inline-math">W_q</span>):</strong> The projected reduction in patient queueing wait time is evaluated as:
+            <div class="equation">W_q = [ P_W &middot; (&mu;')<sup>-1</sup> ] / [ c(1 - &rho;') ]</div>
+        </li>
+    </ul>
+
+</body>
+</html>

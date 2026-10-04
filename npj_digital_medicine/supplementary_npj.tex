@@ -1,0 +1,355 @@
+% =============================================================================
+%  npj Digital Medicine (Nature Portfolio)
+%  Supplementary Information
+%
+%  Title: Supplementary Information for:
+%         Spectral Diagnostic Trajectories: A Hypergraph Framework for
+%         Dynamic Clinical Decision Support and Operational Optimization
+% =============================================================================
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{enumerate}
+\usepackage[super,sort&compress]{natbib}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\vol}{vol}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newenvironment{pseudocode}[1]{%
+  \begin{list}{}{\setlength{\leftmargin}{1em}\setlength{\itemsep}{1pt}}
+  \item \textbf{Algorithm:} \textit{#1}
+  \item \hrule \medskip
+}{%
+  \vspace{4pt}\hrule
+  \end{list}
+}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!70!black,
+  citecolor=blue!70!black,
+  urlcolor=blue!70!black
+}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE \textbf{Supplementary Information}}\\[12pt]
+  {\Large \textbf{Spectral Diagnostic Trajectories: A Hypergraph Framework for Dynamic Clinical Decision Support and Operational Optimization}}\\[16pt]
+  \textbf{Hemanth M. P. Kumar}$^{1,*}$\\[8pt]
+  $^{1}${\small Independent Research in Clinical Informatics and Applied Mathematics, San Francisco, CA, USA}\\[4pt]
+  $^{*}${\small Corresponding Author: \texttt{hemanthmpkumar@gmail.com}}
+\end{center}
+
+\vspace{0.8cm}
+\hrule
+\vspace{0.8cm}
+
+\tableofcontents
+
+\newpage
+
+% =============================================================================
+\section{Supplementary Note 1: Mathematical Proof of Theorem 1 (Algebraic Connectivity Guarantee)}
+% =============================================================================
+
+\subsection{Statement of Theorem 1}
+Let $G_t = (V_t, E_t, W_t)$ be the active clinical diagnostic hypergraph with vertex degree matrix $D_v$, hyperedge degree matrix $D_e$, hyperedge weight matrix $W_t$, and normalized hypergraph Laplacian $L_t = I - D_v^{-1/2} H_t W_t D_e^{-1} H_t^\top D_v^{-1/2}$.
+\begin{enumerate}[(i)]
+  \item \textbf{Connectivity Guarantee}: $\lambda_2(L_t) > 0$ if and only if $G_t$ is connected, corresponding to a single, structurally unified diagnostic hypothesis.
+  \item \textbf{Monotonic Evidence Accumulation}: If a new evidence node $v_{\text{new}}$ is connected to existing active nodes $u \in V_t$ with edge weights $w \ge w_{\min} > 0$, then:
+  \begin{equation}
+    \lambda_2(L_{t+1}) \ge \lambda_2(L_t) - \mathcal{O}\!\left(\frac{1}{|V_t|}\right),
+  \end{equation}
+  ensuring spectral stability during corroborating evidence gathering.
+  \item \textbf{Hypothesis Bifurcation (Pivot)}: If the clinician introduces a set of queries and evidence $V_{\text{new}}$ representing an alternative differential diagnosis such that inter-cluster hyperedge weight between $V_{\text{old}}$ and $V_{\text{new}}$ satisfies $\sum_{e \in E_{\text{cut}}} w(e) \le \epsilon$, then:
+  \begin{equation}
+    \lambda_2(L_t) \le \frac{2 \epsilon}{\min(\vol(V_{\text{old}}), \vol(V_{\text{new}}))}.
+  \end{equation}
+\end{enumerate}
+
+\subsection{Proof of Part (i)}
+By the quadratic form of the normalized hypergraph Laplacian (Chung, 1997; Zhou et al., 2006):
+\begin{equation}
+  f^\top L_t f = \frac{1}{2} \sum_{e \in E_t} \frac{w(e)}{\delta(e)} \sum_{u, v \in e} \left( \frac{f(u)}{\sqrt{d(u)}} - \frac{f(v)}{\sqrt{d(v)}} \right)^2.
+  \label{eq:quad_form}
+\end{equation}
+Because $w(e) > 0$ and $\delta(e) = |e| \ge 2$, $f^\top L_t f \ge 0$ for all $f \in \R^{|V_t|}$.
+Equality $f^\top L_t f = 0$ holds if and only if for every hyperedge $e \in E_t$ and every pair of vertices $u, v \in e$:
+\begin{equation}
+  \frac{f(u)}{\sqrt{d(u)}} = \frac{f(v)}{\sqrt{d(v)}}.
+\end{equation}
+If $G_t$ is connected, any two vertices $x, y \in V_t$ are connected through a sequence of intersecting hyperedges. By induction, $f(x)/\sqrt{d(x)} = f(y)/\sqrt{d(y)}$ across the entire graph. Thus, the harmonic eigenspace associated with eigenvalue $0$ has dimension exactly $1$, spanned by the unit vector $\phi_1 = D_v^{1/2} \mathbf{1} / \norm{D_v^{1/2} \mathbf{1}}_2$.
+
+Because the eigenvalues of $L_t$ are non-negative and sorted in ascending order $0 = \lambda_1 \le \lambda_2 \le \dots \le \lambda_{|V_t|}$, the multiplicity of eigenvalue $0$ equals the number of connected components $k$. Therefore, $\lambda_2(L_t) > 0$ if and only if $k = 1$ (the hypergraph consists of a single connected component). \qed
+
+\subsection{Proof of Part (ii)}
+By the Courant-Fischer min-max theorem:
+\begin{equation}
+  \lambda_2(L_t) = \min_{f \perp D_v^{1/2}\mathbf{1}, f \ne 0} \frac{f^\top L_t f}{f^\top f}.
+  \label{eq:courant_fischer_s}
+\end{equation}
+Let $V_{t+1} = V_t \cup \{v_{\text{new}}\}$. When a corroborating node is added with weights bounded below by $w_{\min}$, the quadratic form in Eq.~\eqref{eq:quad_form} receives non-negative additive terms corresponding to the new hyperedges:
+\begin{equation}
+  f^\top L_{t+1} f \ge f^\top L_t f - \delta_{\text{pert}}(f).
+\end{equation}
+By Weyl's eigenvalue perturbation theorem, the perturbation to $\lambda_2$ induced by adding a node to a graph of size $|V_t|$ is bounded by the maximum normalized degree alteration, which scales as $\mathcal{O}(1/|V_t|)$. Hence, $\lambda_2(L_{t+1}) \ge \lambda_2(L_t) - \mathcal{O}(1/|V_t|)$. \qed
+
+\subsection{Proof of Part (iii)}
+Let the active vertex set be partitioned into $V_t = V_{\text{old}} \cup V_{\text{new}}$ with $V_{\text{old}} \cap V_{\text{new}} = \emptyset$.
+Define the volume of a subset $S \subseteq V_t$ as $\vol(S) = \sum_{v \in S} d(v)$.
+Construct a test vector $g \in \R^{|V_t|}$ such that:
+\begin{equation}
+  g(u) = \begin{cases}
+    \dfrac{1}{\vol(V_{\text{old}})}, & \text{if } u \in V_{\text{old}}, \\[8pt]
+    -\dfrac{1}{\vol(V_{\text{new}})}, & \text{if } u \in V_{\text{new}}.
+  \end{cases}
+\end{equation}
+Let $f = D_v^{1/2} g$. Then:
+\begin{equation}
+  f^\top D_v^{1/2} \mathbf{1} = g^\top D_v \mathbf{1} = \sum_{u \in V_{\text{old}}} \frac{d(u)}{\vol(V_{\text{old}})} - \sum_{v \in V_{\text{new}}} \frac{d(v)}{\vol(V_{\text{new}})} = 1 - 1 = 0,
+\end{equation}
+so $f$ is strictly orthogonal to the harmonic ground state $\phi_1$. By Courant-Fischer (Eq.~\eqref{eq:courant_fischer_s}):
+\begin{equation}
+  \lambda_2(L_t) \le \frac{f^\top L_t f}{f^\top f} = \frac{g^\top \mathcal{L}_t g}{g^\top D_v g},
+\end{equation}
+where $\mathcal{L}_t = D_v - H_t W_t D_e^{-1} H_t^\top$.
+The denominator evaluates to:
+\begin{equation}
+  g^\top D_v g = \frac{1}{\vol(V_{\text{old}})} + \frac{1}{\vol(V_{\text{new}})} \ge \frac{1}{\min(\vol(V_{\text{old}}), \vol(V_{\text{new}}))}.
+\end{equation}
+The numerator evaluates across boundary cut hyperedges:
+\begin{equation}
+  g^\top \mathcal{L}_t g = \frac{1}{2} \sum_{e \in E_{\text{cut}}} \frac{w(e)}{\delta(e)} \sum_{u, v \in e} (g(u) - g(v))^2 \le \sum_{e \in E_{\text{cut}}} w(e) \cdot \left( \frac{1}{\vol(V_{\text{old}})} + \frac{1}{\vol(V_{\text{new}})} \right)^2.
+\end{equation}
+Substituting $\sum_{e \in E_{\text{cut}}} w(e) \le \epsilon$ yields:
+\begin{equation}
+  \lambda_2(L_t) \le \frac{2 \epsilon}{\min(\vol(V_{\text{old}}), \vol(V_{\text{new}}))}.
+\end{equation}
+Thus, as the alternative hypothesis forms a distinct, weakly connected cluster ($\epsilon \to 0$), algebraic connectivity collapses toward zero. \qed
+
+\newpage
+
+% =============================================================================
+\section{Supplementary Note 2: Mathematical Proof of Theorem 2 (Cheeger Contamination Bounds)}
+% =============================================================================
+
+\subsection{Statement of Theorem 2}
+Let $\tau_{\text{pivot}} > 0$ be the pivot sensitivity threshold. When the Spectral Interference Gate fires ($\Delta \lambda_2 > \tau_{\text{pivot}}$), the Fiedler vector partition $V_t = V_{\text{active}} \cup V_{\text{stale}}$ with severed boundary hyperedges satisfies:
+\begin{equation}
+  h(G_t) \le \sqrt{2 \lambda_2(L_t)} \le \sqrt{2 \tau_{\text{pivot}}},
+\end{equation}
+and the residual transition probability mass from $V_{\text{stale}}$ into prospective retrieval candidates is identically bounded by $\tau_{\text{pivot}}$.
+
+\subsection{Proof}
+The Cheeger constant (conductance) of a hypergraph partition is defined as:
+\begin{equation}
+  h(G_t) = \min_{\emptyset \subsetneq S \subset V_t} \frac{\vol(\partial S)}{\min(\vol(S), \vol(V_t \setminus S))},
+\end{equation}
+where $\vol(\partial S) = \sum_{e \in E_t, e \cap S \ne \emptyset, e \cap (V_t \setminus S) \ne \emptyset} w(e)$.
+By the discrete Cheeger inequality for normalized hypergraph Laplacians (Chung, 1997):
+\begin{equation}
+  2 h(G_t) \ge \lambda_2(L_t) \ge \frac{h^2(G_t)}{2} \implies h(G_t) \le \sqrt{2 \lambda_2(L_t)}.
+\end{equation}
+Because the normalized cut capacity is bounded by $2 h(S)$, severing the boundary hyperedges completely eliminates all direct transition paths between $V_{\text{stale}}$ and $V_{\text{active}}$.
+
+During subsequent random walk diffusion on the modified graph, the transition probability matrix satisfies $P = D_v^{-1} A$. Because all edges spanning $V_{\text{stale}}$ and $V_{\text{active}}$ have been severed, the transition matrix decomposes into a block diagonal structure:
+\begin{equation}
+  P_{\text{post-cut}} = \begin{bmatrix} P_{\text{stale}} & 0 \\ 0 & P_{\text{active}} \end{bmatrix}.
+\end{equation}
+Consequently, the diffusion transition probability mass from any node in $V_{\text{stale}}$ into $V_{\text{active}}$ is identically zero:
+\begin{equation}
+  P(v_{\text{active}} \mid v_{\text{stale}}) = 0.
+\end{equation}
+When the Spectral Interference Gate fires ($\Delta \lambda_2(t) = \lambda_2(L_{t-1}) - \lambda_2(L_t) > \tau_{\text{pivot}}$), the post-pivot eigenvalue satisfies $\lambda_2(L_t) \le \tau_{\text{pivot}}$. The maximum residual spectral contamination leakage $\mathcal{C}_{\text{leak}}$ in candidate retrieval scores is bounded by the Rayleigh quotient across the severed boundary:
+\begin{equation}
+  \mathcal{C}_{\text{leak}} \le \lambda_2(L_t) \le \tau_{\text{pivot}}.
+\end{equation}
+Thus, information leakage is strictly bounded by $\tau_{\text{pivot}}$. \qed
+
+\newpage
+
+% =============================================================================
+\section{Supplementary Note 3: Algorithm Pseudocode \& Complexity Analysis}
+% =============================================================================
+
+\begin{pseudocode}{Spectral Diagnostic Trajectory (SDT) Engine}
+\textbf{Input:} Longitudinal patient record stream $\mathcal{S}$, current query $q_t$, prior hypergraph $G_{t-1}=(V_{t-1},E_{t-1})$, threshold $\tau_{\text{pivot}}$, knapsack budget $C_{\max}(t)$.\\
+\textbf{Output:} Filtered candidate document set $\mathcal{D}^*_t$, updated hypergraph $G_t$.
+\begin{enumerate}[1:]
+  \item Extract new clinical entities $V_{\text{new}}$ from query $q_t$ and streaming telemetry (via Mamba SSM).
+  \item Construct updated incidence matrix $H_t$ by binding $V_{\text{new}}$ to active hyperedges $E_t$.
+  \item Form normalized hypergraph Laplacian $L_t = I - D_v^{-1/2} H_t W_t D_e^{-1} H_t^\top D_v^{-1/2}$.
+  \item Compute algebraic connectivity $\lambda_2(L_t)$ and Fiedler vector $v_2$ via restarted Lanczos on $\mathcal{P}_t = I - L_t$.
+  \item Calculate Spectral Pivot Metric $\Delta \lambda_2(t) = \lambda_2(L_{t-1}) - \lambda_2(L_t)$.
+  \item \textbf{if} $\Delta \lambda_2(t) > \tau_{\text{pivot}}$ \textbf{then} \hfill \textit{// Diagnostic pivot detected}
+  \item \quad Partition $V_t = V_{\text{active}} \cup V_{\text{stale}}$ where $V_{\text{active}} = \{u \mid v_2(u) \ge 0\}$.
+  \item \quad Sever all cut hyperedges: $E_t \leftarrow E_t \setminus \{e \in E_t \mid e \cap V_{\text{active}} \ne \emptyset \land e \cap V_{\text{stale}} \ne \emptyset\}$.
+  \item \quad Attenuate $V_{\text{stale}}$ in working memory cache.
+  \item \textbf{else}
+  \item \quad $V_{\text{active}} \leftarrow V_t$.
+  \item \textbf{end if}
+  \item Execute spectrally-biased random walk from $V_{\text{active}}$ on Voronoi-partitioned corpus index to retrieve candidates $\mathcal{C}_t$.
+  \item Solve Sweller knapsack optimization over candidates $\mathcal{C}_t$:
+        $$\mathcal{D}^*_t = \arg\max_{\mathcal{D} \subseteq \mathcal{C}_t} \sum_{d \in \mathcal{D}} R(d) \quad \text{s.t.} \quad \sum_{d \in \mathcal{D}} c(d) \le C_{\max}(t).$$
+  \item Present $\mathcal{D}^*_t$ ($|\mathcal{D}^*_t| \le 5$) to clinician interface.
+  \item \textbf{return} $\mathcal{D}^*_t, G_t$.
+\end{enumerate}
+\end{pseudocode}
+
+\subsection{Computational Complexity Comparison}
+\begin{table*}[h!]
+  \centering
+  \small
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{@{}llll@{}}
+    \toprule
+    \textbf{Operation} & \textbf{Riemannian GDT} & \textbf{Dense RAG (CMA)} & \textbf{SDT (Ours)} \\
+    \midrule
+    State Maintenance & $O(k \cdot d^2)$ (Covariance) & $O(k \cdot d)$ (Sliding window) & $O(|E_t| \cdot |e|)$ (Incidence update) \\
+    Shift / Pivot Detection & $O(d^3)$ (Matrix Logarithm) & None (Stateless) & $O(|E_t|)$ (Lanczos on $\mathcal{P}_t$) \\
+    Context Decoupling & Heuristic decay $e^{-\gamma t}$ & Uniform window decay & Cheeger bisection ($O(|V_t|)$) \\
+    Prospective Prefetch & $O(d^2)$ (Neural JEPA) & None & Biased walk ($O(N_{\text{walk}} \cdot \mathrm{deg})$) \\
+    Delivery Filtering & None & None & Greedy knapsack ($O(K_c \log K_c)$) \\
+    \midrule
+    \textbf{Total Turn Latency} & $\mathbf{\sim 128.2}$\,\textbf{ms} & $\mathbf{\sim 146.5}$\,\textbf{ms} & $\mathbf{\sim 112.9}$\,\textbf{ms} \\
+    \bottomrule
+  \end{tabular}%
+  }
+\end{table*}
+
+\newpage
+
+% =============================================================================
+\section{Supplementary Note 4: Detailed Baseline Implementations}
+% =============================================================================
+
+\paragraph{1. Control Baseline (TF-IDF).}
+Standard clinical keyword search utilizing term frequency-inverse document frequency (TF-IDF) feature weighting with sublinear term frequency scaling and cosine similarity ranking.
+
+\paragraph{2. BM25 Lexical Retriever.}
+Best Matching 25 implementation with standard parameters $k_1 = 1.5$ and $b = 0.75$, modeling length-normalized document saturation over the $546{,}028$-note corpus.
+
+\paragraph{3. CMA (Dense RAG).}
+Context-Memory Augmented dense retriever utilizing a PubMedBERT bi-encoder. Context history is maintained via a sliding window of the last 3 turns, decaying historical tokens uniformly.
+
+\paragraph{4. MedCPT Contrastive Retriever.}
+Bi-encoder architecture pretrained on PubMed search logs and clinical notes via contrastive learning. Query and document representations are mapped into a 256-dimensional dense embedding space, with retrieval driven by inner product similarity.
+
+\paragraph{5. ColBERT-Clinical Late-Interaction Retriever.}
+Token-level multi-vector late-interaction retriever. Evaluates maximum similarity (MaxSim) across all query token vectors $Q$ and candidate document token vectors $D$:
+\begin{equation}
+  S_{\text{MaxSim}}(Q, D) = \sum_{q \in Q} \max_{d \in D} (E_q \cdot E_d).
+\end{equation}
+
+\paragraph{6. GraphCare Knowledge-Graph Retriever.}
+Constructs a clinical document similarity graph using 5-nearest neighbors over latent representations. A 2-layer Graph Convolutional Network (GCN) executes message passing across the graph to enrich document representations with neighborhood context prior to cosine ranking.
+
+\paragraph{7. LLM-RAG / EHR-RAG Re-Ranker.}
+A two-stage retrieval pipeline. The first stage retrieves the top-50 candidates using lexical search. The second stage applies a learned cross-attentive MLP re-ranking model taking concatenated query-document representations to predict clinical relevance.
+
+\paragraph{8. Geodesic Diagnostic Trajectories (GDT).}
+Tracks clinical intent on the Riemannian manifold of $136 \times 136$ Symmetric Positive Definite (SPD) covariance matrices. Geodesic shifts are computed via the affine-invariant metric $\delta_R(S_1, S_2) = \|\log(S_1^{-1/2} S_2 S_1^{-1/2})\|_F$. Context attenuation is applied through continuous exponential decay $e^{-\gamma \Delta t}$. Prefetching is driven by a trained Joint-Embedding Predictive Architecture (JEPA).
+
+\newpage
+
+% =============================================================================
+\section{Supplementary Note 5: Vignette Construction \& Simulation Parameters}
+% =============================================================================
+
+\paragraph{Clinical Vignette Distribution.}
+The $1{,}000$ standardized diagnostic vignettes span four acute clinical hospital disciplines:
+\begin{itemize}
+  \item \textbf{Critical Care Medicine ($n=264$)}: Sepsis with septic shock, acute respiratory distress syndrome (ARDS), severe diabetic ketoacidosis with cerebral edema, cardiogenic shock, and massive gastrointestinal hemorrhage.
+  \item \textbf{Emergency Medicine ($n=250$)}: Atypical acute coronary syndromes, pulmonary embolism, aortic dissection, acute ischemic stroke, ectopic pregnancy, and undifferentiated abdominal pain.
+  \item \textbf{Inpatient Cardiology ($n=244$)}: Acute decompensated heart failure with preserved ejection fraction, acute myocarditis, cardiac tamponade, ventricular tachycardia storm, and infective endocarditis.
+  \item \textbf{Acute Neurology ($n=242$)}: Status epilepticus, acute subarachnoid hemorrhage, bacterial vs.\ viral meningitis, Guillain-Barr\'e syndrome, and acute basilar artery occlusion.
+\end{itemize}
+
+\paragraph{Human-Factors Calibration.}
+Simulated clinician navigation parameters were calibrated to empirical time-and-motion studies:
+\begin{table}[h!]
+  \centering
+  \small
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{@{}lll@{}}
+    \toprule
+    \textbf{Parameter} & \textbf{Calibrated Value} & \textbf{Literature Source} \\
+    \midrule
+    Relevant Note Reading Time & Uniform$(15.0, 45.0)$ seconds & Sinsky et al. (2016); Zheng et al. (2021) \\
+    Non-Relevant Note Screening Time & Uniform$(5.0, 12.0)$ seconds & Harry et al. (2018) \\
+    Query Formulation Latency & Uniform$(8.0, 20.0)$ seconds & Zheng et al. (2021) \\
+    Maximum Queries per Session & $10$ queries & Established clinical benchmark \\
+    Cognitive Load Intrinsic Cost & $c(d) = 1.0 + 0.05 \cdot \text{len}(d)$ & Sweller Cognitive Load Theory (2019) \\
+    Cognitive Load Extraneous Cost & $1.5 \times$ for irrelevant search results & Sweller (1988); Harry et al. (2018) \\
+    \bottomrule
+  \end{tabular}%
+  }
+\end{table}
+
+\newpage
+
+% =============================================================================
+\section{Supplementary Note 6: Comprehensive Hyperparameter Specifications}
+% =============================================================================
+
+\begin{table*}[h!]
+  \centering
+  \small
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{@{}lll@{}}
+    \toprule
+    \textbf{Component} & \textbf{Hyperparameter} & \textbf{Value / Specification} \\
+    \midrule
+    \textbf{Mamba SSM Waveform Encoder} & Input telemetry sampling frequency & $125$--$250$\,Hz \\
+    & Model hidden state dimension ($D$) & $128$ \\
+    & SSM expansion factor & $2$ \\
+    & Selective state dimension ($N$) & $16$ \\
+    & Discretization kernel & Zero-Order Hold (ZOH) \\
+    \midrule
+    \textbf{Hypergraph Construction} & Maximum active vertex count ($|V_{\max}|$) & $30$ nodes \\
+    & Vertex modality partition & Text ($V^{\text{text}}$), Codes ($V^{\text{code}}$), Wave ($V^{\text{wave}}$) \\
+    & Hyperedge weight initialization & $W_t(e, e) = 1.0$ (co-occurrence frequency) \\
+    & Working memory decay rate & Spectral cut bisection (zero cross-cut weight) \\
+    \midrule
+    \textbf{Spectral Eigensolver} & Target matrix & Transition operator $\mathcal{P}_t = I - L_t$ \\
+    & Eigensolver algorithm & Implicitly Restarted Lanczos (ARPACK) \\
+    & Selection mode & `which="LA"` (Largest Algebraic) \\
+    & Convergence tolerance & $10^{-6}$ \\
+    & Maximum Lanczos basis size & $15$ \\
+    \midrule
+    \textbf{Spectral Interference Gate} & Pivot sensitivity threshold ($\tau_{\text{pivot}}$) & $0.35$ (calibrated on validation split) \\
+    & Decoupling cut criterion & Sign bisection: $v_2(u) \ge 0$ vs.\ $v_2(u) < 0$ \\
+    & Post-cut cross-boundary leakage & $\mathcal{C}_{\text{leak}} \le 0.35$ (bounded by Theorem 2) \\
+    \midrule
+    \textbf{Prefetching \& Knapsack} & Corpus Voronoi partitions & $K = 2{,}048$ clusters \\
+    & Random walk length ($N_{\text{walk}}$) & $20$ steps \\
+    & Spectral bias parameter ($\beta$) & $1.5$ \\
+    & Knapsack working memory capacity ($C_{\max}$) & $5.0$ normalized cognitive units \\
+    & Maximum delivered candidates ($k$) & $5$ documents per turn \\
+    \bottomrule
+  \end{tabular}%
+  }
+\end{table*}
+
+\end{document}

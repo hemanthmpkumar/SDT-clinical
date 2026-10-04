@@ -1,0 +1,126 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=0.85in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usepackage{microtype}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!70!black,
+    urlcolor=blue!70!black,
+    citecolor=blue!70!black
+}
+
+\newcommand{\checkedbox}{%
+  \begin{tikzpicture}[baseline=-0.35ex]%
+    \draw[line width=0.8pt, draw=black!85, fill=black!2, rounded corners=0.8pt] (0,0) rectangle (0.33cm,0.33cm);%
+    \draw[line width=1.15pt, draw=black!95, line cap=round, line join=round] (0.07cm,0.17cm) -- (0.13cm,0.08cm) -- (0.27cm,0.25cm);%
+  \end{tikzpicture}%
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+\begin{document}
+
+\begin{center}
+    {\Large \textbf{INFORMS Journal on Data Science (IJDS)}}\\[3pt]
+    {\large \textbf{Data and Code Disclosure Form}}
+\end{center}
+
+\vspace{-4pt}
+\hrule height 1.2pt
+\vspace{6pt}
+
+\subsection*{1. Manuscript and Author Information}
+
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+    \textbf{Manuscript Title:} & Spectral Diagnostic Trajectories: Multi-Modal Hypergraph State-Space Tracking, Context Decoupling, and Congestion Mitigation in Stochastic Clinical Service Systems \\
+    \addlinespace[2pt]
+    \textbf{Previous Tracking ID:} & IJDS-2026-0250 (Substantially Revised Resubmission) \\
+    \addlinespace[2pt]
+    \textbf{Target Journal:} & \textbf{INFORMS Journal on Data Science (IJDS)} \\
+    \addlinespace[2pt]
+    \textbf{Corresponding Author:} & Hemanth Manchabale Papachappa \\
+    \addlinespace[2pt]
+    \textbf{Co-Author:} & Aniruddha Ganguly \\
+\end{tabularx}
+
+\vspace{4pt}
+\hrule
+\vspace{4pt}
+
+\subsection*{2. Policy Certification and Reproducibility Agreement}
+
+In accordance with the \textit{INFORMS Journal on Data Science} Reproducibility Policy (effective January 1, 2025):
+
+\vspace{3pt}
+\begin{tabularx}{\textwidth}{@{}p{0.52cm} X@{}}
+    \checkedbox & \textbf{Acknowledgment of Reproducibility Requirement:} The authors acknowledge and agree that accepted research papers in IJDS are required to release complete software code and provide transparent access to datasets utilized to generate the reported findings. \\
+    \addlinespace[6pt]
+    \checkedbox & \textbf{Commitment to Supplemental Archive Upload:} The authors certify that upon notification of acceptance, they will complete the IJDS reproducibility workflow by uploading organized source code, model weights/checkpoints, synthetic validation traces, and environment reproduction scripts to the official \textit{IJDS Supplemental Page} prior to final publication. \\
+    \addlinespace[6pt]
+    \checkedbox & \textbf{Double-Blind Compliance at Submission:} As permitted by IJDS policy for initial review, personal code repositories have been decoupled from the blind manuscript to maintain strict double-anonymous integrity. \\
+\end{tabularx}
+
+\vspace{4pt}
+\hrule
+\vspace{4pt}
+
+\subsection*{3. Data Availability and Simulation Disclosure}
+
+This study reports a computational data science methodology and simulation analysis in healthcare operations and sequential decision processes. \textbf{No real human subjects, live patient records, or protected health information (PHI) were collected, accessed, or analyzed.}
+
+All experimental evaluations, multi-modal interaction states, and sequential diagnostic trajectories were generated via controlled in-silico simulation:
+\begin{itemize}\setlength{\itemsep}{2pt}\setlength{\parskip}{0pt}
+    \item \textbf{Simulated Diagnostic Vignettes:} $N = 1{,}000$ standardized synthetic clinical scenarios spanning Critical Care ($n=264$), Emergency Medicine ($n=250$), Hospital Medicine ($n=245$), and Internal Medicine ($n=241$). The cases are stratified into monomorphic presentations ($n=469$) and multimorbid presentations ($n=531$) with acute simulated diagnostic pivots.
+    \item \textbf{Synthetic Interaction Corpus:} A standardized synthetic benchmark corpus ($N = 546{,}028$ simulated documents and records) incorporating continuous physiological waveform tokens, discrete clinical events, and semi-structured text fragments generated for algorithmic benchmarking.
+    \item \textbf{Simulated Decision Sessions:} $9{,}000$ simulated workflow runs evaluating time-to-correct-information (TTCI), retrieval accuracy, and cognitive load metrics under a randomized Latin-square crossover design.
+\end{itemize}
+
+\textbf{Ethical Oversight Statement:}
+Because this study relies entirely on in-silico computational simulations and public algorithmic benchmark schemas without human subjects, live animals, or real patient medical records, Institutional Review Board (IRB) review and informed consent requirements were not applicable.
+
+\textbf{Replication Data and Simulation Artifacts:}
+All synthetic vignette generators, simulation scripts, and evaluation data logs will be deposited in the official \textit{IJDS Supplemental Archive} upon final acceptance.
+
+\vspace{4pt}
+\hrule
+\vspace{4pt}
+
+\subsection*{4. Software and Algorithmic Artifacts for Post-Acceptance Archival}
+
+Upon final acceptance, the complete algorithmic suite of Spectral Diagnostic Trajectories will be archived under an open-source permissive license (\textbf{MIT / Apache License 2.0}):
+\begin{enumerate}
+    \item \textbf{Core Spectral Algorithms}:
+    \begin{itemize}\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}
+        \item Multi-modal hypergraph construction and sparse incidence operators ($H_t, W_t, D_v, D_e$).
+        \item Implicitly restarted Lanczos eigensolver for dynamic Fiedler tracking ($\lambda_2, v_2$) in $\mathcal{O}(|E_t|)$.
+        \item Chebyshev polynomial graph high-pass filtering ($H(L_t)$) and Cheeger bisection partitioning.
+        \item Biased global random walk engine and Sweller cognitive knapsack greedy solver.
+        \item Analytical Erlang C ($M/M/c$) queueing sensitivity and congestion simulation module.
+    \end{itemize}
+    \item \textbf{Software Environment}: Python $\ge 3.9$, PyTorch $\ge 2.0$, SciPy $\ge 1.10$, NetworkX $\ge 3.0$, NumPy $\ge 1.24$. Deterministic execution is guaranteed via fixed random seed (\texttt{seed=42}) and Conda/pip lockfiles (\texttt{environment.yml}).
+\end{enumerate}
+
+\vspace{12pt}
+\hrule
+\vspace{14pt}
+
+\subsection*{5. Author Certification}
+
+I hereby certify that the statements provided in this disclosure form are true, complete, and in full compliance with the author guidelines and reproducibility policies of the \textit{INFORMS Journal on Data Science}.
+
+\vspace{24pt}
+
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
+    \textbf{Corresponding Author:} Hemanth Manchabale Papachappa & \textbf{Date:} September 23, 2026 \\
+\end{tabular*}
+
+\end{document}

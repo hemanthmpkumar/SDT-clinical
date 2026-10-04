@@ -1,0 +1,337 @@
+[
+  {
+    "vignette_id": "V019",
+    "patient_id": "SYN_00198",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "acute_kidney_injury",
+        "text": "bun creatinine hyperkalemia",
+        "target_note_id": "SYN_00198_N009"
+      },
+      {
+        "order": 1,
+        "diagnosis": "pneumonia",
+        "text": "fever infiltrate crackles",
+        "target_note_id": "SYN_00198_N008"
+      },
+      {
+        "order": 2,
+        "diagnosis": "acute_kidney_injury",
+        "text": "aki oliguria dialysis",
+        "target_note_id": "SYN_00198_N002"
+      },
+      {
+        "order": 3,
+        "diagnosis": "pneumonia",
+        "text": "pneumonia oxygen fever",
+        "target_note_id": "SYN_00198_N008"
+      },
+      {
+        "order": 4,
+        "diagnosis": "acute_kidney_injury",
+        "text": "bun aki creatinine",
+        "target_note_id": "SYN_00198_N000"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "SYN_00198_N002",
+      "SYN_00198_N009",
+      "SYN_00198_N008",
+      "SYN_00198_N000"
+    ]
+  },
+  {
+    "vignette_id": "V011",
+    "patient_id": "SYN_00396",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "acute_kidney_injury",
+        "text": "oliguria aki creatinine",
+        "target_note_id": "SYN_00396_N006"
+      },
+      {
+        "order": 1,
+        "diagnosis": "acute_kidney_injury",
+        "text": "hyperkalemia nephrotoxic aki",
+        "target_note_id": "SYN_00396_N006"
+      },
+      {
+        "order": 2,
+        "diagnosis": "acute_kidney_injury",
+        "text": "hyperkalemia oliguria nephrotoxic",
+        "target_note_id": "SYN_00396_N005"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "SYN_00396_N006",
+      "SYN_00396_N005"
+    ]
+  },
+  {
+    "vignette_id": "V004",
+    "patient_id": "SYN_00287",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "copd_exacerbation",
+        "text": "steroid copd dyspnea",
+        "target_note_id": "SYN_00287_N003"
+      },
+      {
+        "order": 1,
+        "diagnosis": "gi_bleed",
+        "text": "hematochezia melena transfusion",
+        "target_note_id": "SYN_00287_N002"
+      },
+      {
+        "order": 2,
+        "diagnosis": "pneumonia",
+        "text": "infiltrate sputum wbc",
+        "target_note_id": "SYN_00287_N006"
+      },
+      {
+        "order": 3,
+        "diagnosis": "atrial_fibrillation",
+        "text": "chads irregularly irregular anticoagulation",
+        "target_note_id": "SYN_00287_N010"
+      },
+      {
+        "order": 4,
+        "diagnosis": "copd_exacerbation",
+        "text": "dyspnea theophylline wheezing",
+        "target_note_id": "SYN_00287_N011"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "SYN_00287_N010",
+      "SYN_00287_N003",
+      "SYN_00287_N002",
+      "SYN_00287_N011",
+      "SYN_00287_N006"
+    ]
+  },
+  {
+    "vignette_id": "V037",
+    "patient_id": "SYN_00429",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "pneumonia",
+        "text": "sputum oxygen crackles",
+        "target_note_id": "SYN_00429_N010"
+      },
+      {
+        "order": 1,
+        "diagnosis": "gi_bleed",
+        "text": "gi bleed ppi melena",
+        "target_note_id": "SYN_00429_N011"
+      },
+      {
+        "order": 2,
+        "diagnosis": "atrial_fibrillation",
+        "text": "anticoagulation irregularly irregular warfarin",
+        "target_note_id": "SYN_00429_N003"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "SYN_00429_N010",
+      "SYN_00429_N011",
+      "SYN_00429_N003"
+    ]
+  },
+  {
+    "vignette_id": "V049",
+    "patient_id": "SYN_00269",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "copd_exacerbation",
+        "text": "steroid wheezing theophylline",
+        "target_note_id": "SYN_00269_N008"
+      },
+      {
+        "order": 1,
+        "diagnosis": "copd_exacerbation",
+        "text": "theophylline steroid copd",
+        "target_note_id": "SYN_00269_N008"
+      },
+      {
+        "order": 2,
+        "diagnosis": "copd_exacerbation",
+        "text": "copd inhaler dyspnea",
+        "target_note_id": "SYN_00269_N003"
+      },
+      {
+        "order": 3,
+        "diagnosis": "copd_exacerbation",
+        "text": "s02 dyspnea inhaler",
+        "target_note_id": "SYN_00269_N007"
+      },
+      {
+        "order": 4,
+        "diagnosis": "copd_exacerbation",
+        "text": "inhaler copd s02",
+        "target_note_id": "SYN_00269_N003"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "SYN_00269_N003",
+      "SYN_00269_N008",
+      "SYN_00269_N007"
+    ]
+  },
+  {
+    "vignette_id": "V007",
+    "patient_id": "SYN_00181",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "acute_kidney_injury",
+        "text": "oliguria creatinine aki",
+        "target_note_id": "SYN_00181_N005"
+      },
+      {
+        "order": 1,
+        "diagnosis": "atrial_fibrillation",
+        "text": "irregularly irregular doac warfarin",
+        "target_note_id": "SYN_00181_N008"
+      },
+      {
+        "order": 2,
+        "diagnosis": "copd_exacerbation",
+        "text": "wheezing dyspnea inhaler",
+        "target_note_id": "SYN_00181_N002"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "SYN_00181_N005",
+      "SYN_00181_N002",
+      "SYN_00181_N008"
+    ]
+  },
+  {
+    "vignette_id": "V050",
+    "patient_id": "SYN_00273",
+    "specialty": "hospital_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      1,
+      2,
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "acute_kidney_injury",
+        "text": "dialysis oliguria nephrotoxic",
+        "target_note_id": "SYN_00273_N004"
+      },
+      {
+        "order": 1,
+        "diagnosis": "atrial_fibrillation",
+        "text": "anticoagulation irregularly irregular chads",
+        "target_note_id": "SYN_00273_N006"
+      },
+      {
+        "order": 2,
+        "diagnosis": "acute_kidney_injury",
+        "text": "creatinine dialysis hyperkalemia",
+        "target_note_id": "SYN_00273_N004"
+      },
+      {
+        "order": 3,
+        "diagnosis": "atrial_fibrillation",
+        "text": "warfarin doac anticoagulation",
+        "target_note_id": "SYN_00273_N000"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "SYN_00273_N004",
+      "SYN_00273_N006",
+      "SYN_00273_N000"
+    ]
+  },
+  {
+    "vignette_id": "V015",
+    "patient_id": "SYN_00353",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "sepsis",
+        "text": "hypotension vasopressor qsofa",
+        "target_note_id": "SYN_00353_N006"
+      },
+      {
+        "order": 1,
+        "diagnosis": "sepsis",
+        "text": "fever hypotension lactate",
+        "target_note_id": "SYN_00353_N006"
+      },
+      {
+        "order": 2,
+        "diagnosis": "sepsis",
+        "text": "lactate septic hypotension",
+        "target_note_id": "SYN_00353_N001"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "SYN_00353_N006",
+      "SYN_00353_N001"
+    ]
+  }
+]

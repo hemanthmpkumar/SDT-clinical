@@ -1,0 +1,7 @@
+{
+  "seed": 20260616,
+  "data_source": "huggingface",
+  "n_patients": 374257,
+  "n_records": 2793472,
+  "n_vignettes": 200
+}

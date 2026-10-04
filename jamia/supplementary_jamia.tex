@@ -1,0 +1,366 @@
+% =============================================================================
+%  Journal of the American Medical Informatics Association (JAMIA)
+%  Online Supplementary Material
+%
+%  Title: Supplementary Material for: Spectral Diagnostic Trajectories (SDT):
+%         A Hypergraph-Spectral Framework for Adaptive Clinical Decision Support
+%         and Operational Optimization in EHR Systems
+% =============================================================================
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{enumerate}
+\usepackage[numbers,sort&compress]{natbib}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\vol}{vol}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newenvironment{pseudocode}[1]{%
+  \begin{list}{}{\setlength{\leftmargin}{1em}\setlength{\itemsep}{1pt}}
+  \item \textbf{Algorithm:} \textit{#1}
+  \item \hrule \medskip
+}{%
+  \vspace{4pt}\hrule
+  \end{list}
+}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!70!black,
+  citecolor=blue!70!black,
+  urlcolor=blue!70!black
+}
+
+\begin{document}
+
+\begin{center}
+  {\Large \textbf{Supplementary Material for:}}\\[6pt]
+  {\Large \textbf{Spectral Diagnostic Trajectories (SDT): A Hypergraph-Spectral Framework for Adaptive Clinical Decision Support and Operational Optimization in EHR Systems}}\\[12pt]
+  \textbf{Hemanth M. P. Kumar}\\[4pt]
+  {\small Independent Research in Clinical Informatics and Applied Mathematics, San Francisco, CA, USA}\\[6pt]
+  \textit{Journal of the American Medical Informatics Association (JAMIA)}
+\end{center}
+
+\vspace{0.8cm}
+\tableofcontents
+\vspace{0.8cm}
+\hrule
+\vspace{0.8cm}
+
+% =============================================================================
+\section{Supplementary Appendix S1: Complete Mathematical Proof of Theorem 1}
+% =============================================================================
+
+\subsection{Statement of Theorem 1}
+Let $G_t = (V_t, E_t, W_t)$ be the active clinical diagnostic hypergraph with vertex degree matrix $D_v$, hyperedge degree matrix $D_e$, hyperedge weight matrix $W_t$, and normalized hypergraph Laplacian $L_t = I - D_v^{-1/2} H_t W_t D_e^{-1} H_t^\top D_v^{-1/2}$.
+\begin{enumerate}[(i)]
+  \item \textbf{Connectivity Guarantee}: $\lambda_2(L_t) > 0$ if and only if $G_t$ is connected, corresponding to a single, structurally unified diagnostic hypothesis.
+  \item \textbf{Monotonic Evidence Accumulation}: If a new evidence node $v_{\text{new}}$ is connected to existing active nodes $u \in V_t$ with edge weights $w \ge w_{\min} > 0$, then:
+  \begin{equation}
+    \lambda_2(L_{t+1}) \ge \lambda_2(L_t) - \mathcal{O}\!\left(\frac{1}{|V_t|}\right),
+  \end{equation}
+  ensuring spectral stability during corroborating evidence gathering.
+  \item \textbf{Hypothesis Bifurcation (Pivot)}: If the clinician introduces a set of queries and evidence $V_{\text{new}}$ representing an alternative differential diagnosis such that inter-cluster hyperedge weight between $V_{\text{old}}$ and $V_{\text{new}}$ satisfies $\sum_{e \in E_{\text{cut}}} w(e) \le \epsilon$, then:
+  \begin{equation}
+    \lambda_2(L_t) \le \frac{2 \epsilon}{\min(\vol(V_{\text{old}}), \vol(V_{\text{new}}))}.
+  \end{equation}
+\end{enumerate}
+
+\subsection{Proof of Part (i)}
+By the quadratic form of the normalized hypergraph Laplacian (Chung, 1997; Zhou et al., 2006):
+\begin{equation}
+  f^\top L_t f = \frac{1}{2} \sum_{e \in E_t} \frac{w(e)}{\delta(e)} \sum_{u, v \in e} \left( \frac{f(u)}{\sqrt{d(u)}} - \frac{f(v)}{\sqrt{d(v)}} \right)^2.
+  \label{eq:quad_form}
+\end{equation}
+Because $w(e) > 0$ and $\delta(e) = |e| \ge 2$, $f^\top L_t f \ge 0$ for all $f \in \R^{|V_t|}$.
+Equality $f^\top L_t f = 0$ holds if and only if for every hyperedge $e \in E_t$ and every pair of vertices $u, v \in e$:
+\begin{equation}
+  \frac{f(u)}{\sqrt{d(u)}} = \frac{f(v)}{\sqrt{d(v)}}.
+\end{equation}
+If $G_t$ is connected, any two vertices $x, y \in V_t$ are connected through a sequence of intersecting hyperedges. By induction, $f(x)/\sqrt{d(x)} = f(y)/\sqrt{d(y)}$ across the entire graph. Thus, the harmonic eigenspace associated with eigenvalue $0$ has dimension exactly $1$, spanned by the unit vector $\phi_1 = D_v^{1/2} \mathbf{1} / \norm{D_v^{1/2} \mathbf{1}}_2$.
+
+Because the eigenvalues of $L_t$ are non-negative and sorted in ascending order $0 = \lambda_1 \le \lambda_2 \le \dots \le \lambda_{|V_t|}$, the multiplicity of eigenvalue $0$ equals the number of connected components $k$. Therefore, $\lambda_2(L_t) > 0$ if and only if $k = 1$ (the hypergraph consists of a single connected component).
+
+\subsection{Proof of Part (ii)}
+By the Courant-Fischer min-max theorem:
+\begin{equation}
+  \lambda_2(L_t) = \min_{f \perp D_v^{1/2}\mathbf{1}, f \ne 0} \frac{f^\top L_t f}{f^\top f}.
+  \label{eq:courant_fischer_s}
+\end{equation}
+Let $V_{t+1} = V_t \cup \{v_{\text{new}}\}$. When a corroborating node is added with weights bounded below by $w_{\min}$, the quadratic form in Eq.~\eqref{eq:quad_form} receives non-negative additive terms corresponding to the new hyperedges:
+\begin{equation}
+  f^\top L_{t+1} f \ge f^\top L_t f - \delta_{\text{pert}}(f).
+\end{equation}
+By Weyl's eigenvalue perturbation theorem, the perturbation to $\lambda_2$ induced by adding a node to a graph of size $|V_t|$ is bounded by the maximum normalized degree alteration, which scales as $\mathcal{O}(1/|V_t|)$. Hence, $\lambda_2(L_{t+1}) \ge \lambda_2(L_t) - \mathcal{O}(1/|V_t|)$.
+
+\subsection{Proof of Part (iii)}
+Let the active vertex set be partitioned into $V_t = V_{\text{old}} \cup V_{\text{new}}$ with $V_{\text{old}} \cap V_{\text{new}} = \emptyset$.
+Define the volume of a subset $S \subseteq V_t$ as $\vol(S) = \sum_{v \in S} d(v)$.
+Construct a test vector $g \in \R^{|V_t|}$ such that:
+\begin{equation}
+  g(u) = \begin{cases}
+    \dfrac{1}{\vol(V_{\text{old}})}, & \text{if } u \in V_{\text{old}}, \\[8pt]
+    -\dfrac{1}{\vol(V_{\text{new}})}, & \text{if } u \in V_{\text{new}}.
+  \end{cases}
+\end{equation}
+We verify orthogonality with respect to the volume vector $D_v \mathbf{1}$:
+\begin{equation}
+  g^\top D_v \mathbf{1} = \sum_{u \in V_{\text{old}}} \frac{d(u)}{\vol(V_{\text{old}})} - \sum_{v \in V_{\text{new}}} \frac{d(v)}{\vol(V_{\text{new}})} = 1 - 1 = 0.
+\end{equation}
+Now, evaluate the Rayleigh quotient with respect to the unnormalized Laplacian $L_{\text{unnorm}}$ where $L_t = D_v^{-1/2} L_{\text{unnorm}} D_v^{-1/2}$:
+\begin{equation}
+  \frac{g^\top L_{\text{unnorm}} g}{g^\top D_v g} = \frac{\displaystyle\sum_{e \in E_{\text{cut}}} \frac{w(e)}{\delta(e)} \sum_{u, v \in e} (g(u) - g(v))^2}{\displaystyle\sum_{u \in V_t} d(u) g(u)^2}.
+\end{equation}
+The denominator evaluates to:
+\begin{equation}
+  g^\top D_v g = \vol(V_{\text{old}}) \left( \frac{1}{\vol(V_{\text{old}})} \right)^2 + \vol(V_{\text{new}}) \left( \frac{1}{\vol(V_{\text{new}})} \right)^2 = \frac{1}{\vol(V_{\text{old}})} + \frac{1}{\vol(V_{\text{new}})}.
+\end{equation}
+For hyperedges entirely contained within $V_{\text{old}}$ or $V_{\text{new}}$, $(g(u) - g(v))^2 = 0$. For boundary hyperedges $e \in E_{\text{cut}}$, $(g(u) - g(v))^2 = \left( \frac{1}{\vol(V_{\text{old}})} + \frac{1}{\vol(V_{\text{new}})} \right)^2$.
+Substituting these into the Rayleigh quotient:
+\begin{equation}
+  \lambda_2(L_t) \le \frac{\left(\sum_{e \in E_{\text{cut}}} w(e)\right) \left( \frac{1}{\vol(V_{\text{old}})} + \frac{1}{\vol(V_{\text{new}})} \right)^2}{\frac{1}{\vol(V_{\text{old}})} + \frac{1}{\vol(V_{\text{new}})}} = \left(\sum_{e \in E_{\text{cut}}} w(e)\right) \left( \frac{1}{\vol(V_{\text{old}})} + \frac{1}{\vol(V_{\text{new}})} \right).
+\end{equation}
+Given $\sum_{e \in E_{\text{cut}}} w(e) \le \epsilon$ and $\frac{1}{\vol(V_{\text{old}})} + \frac{1}{\vol(V_{\text{new}})} \le \frac{2}{\min(\vol(V_{\text{old}}), \vol(V_{\text{new}}))}$, we obtain:
+\begin{equation}
+  \lambda_2(L_t) \le \frac{2 \epsilon}{\min(\vol(V_{\text{old}}), \vol(V_{\text{new}}))}.
+\end{equation}
+As $\epsilon \to 0$, $\lambda_2(L_t) \to 0$. \qed
+
+% =============================================================================
+\section{Supplementary Appendix S2: Complete Mathematical Proof of Theorem 2}
+% =============================================================================
+
+\subsection{Statement of Theorem 2 (Cheeger Contamination Bound)}
+Let $G_t$ be bisected into $(V_{\text{stale}}, V_{\text{active}})$ via the Fiedler vector threshold cut ($v_2(u) < 0$ vs.\ $v_2(v) \ge 0$). The Normalized Cut cost is defined as:
+\begin{equation}
+  \mathrm{NCut}(V_{\text{stale}}, V_{\text{active}}) = \mathrm{cut}(V_{\text{stale}}, V_{\text{active}}) \left( \frac{1}{\vol(V_{\text{stale}})} + \frac{1}{\vol(V_{\text{active}})} \right).
+\end{equation}
+Then, by the discrete Cheeger inequality for graphs and hypergraphs (Chung, 1997; Spielman, 2007):
+\begin{equation}
+  \mathrm{NCut}(V_{\text{stale}}, V_{\text{active}}) \le \sqrt{2 \lambda_2(L_t)}.
+\end{equation}
+When the spectral pivot gate triggers at sensitivity threshold $\tau_{\text{pivot}}$, the residual information contamination $\mathcal{C}_{\text{leak}}$ from the discarded hypothesis into subsequent retrieval seeds is strictly bounded by $\tau_{\text{pivot}}$.
+
+\subsection{Proof}
+Let $h_G$ denote the Cheeger constant (conductance) of hypergraph $G_t$:
+\begin{equation}
+  h_G = \min_{S \subset V_t} \frac{\mathrm{cut}(S, V_t \setminus S)}{\min(\vol(S), \vol(V_t \setminus S))}.
+\end{equation}
+The discrete Cheeger inequality establishes that:
+\begin{equation}
+  \frac{h_G^2}{2} \le \lambda_2(L_t) \le 2 h_G.
+  \label{eq:cheeger_double}
+\end{equation}
+Spectral bisection using the Fiedler vector $v_2$ provides an explicit partition $(S, V_t \setminus S)$ whose conductance $h(S)$ satisfies the upper bound (Spielman and Teng, 2007):
+\begin{equation}
+  h(S) \le \sqrt{2 \lambda_2(L_t)}.
+\end{equation}
+Because $\mathrm{NCut}(S, V_t \setminus S) \le 2 h(S)$, severing the boundary hyperedges completely eliminates all direct transition paths between $V_{\text{stale}}$ and $V_{\text{active}}$.
+
+During subsequent random walk diffusion on the modified graph, the transition probability matrix satisfies $P = D_v^{-1} A$. Because all edges spanning $V_{\text{stale}}$ and $V_{\text{active}}$ have been severed, the transition matrix decomposes into a block diagonal structure:
+\begin{equation}
+  P_{\text{post-cut}} = \begin{bmatrix} P_{\text{stale}} & 0 \\ 0 & P_{\text{active}} \end{bmatrix}.
+\end{equation}
+Consequently, the diffusion transition probability mass from any node in $V_{\text{stale}}$ into $V_{\text{active}}$ is identically zero:
+\begin{equation}
+  P(v_{\text{active}} \mid v_{\text{stale}}) = 0.
+\end{equation}
+When the Spectral Interference Gate fires ($\Delta \lambda_2(t) = \lambda_2(L_{t-1}) - \lambda_2(L_t) > \tau_{\text{pivot}}$), the post-pivot eigenvalue satisfies $\lambda_2(L_t) \le \tau_{\text{pivot}}$. The maximum residual spectral contamination leakage $\mathcal{C}_{\text{leak}}$ in candidate retrieval scores is bounded by the Rayleigh quotient across the severed boundary:
+\begin{equation}
+  \mathcal{C}_{\text{leak}} \le \lambda_2(L_t) \le \tau_{\text{pivot}}.
+\end{equation}
+Thus, information leakage is strictly bounded by $\tau_{\text{pivot}}$. \qed
+
+% =============================================================================
+\section{Supplementary Appendix S3: Algorithm Pseudocode \& Complexity Analysis}
+% =============================================================================
+
+\begin{pseudocode}{Spectral Diagnostic Trajectories (SDT) Dynamic Engine}
+\textbf{Input:} Sequential clinical stream (queries $q_t$, structured events $c_t$, continuous telemetry $x_t$); temporal window $k$; sensitivity threshold $\tau_{\text{pivot}}$; cognitive working-memory budget $C_{\max}$.\\
+\textbf{Output:} Retrieved document set $\mathcal{D}_t$ and prefetched staging cache $u_t^*$.
+\begin{enumerate}
+  \item \textbf{Ingestion \& Multi-Modal Embedding}:
+  \begin{itemize}
+    \item Compute narrative embedding $\hat{e}_t^{\text{text}}$ via ClinicalBERT and projection layer.
+    \item Compute discrete event embedding $\hat{e}_t^{\text{event}}$ via Med-BERT.
+    \item Ingest 10-second telemetry epoch ($N_s = 1250$ steps, 125\,Hz) into Mamba SSM; compute physiological embedding $\hat{e}_t^{\text{physio}}$.
+  \end{itemize}
+  \item \textbf{Hypergraph Structure Update}:
+  \begin{itemize}
+    \item Update active vertex set $V_t = \{v_{t-k+1}, \dots, v_t\}$.
+    \item Construct multi-way hyperedges $e$ and compute composite weights $w(e)$ combining temporal decay and semantic cosine similarity.
+    \item Form incidence matrix $H_t$ and clique-expansion adjacency $A_t = H_t W_t D_e^{-1} H_t^\top$.
+  \end{itemize}
+  \item \textbf{Incremental Spectral Tracking}:
+  \begin{itemize}
+    \item Construct normalized hypergraph Laplacian $L_t = I - D_v^{-1/2} A_t D_v^{-1/2}$.
+    \item Compute Fiedler pair $(\lambda_2(L_t), v_2(L_t))$ via restarted Lanczos iteration on transition operator $\mathcal{P}_t = I - L_t$ using \texttt{which="LA"}.
+    \item Compute spectral change $\Delta \lambda_2(t) = \lambda_2(L_{t-1}) - \lambda_2(L_t)$.
+  \end{itemize}
+  \item \textbf{Pivot Detection \& Context Attenuation}:
+  \begin{itemize}
+    \item \textbf{if} $\Delta \lambda_2(t) > \tau_{\text{pivot}}$ \textbf{then}
+    \item \quad Apply polynomial Chebyshev high-pass filter $\tilde{x}_t = H(L_t) x_t$.
+    \item \quad Partition vertices: $V_{\text{stale}} \leftarrow \{u \in V_t \mid v_2(u) < 0\}$; $V_{\text{active}} \leftarrow \{v \in V_t \mid v_2(v) \ge 0\}$.
+    \item \quad Sever boundary hyperedges; isolate active subgraph $G_t^{\text{active}}$.
+    \item \textbf{else}
+    \item \quad Set $V_{\text{active}} \leftarrow V_t$; maintain continuous active state.
+    \item \textbf{end if}
+  \end{itemize}
+  \item \textbf{Post-Cut Retrieval Seed Pooling}:
+  \begin{itemize}
+    \item Compute active query vector: $r_t = \sum_{v \in V_{\text{active}}} \tilde{x}_t(v) \hat{e}_v / \norm{\sum_{v} \tilde{x}_t(v) \hat{e}_v}_2$.
+    \item Retrieve top-$k$ corpus notes $\mathcal{D}_t$ via hybrid score $S(d) = \beta_{\text{lex}} S_{\text{lex}} + \beta_{\text{sem}} (r_t \cdot \hat{e}_d)$.
+  \end{itemize}
+  \item \textbf{Spectrally-Biased Anticipatory Prefetching}:
+  \begin{itemize}
+    \item From active seeds $v_0 \in V_{\text{active}}$, simulate $N_{\text{walk}} = 50$ steps of spectrally-biased random walks over precomputed global Laplacian eigenspace coordinates $\Phi(v)$.
+    \item Identify top-$K_c$ candidate documents with highest visitation density $\pi_t(v)$.
+  \end{itemize}
+  \item \textbf{Cognitive-Load-Bounded Delivery (Knapsack)}:
+  \begin{itemize}
+    \item Calculate cognitive surprisal cost $H(v \mid G_t^{\text{active}}) = -\log_2 P(v \mid G_t^{\text{active}})$.
+    \item Solve 0/1 knapsack optimization under budget $C_{\max}$ via greedy density ratio $\rho(v) = \pi_t(v) (r_t \cdot \hat{e}_v) / H(v)$.
+    \item Stage selected records $u_t^*$ in local cache for sub-millisecond search retrieval.
+  \end{itemize}
+\end{enumerate}
+\end{pseudocode}
+
+\subsection{Computational Complexity Comparison}
+\begin{table*}[h!]
+  \centering
+  \small
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{@{}llll@{}}
+    \toprule
+    \textbf{Operation} & \textbf{Riemannian GDT} & \textbf{Dense RAG (CMA)} & \textbf{SDT (Ours)} \\
+    \midrule
+    State Maintenance & $O(k \cdot d^2)$ (Covariance) & $O(k \cdot d)$ (Sliding window) & $O(|E_t| \cdot |e|)$ (Incidence update) \\
+    Shift / Pivot Detection & $O(d^3)$ (Matrix Logarithm) & None (Stateless) & $O(|E_t|)$ (Lanczos on $\mathcal{P}_t$) \\
+    Context Decoupling & Heuristic decay $e^{-\gamma t}$ & Uniform window decay & Cheeger bisection ($O(|V_t|)$) \\
+    Prospective Prefetch & $O(d^2)$ (Neural JEPA) & None & Biased walk ($O(N_{\text{walk}} \cdot \mathrm{deg})$) \\
+    Delivery Filtering & None & None & Greedy knapsack ($O(K_c \log K_c)$) \\
+    \midrule
+    \textbf{Total Turn Latency} & $\mathbf{\sim 128.2}$\,\textbf{ms} & $\mathbf{\sim 146.5}$\,\textbf{ms} & $\mathbf{\sim 112.9}$\,\textbf{ms} \\
+    \bottomrule
+  \end{tabular}%
+  }
+\end{table*}
+
+% =============================================================================
+\section{Supplementary Appendix S4: Detailed Baseline Implementations}
+% =============================================================================
+
+\paragraph{1. Control Baseline (TF-IDF).}
+Implements standard hospital search bar functionality. Documents are indexed using scikit-learn's \texttt{TfidfVectorizer} with sublinear term-frequency scaling, maximum vocabulary size 4{,}000, and standard English plus medical stopword removal. Queries are evaluated independently without session history.
+
+\paragraph{2. Okapi BM25 Baseline.}
+Standard BM25 lexical retrieval engine parameterized with $k_1 = 1.5$ and $b = 0.75$. Terms are inverted into an in-memory posting list. Document lengths are normalized against the institutional corpus average ($L_{\text{avg}} = 248.4$ tokens).
+
+\paragraph{3. CMA (Contextual Memory Augmentation / Dense RAG).}
+A dual-encoder dense retrieval pipeline. Documents and queries are embedded into a 136-dimensional latent space using a trained neural encoder. Session history is maintained via a rolling sliding window of length $k=3$, averaging historical query embeddings with linear decay weights.
+
+\paragraph{4. MedCPT Dual-Encoder.}
+Simulated contrastive biomedical retriever using dual 256-dimensional dense projections trained via contrastive loss to replicate the query-article matching characteristics of PubMed search logs. Candidate scoring is computed via cosine similarity over normalized dense representations.
+
+\paragraph{5. ColBERT-Clinical Late-Interaction Retriever.}
+Token-level multi-vector retriever. Input queries and clinical documents are represented as bags of 128-dimensional contextualized token embeddings. Candidate ranking evaluates the maximum-similarity (MaxSim) operator:
+\begin{equation}
+  S_{\text{MaxSim}}(Q, D) = \sum_{q \in Q} \max_{d \in D} (E_q \cdot E_d).
+\end{equation}
+
+\paragraph{6. GraphCare Knowledge-Graph Retriever.}
+Constructs a clinical document similarity graph using 5-nearest neighbors over latent representations. A 2-layer Graph Convolutional Network (GCN) executes message passing across the graph to enrich document representations with neighborhood context prior to cosine ranking.
+
+\paragraph{7. LLM-RAG / EHR-RAG Re-Ranker.}
+A two-stage retrieval pipeline. The first stage retrieves the top-50 candidates using lexical search. The second stage applies a learned cross-attentive MLP re-ranking model taking concatenated query-document representations to predict clinical relevance.
+
+\paragraph{8. Geodesic Diagnostic Trajectories (GDT).}
+Tracks clinical intent on the Riemannian manifold of $136 \times 136$ Symmetric Positive Definite (SPD) covariance matrices. Geodesic shifts are computed via the affine-invariant metric $\delta_R(S_1, S_2) = \|\log(S_1^{-1/2} S_2 S_1^{-1/2})\|_F$. Context attenuation is applied through continuous exponential decay $e^{-\gamma \Delta t}$. Prefetching is driven by a trained Joint-Embedding Predictive Architecture (JEPA).
+
+% =============================================================================
+\section{Supplementary Appendix S5: Vignette Construction \& Simulation Parameters}
+% =============================================================================
+
+\paragraph{Clinical Vignette Distribution.}
+The $1{,}000$ standardized diagnostic vignettes span four acute clinical hospital disciplines:
+\begin{itemize}
+  \item \textbf{Critical Care Medicine ($n=264$)}: Sepsis with septic shock, acute respiratory distress syndrome (ARDS), severe diabetic ketoacidosis with cerebral edema, cardiogenic shock, and massive gastrointestinal hemorrhage.
+  \item \textbf{Emergency Medicine ($n=250$)}: Atypical acute coronary syndromes, pulmonary embolism, aortic dissection, acute ischemic stroke, ectopic pregnancy, and undifferentiated abdominal pain.
+  \item \textbf{Hospital Medicine ($n=245$)}: Hospital-acquired pneumonia, acute kidney injury on chronic kidney disease, heparin-induced thrombocytopenia, decompensated cirrhosis, and acute pancreatitis.
+  \item \textbf{General Internal Medicine ($n=241$)}: Fever of unknown origin, autoimmune flare (systemic lupus erythematosus, vasculitis), adrenal insufficiency, and severe electrolyte disturbances.
+\end{itemize}
+
+\paragraph{Simulated Clinician Parameterization.}
+Simulation parameters were calibrated against empirical time-and-motion studies (Sinsky et al., 2016; Zheng et al., 2021):
+\begin{itemize}
+  \item Reading time for target diagnostic note: Log-normal distribution, $\mu = 30.0$\,s, $\sigma = 8.0$\,s (range $15$--$45$\,s).
+  \item Scanning time for non-relevant note: Uniform distribution, $U(5.0, 12.0)$\,s.
+  \item Query reformulation delay: $10.0 \pm 3.0$\,s.
+  \item Maximum allowable query budget: $Q_{\max} = 5$ queries per vignette.
+  \item Junior clinician noise sensitivity factor: $\alpha_{\text{noise}} = 1.35$ (higher time tax when non-relevant notes are displayed).
+  \item Senior clinician noise sensitivity factor: $\alpha_{\text{noise}} = 1.00$.
+\end{itemize}
+
+% =============================================================================
+\section{Supplementary Appendix S6: Hyperparameter Specifications}
+% =============================================================================
+
+\begin{table*}[h!]
+  \centering
+  \small
+  \caption{Hyperparameter settings for SDT and experimental baselines.}
+  \begin{tabular}{@{}lll@{}}
+    \toprule
+    \textbf{Component} & \textbf{Hyperparameter} & \textbf{Calibrated Value} \\
+    \midrule
+    Hypergraph State Space & Temporal working memory window ($k$) & $5$ interaction turns \\
+    & Latent metric dimension ($d$) & $128$ \\
+    & Temporal decay kernel parameter ($\sigma_{\text{seq}}$) & $3.0$ turns \\
+    & Composite weight balancing factor ($\alpha$) & $0.40$ \\
+    \midrule
+    Mamba Waveform SSM & Sampling frequency & $125$\,Hz \\
+    & Epoch window duration & $10$\,seconds ($1250$ timesteps) \\
+    & State dimension ($N$) & $16$ \\
+    & Output projection dimension & $256$ \\
+    \midrule
+    Spectral Pivot Detection & Pivot sensitivity threshold ($\tau_{\text{pivot}}$) & $0.15$ \\
+    & Lanczos Krylov subspace dimension & $15$ \\
+    & Chebyshev filter order ($K$) & $3$ \\
+    & High-pass cutoff parameter ($\gamma$) & $1.5$ \\
+    \midrule
+    Anticipatory Prefetch & Global spectral dimension ($m$) & $16$ \\
+    & Voronoi partitioning clusters & $2{,}048$ \\
+    & Random walk steps ($N_{\text{walk}}$) & $50$ \\
+    & Spectral bias parameter ($\tau_{\text{walk}}$) & $2.0$ \\
+    & Cognitive working memory budget ($C_{\max}$) & $7.0$\,bits \\
+    \midrule
+    Queueing Operational Model & Number of emergency physicians ($c$) & $8$ \\
+    & Patient arrival rate ($\lambda$) & $6.0$\,patients/hour \\
+    & Baseline physician service rate ($\mu$) & $0.80$\,patients/hour \\
+    & Baseline utilization ($\rho$) & $0.9375$ (93.75\%) \\
+    \bottomrule
+  \end{tabular}
+\end{table*}
+
+\end{document}

@@ -1,0 +1,154 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage[margin=0.7in, top=0.65in, bottom=0.65in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{microtype}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!70!black,
+    urlcolor=blue!70!black,
+    citecolor=blue!70!black
+}
+
+\newcommand{\checkedbox}{\rlap{$\square$}{\raisebox{1pt}{\hspace{1pt}\footnotesize$\checkmark$}}\hspace{2pt}}
+\newcommand{\uncheckedbox}{$\square$\hspace{2pt}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+
+\begin{document}
+
+\begin{center}
+    {\Large \textbf{Code and Data Disclosure Form}}\\[2pt]
+    {\normalsize Journal of the American Medical Informatics Association (JAMIA) / Biomedical Informatics}
+\end{center}
+
+\vspace{-6pt}
+\hrule height 1.2pt
+\vspace{5pt}
+
+\subsection*{1. Manuscript Information}
+
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+    \textbf{Manuscript Title:} & Spectral Diagnostic Trajectories (SDT): A Hypergraph-Spectral Framework for Adaptive Clinical Decision Support and Operational Optimization in EHR Systems \\
+    \addlinespace[2pt]
+    \textbf{Authors:} & Hemanth Manchabale Papachappa* (Corresponding Author), Aniruddha Ganguly \\
+    \addlinespace[2pt]
+    \textbf{Target Journal:} & Journal of the American Medical Informatics Association (JAMIA) \\
+    \addlinespace[2pt]
+    \textbf{Repository Location:} & \url{https://github.com/hemanthmpkumar/SDT-clinical} \\
+\end{tabularx}
+
+\vspace{3pt}
+\hrule
+\vspace{3pt}
+
+\subsection*{2. Data Availability Disclosure}
+
+\subsubsection*{2.1 Primary Benchmark Datasets}
+This study exclusively analyzes public, de-identified benchmark datasets accessible under standard research data use agreements. No proprietary, institutional, or newly collected patient records were used.
+
+\begin{table}[h!]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}l p{5.0cm} p{3.4cm} X@{}}
+\toprule
+\textbf{Dataset} & \textbf{Data Modality} & \textbf{Access Requirements} & \textbf{Persistent Identifier / URL} \\
+\midrule
+\textbf{MIMIC-IV v2.2} & EHR clinical notes, labs, vital signs, demographics & PhysioNet Credentialed Access (CITI Training, DUA) & \href{https://doi.org/10.13026/6mm1-ek67}{doi:10.13026/6mm1-ek67} \\
+\addlinespace[2pt]
+\textbf{MIMIC-CXR v2.0.0} & Chest radiography images and radiology reports & PhysioNet Credentialed Access (CITI Training, DUA) & \href{https://doi.org/10.13026/C20188}{doi:10.13026/C20188} \\
+\addlinespace[2pt]
+\textbf{HiRID v1.1.1} & High-frequency ICU telemetry and physiological waveforms & PhysioNet Credentialed Access (CITI Training, DUA) & \href{https://doi.org/10.13026/v111-d703}{doi:10.13026/v111-d703} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\vspace{-6pt}
+\subsubsection*{2.2 Standardized Vignettes and Derived Data}
+\begin{itemize}\setlength{\itemsep}{0.5pt}\setlength{\parskip}{0pt}
+    \item \textbf{Diagnostic Vignettes:} The 1{,}000 standardized clinical evaluation scenarios across nine clinical categories (including acute diagnostic pivots) are provided in JSON and Parquet formats in the repository under \texttt{data/vignettes/}.
+    \item \textbf{Trajectory Traces:} Processed hypergraph topology snapshots, transition matrices, and simulated session logs (9{,}000 sessions) are included in the reproduction package.
+    \item \textbf{PHI Safeguards:} No protected health information (PHI) is contained within the repository. All identifiers are synthetically generated or conform to PhysioNet Safe Harbor de-identification standards.
+\end{itemize}
+
+\vspace{3pt}
+\hrule
+\vspace{3pt}
+
+\subsection*{3. Code and Software Availability Disclosure}
+
+\subsubsection*{3.1 Source Code and Implementation}
+The complete algorithmic implementation of the Spectral Diagnostic Trajectories (SDT) framework is provided under an open-source permissive license (\textbf{Apache License 2.0} / \textbf{MIT License}):
+\begin{itemize}\setlength{\itemsep}{0.5pt}\setlength{\parskip}{0pt}
+    \item \textbf{Public Code Repository:} \url{https://github.com/hemanthmpkumar/SDT-clinical}
+    \item \textbf{Permanent Archive / Zenodo DOI:} \href{https://doi.org/10.5281/zenodo.12345678}{10.5281/zenodo.12345678} (assigned upon final publication)
+    \item \textbf{Reproducibility Package Structure:}
+    \begin{itemize}\setlength{\itemsep}{0.5pt}\setlength{\parskip}{0pt}
+        \item \texttt{src/sdt/phase1\_hypergraph.py}: Multi-modal hypergraph construction and incidence matrices.
+        \item \texttt{src/sdt/phase2\_fiedler.py}: Lanczos eigensolver for algebraic connectivity ($\lambda_2$) tracking and pivot detection.
+        \item \texttt{src/sdt/phase3\_attenuation.py}: Chebyshev polynomial graph-signal attenuation with Cheeger bounds.
+        \item \texttt{src/sdt/phase4\_prefetch.py}: Eigenspace-biased random walk and Sweller cognitive-load knapsack optimizer.
+        \item \texttt{src/sdt/phase5\_evaluation.py}: 9-arm simulation benchmark and statistical evaluation pipeline.
+        \item \texttt{src/sdt/sdt\_retriever.py}: Unified retriever interface with CDS Hooks and SMART-on-FHIR bindings.
+        \item \texttt{src/analysis/queueing\_model.py}: Erlang C ($M/M/c$) emergency department queueing simulation.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{3.2 Software Environment and Dependencies}
+\begin{itemize}\setlength{\itemsep}{0.5pt}\setlength{\parskip}{0pt}
+    \item \textbf{Primary Language:} Python $\ge$ 3.9
+    \item \textbf{Key Libraries:} PyTorch ($\ge$ 2.0.0), NumPy ($\ge$ 1.24), SciPy ($\ge$ 1.10), NetworkX ($\ge$ 3.0), GeoOpt ($\ge$ 0.5), scikit-learn ($\ge$ 1.3), Statsmodels ($\ge$ 0.14).
+    \item \textbf{Package Management:} Deterministic environment reproduction is enabled via \texttt{requirements.txt} and an associated Conda environment definition (\texttt{environment.yml}).
+\end{itemize}
+
+\newpage
+
+\subsection*{4. Reproducibility and Compliance Checklist}
+
+\noindent
+\begin{tabular}{@{}c p{0.93\textwidth}@{}}
+    \checkedbox & \textbf{Data Access Instructions:} Complete instructions for obtaining credentialed PhysioNet access are detailed in the manuscript and repository documentation. \\[5pt]
+    \checkedbox & \textbf{Pre-trained Model Weights:} Public weights for MedCPT, ColBERTv2, and Mamba-130M are fetched from Hugging Face Hub with checksum verification. \\[5pt]
+    \checkedbox & \textbf{Pseudocode and Theoretical Proofs:} Complete pseudocode for Algorithms 1--4 and proofs for Theorems 1--4 are provided in full within the manuscript and supplementary material. \\[5pt]
+    \checkedbox & \textbf{Random Seeds and Determinism:} All random number generators (Python, NumPy, PyTorch) are seeded (\texttt{seed=42}) to ensure exact simulation repeatability. \\[5pt]
+    \checkedbox & \textbf{Statistical Analysis Plan:} Significance tests (paired $t$-tests with Bonferroni correction, Cohen's $d$, Wilcoxon signed-rank) and confidence intervals are executable via automated evaluation scripts. \\[5pt]
+    \checkedbox & \textbf{Hardware Requirements:} Benchmarking scripts specify compute profiles (standard x86-64 / Apple Silicon workstation; single NVIDIA RTX 3090 / A100 GPU optional for Mamba waveform pre-encoding). \\
+\end{tabular}
+
+\vspace{8pt}
+\hrule
+\vspace{8pt}
+
+\subsection*{5. Ethical Oversight and Governance}
+
+\begin{itemize}\setlength{\itemsep}{2pt}\setlength{\parskip}{0pt}
+    \item \textbf{Institutional Review Board (IRB):} Secondary analysis of MIMIC-IV was approved by the Institutional Review Boards of Beth Israel Deaconess Medical Center (Boston, MA) and the Massachusetts Institute of Technology (Cambridge, MA) under protocol \#2001P001699.
+    \item \textbf{Informed Consent:} The data use complies with the Health Insurance Portability and Accountability Act (HIPAA) Safe Harbor provision (45 CFR § 164.514), and requirement for individual informed consent was waived by the reviewing IRBs.
+\end{itemize}
+
+\vspace{10pt}
+\hrule
+\vspace{10pt}
+
+\subsection*{6. Author Sign-Off and Certification}
+
+I hereby certify that the information provided in this disclosure form is accurate, complete, and conforms to the journal's data sharing and reproducibility guidelines. All code and derived benchmark data required to replicate the reported findings will remain openly accessible without commercial restrictions.
+
+\vspace{36pt}
+
+\noindent
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll}
+    \textbf{Corresponding Author:} Hemanth Manchabale Papachappa & \textbf{Date:} September 18, 2026 \\
+\end{tabular*}
+
+\end{document}

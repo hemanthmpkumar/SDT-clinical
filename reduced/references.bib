@@ -1,0 +1,1290 @@
+% =============================================================================
+% references.bib — Spectral Diagnostic Trajectories (SDT) Framework
+% Comprehensive bibliography covering all five phases.
+% Total: 104 references
+% =============================================================================
+
+% =============================================================================
+%  PHASE 1 — Hypergraph Construction & Multimodal State Space
+%  Topics: Clinical NLP / BERT, hypergraph theory, EHR datasets,
+%          physiological waveforms, state-space models, SPD matrices,
+%          Riemannian geometry, multimodal fusion
+% =============================================================================
+
+@article{huang2019clinicalbert,
+  author    = {Huang, Kexin and Altosaar, Jaan and Ranganath, Rajesh},
+  title     = {{ClinicalBERT}: Modeling Clinical Notes and Predicting Hospital Readmission},
+  journal   = {arXiv preprint arXiv:1904.05342},
+  year      = {2019}
+}
+
+@inproceedings{devlin2019bert,
+  author    = {Devlin, Jacob and Chang, Ming-Wei and Lee, Kenton and Toutanova, Kristina},
+  title     = {{BERT}: Pre-training of Deep Bidirectional Transformers for Language Understanding},
+  booktitle = {Proceedings of NAACL-HLT},
+  year      = {2019},
+  pages     = {4171--4186}
+}
+
+@article{lee2020biobert,
+  author    = {Lee, Jinhyuk and Yoon, Wonjin and Kim, Sungdong and Kim, Donghyeon and Kim, Sunkyu and So, Chan Ho and Kang, Jaewoo},
+  title     = {{BioBERT}: A Pre-trained Biomedical Language Representation Model for Biomedical Text Mining},
+  journal   = {Bioinformatics},
+  volume    = {36},
+  number    = {4},
+  pages     = {1234--1240},
+  year      = {2020}
+}
+
+@inproceedings{alsentzer2019publicly,
+  author    = {Alsentzer, Emily and Murphy, John R. and Boag, Willie and Weng, Wei-Hung and Jin, Di and Naumann, Tristan and McDermott, Matthew B. A.},
+  title     = {Publicly Available Clinical {BERT} Embeddings},
+  booktitle = {Proceedings of the 2nd Clinical Natural Language Processing Workshop},
+  year      = {2019},
+  pages     = {72--78}
+}
+
+@inproceedings{zhou2006learning,
+  author    = {Zhou, Dengyong and Huang, Jiayuan and Sch\"{o}lkopf, Bernhard},
+  title     = {Learning with Hypergraphs: Clustering, Classification, and Embedding},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2006},
+  pages     = {1601--1608}
+}
+
+@article{feng2019hypergraph,
+  author    = {Feng, Yifan and You, Haoxuan and Zhang, Zizhao and Ji, Rongrong and Gao, Yue},
+  title     = {Hypergraph Neural Networks},
+  journal   = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume    = {33},
+  pages     = {3558--3565},
+  year      = {2019}
+}
+
+@inproceedings{yadati2019hypergcn,
+  author    = {Yadati, Naganand and Nimishakavi, Madhav and Yadav, Prateek and Nitin, Vikram and Louis, Anand and Talukdar, Partha},
+  title     = {{HyperGCN}: A New Method for Training Graph Convolutional Networks on Hypergraphs},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2019},
+  pages     = {1509--1520}
+}
+
+@article{bai2021hypergraph,
+  author    = {Bai, Song and Zhang, Feilong and Torr, Philip H. S.},
+  title     = {Hypergraph Convolution and Hypergraph Attention},
+  journal   = {Pattern Recognition},
+  volume    = {110},
+  pages     = {107637},
+  year      = {2021}
+}
+
+@article{gao2022hgnnplus,
+  author    = {Gao, Yue and Feng, Yifan and Ji, Shouling and Ji, Rongrong},
+  title     = {{HGNN+}: General Hypergraph Neural Networks},
+  journal   = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume    = {45},
+  number    = {3},
+  pages     = {3181--3199},
+  year      = {2022}
+}
+
+@article{johnson2016mimic,
+  author    = {Johnson, Alistair E. W. and Pollard, Tom J. and Shen, Lu and Lehman, Li-Wei H. and Feng, Mengling and Ghassemi, Mohammad and Moody, Benjamin and Szolovits, Peter and Celi, Leo Anthony and Mark, Roger G.},
+  title     = {{MIMIC-III}, a Freely Accessible Critical Care Database},
+  journal   = {Scientific Data},
+  volume    = {3},
+  pages     = {160035},
+  year      = {2016}
+}
+
+@article{johnson2023mimic,
+  author    = {Johnson, Alistair E. W. and Bulgarelli, Lucas and Shen, Lu and Gayles, Alicia and Shammout, Ayad and Horng, Steven and Pollard, Tom J. and Hao, Sicheng and Moody, Benjamin and Gow, Brian and Lehman, Li-Wei and Celi, Leo A. and Mark, Roger G.},
+  title     = {{MIMIC-IV}, a Freely Accessible Electronic Health Record Dataset},
+  journal   = {Scientific Data},
+  volume    = {10},
+  pages     = {1},
+  year      = {2023}
+}
+
+@article{johnson2019mimiccxr,
+  author    = {Johnson, Alistair E. W. and Pollard, Tom J. and Berkowitz, Seth J. and Greenbaum, Nathaniel R. and Lungren, Matthew P. and Deng, Chih-ying and Mark, Roger G. and Horng, Steven},
+  title     = {{MIMIC-CXR}, a De-identified Publicly Available Database of Chest Radiographs with Free-text Reports},
+  journal   = {Scientific Data},
+  volume    = {6},
+  pages     = {317},
+  year      = {2019}
+}
+
+@article{hyland2020hirid,
+  author    = {Hyland, Stephanie L. and Faltys, Martin and H\"{u}ser, Matthias and Lyu, Xinrui and Gumbsch, Thomas and Esteban, Crist\'{o}bal and Bock, Christian and Horn, Max and Moor, Michael and Rieck, Bastian and others},
+  title     = {Early Prediction of Circulatory Failure in the Intensive Care Unit Using Machine Learning},
+  journal   = {Nature Medicine},
+  volume    = {26},
+  pages     = {364--373},
+  year      = {2020}
+}
+
+@inproceedings{gu2023mamba,
+  author    = {Gu, Albert and Dao, Tri},
+  title     = {Mamba: Linear-Time Sequence Modeling with Selective State Spaces},
+  booktitle = {Proceedings of the First Conference on Language Modeling (COLM)},
+  year      = {2024},
+  publisher = {OpenReview}
+}
+
+@inproceedings{dao2024mamba2,
+  author    = {Dao, Tri and Gu, Albert},
+  title     = {Transformers are {SSMs}: Generalized Models and Efficient Algorithms Through Structured State Space Duality},
+  booktitle = {Proceedings of the 41st International Conference on Machine Learning (ICML)},
+  series    = {Proceedings of Machine Learning Research},
+  year      = {2024},
+  publisher = {PMLR}
+}
+
+@inproceedings{gu2022s4,
+  author    = {Gu, Albert and Goel, Karan and R\'{e}, Christopher},
+  title     = {Efficiently Modeling Long Sequences with Structured State Spaces},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2022}
+}
+
+@article{goldberger2000physionet,
+  author    = {Goldberger, Ary L. and Amaral, Luis A. N. and Glass, Leon and Hausdorff, Jeffrey M. and Ivanov, Plamen Ch. and Mark, Roger G. and Mietus, Joseph E. and Moody, George B. and Peng, Chung-Kang and Stanley, H. Eugene},
+  title     = {{PhysioBank}, {PhysioToolkit}, and {PhysioNet}: Components of a New Research Resource for Complex Physiologic Signals},
+  journal   = {Circulation},
+  volume    = {101},
+  number    = {23},
+  pages     = {e215--e220},
+  year      = {2000}
+}
+
+@article{arsigny2007geometric,
+  author    = {Arsigny, Vincent and Fillard, Pierre and Pennec, Xavier and Ayache, Nicholas},
+  title     = {Geometric Means in a Novel Vector Space Structure on Symmetric Positive-Definite Matrices},
+  journal   = {SIAM Journal on Matrix Analysis and Applications},
+  volume    = {29},
+  number    = {1},
+  pages     = {328--347},
+  year      = {2007}
+}
+
+@article{moakher2005differential,
+  author    = {Moakher, Maher},
+  title     = {A Differential Geometric Approach to the Geometric Mean of Symmetric Positive-Definite Matrices},
+  journal   = {SIAM Journal on Matrix Analysis and Applications},
+  volume    = {26},
+  number    = {3},
+  pages     = {735--747},
+  year      = {2005}
+}
+
+@article{pennec2006riemannian,
+  author    = {Pennec, Xavier and Fillard, Pierre and Ayache, Nicholas},
+  title     = {A {Riemannian} Framework for Tensor Computing},
+  journal   = {International Journal of Computer Vision},
+  volume    = {66},
+  number    = {1},
+  pages     = {41--66},
+  year      = {2006}
+}
+
+@article{barachant2012multiclass,
+  author    = {Barachant, Alexandre and Bonnet, St\'{e}phane and Congedo, Marco and Jutten, Christian},
+  title     = {Multiclass Brain-Computer Interface Classification by {Riemannian} Geometry},
+  journal   = {IEEE Transactions on Biomedical Engineering},
+  volume    = {59},
+  number    = {4},
+  pages     = {920--928},
+  year      = {2012}
+}
+
+@inproceedings{wu2019session,
+  author    = {Wu, Shu and Tang, Yuyuan and Zhu, Yanqiao and Wang, Liang and Xie, Xing and Tan, Tieniu},
+  title     = {Session-based Recommendation with Graph Neural Networks},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  year      = {2019},
+  pages     = {346--353}
+}
+
+@article{vaswani2017attention,
+  author    = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N. and Kaiser, \L{}ukasz and Polosukhin, Illia},
+  title     = {Attention Is All You Need},
+  journal   = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2017},
+  pages     = {5998--6008}
+}
+
+@article{rasmy2021medbert,
+  author    = {Rasmy, Laila and Xiang, Yang and Xie, Ziqian and Tao, Cui and Zhi, Degui},
+  title     = {Med-{BERT}: Pretrained Contextualized Embeddings on Large-scale Structured Electronic Health Records for Disease Prediction},
+  journal   = {npj Digital Medicine},
+  volume    = {4},
+  pages     = {86},
+  year      = {2021}
+}
+
+@article{li2020behrt,
+  author    = {Li, Yehenew and Rao, Shishir and Solares, Jose Roberto Ayala and Hassaine, Abdelaali and Ramakrishnan, Rema and Canoy, Dexter and Zhu, Yajie and Rahimi, Kazem and Salimi-Khorshidi, Gholamreza},
+  title     = {{BEHRT}: Transformer for Electronic Health Records},
+  journal   = {Scientific Reports},
+  volume    = {10},
+  pages     = {7155},
+  year      = {2020}
+}
+
+@article{huang2017riemannian,
+  author    = {Huang, Zhiwu and Van Gool, Luc},
+  title     = {A {Riemannian} Network for {SPD} Matrix Learning},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  year      = {2017},
+  pages     = {2036--2042},
+  journal   = {Proceedings of AAAI}
+}
+
+@inproceedings{brooks2019riemannian,
+  author    = {Brooks, Daniel and Schwander, Olivier and Barbaresco, Fr\'{e}d\'{e}ric and Schneider, Jean-Yves and Cord, Matthieu},
+  title     = {Riemannian Batch Normalization for {SPD} Neural Networks},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2019},
+  pages     = {15489--15500}
+}
+
+% =============================================================================
+%  PHASE 2 — Spectral Pivot Detection & Generative Dynamics
+%  Topics: Algebraic graph theory, Fiedler value, Laplacian spectrum,
+%          spectral clustering, change-point detection
+% =============================================================================
+
+@article{fiedler1973algebraic,
+  author    = {Fiedler, Miroslav},
+  title     = {Algebraic Connectivity of Graphs},
+  journal   = {Czechoslovak Mathematical Journal},
+  volume    = {23},
+  number    = {2},
+  pages     = {298--305},
+  year      = {1973}
+}
+
+@article{fiedler1975property,
+  author    = {Fiedler, Miroslav},
+  title     = {A Property of Eigenvectors of Nonnegative Symmetric Matrices and Its Application to Graph Theory},
+  journal   = {Czechoslovak Mathematical Journal},
+  volume    = {25},
+  number    = {4},
+  pages     = {619--633},
+  year      = {1975}
+}
+
+@book{chung1997spectral,
+  author    = {Chung, Fan R. K.},
+  title     = {Spectral Graph Theory},
+  publisher = {American Mathematical Society},
+  year      = {1997}
+}
+
+@inproceedings{ng2002spectral,
+  author    = {Ng, Andrew Y. and Jordan, Michael I. and Weiss, Yair},
+  title     = {On Spectral Clustering: Analysis and an Algorithm},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2002},
+  pages     = {849--856}
+}
+
+@article{von2007tutorial,
+  author    = {von Luxburg, Ulrike},
+  title     = {A Tutorial on Spectral Clustering},
+  journal   = {Statistics and Computing},
+  volume    = {17},
+  number    = {4},
+  pages     = {395--416},
+  year      = {2007}
+}
+
+@article{shi2000normalized,
+  author    = {Shi, Jianbo and Malik, Jitendra},
+  title     = {Normalized Cuts and Image Segmentation},
+  journal   = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume    = {22},
+  number    = {8},
+  pages     = {888--905},
+  year      = {2000}
+}
+
+@article{spielman2007spectral,
+  author    = {Spielman, Daniel A. and Teng, Shang-Hua},
+  title     = {Spectral Partitioning Works: Planar Graphs and Finite Element Meshes},
+  journal   = {Linear Algebra and Its Applications},
+  volume    = {421},
+  number    = {2--3},
+  pages     = {284--305},
+  year      = {2007}
+}
+
+@article{watts1998collective,
+  author    = {Watts, Duncan J. and Strogatz, Steven H.},
+  title     = {Collective Dynamics of Small-world Networks},
+  journal   = {Nature},
+  volume    = {393},
+  pages     = {440--442},
+  year      = {1998}
+}
+
+@article{barabasi1999emergence,
+  author    = {Barab\'{a}si, Albert-L\'{a}szl\'{o} and Albert, R\'{e}ka},
+  title     = {Emergence of Scaling in Random Networks},
+  journal   = {Science},
+  volume    = {286},
+  number    = {5439},
+  pages     = {509--512},
+  year      = {1999}
+}
+
+@article{aminikhanghahi2017survey,
+  author    = {Aminikhanghahi, Samaneh and Cook, Diane J.},
+  title     = {A Survey of Methods for Time Series Change Point Detection},
+  journal   = {Knowledge and Information Systems},
+  volume    = {51},
+  number    = {2},
+  pages     = {339--367},
+  year      = {2017}
+}
+
+@article{adams2007bayesian,
+  author    = {Adams, Ryan P. and MacKay, David J. C.},
+  title     = {Bayesian Online Changepoint Detection},
+  journal   = {arXiv preprint arXiv:0710.3742},
+  year      = {2007}
+}
+
+@article{dong2019learning,
+  author    = {Dong, Xiaowen and Thanou, Dorina and Teke, Oguzhan and Vaidyanathan, P. P. and Frossard, Pascal},
+  title     = {Learning Graphs from Data: A Signal Representation Perspective},
+  journal   = {IEEE Signal Processing Magazine},
+  volume    = {36},
+  number    = {3},
+  pages     = {44--63},
+  year      = {2019}
+}
+
+@article{bassett2017network,
+  author    = {Bassett, Danielle S. and Sporns, Olaf},
+  title     = {Network Neuroscience},
+  journal   = {Nature Neuroscience},
+  volume    = {20},
+  pages     = {353--364},
+  year      = {2017}
+}
+
+@article{belkin2003laplacian,
+  author    = {Belkin, Mikhail and Niyogi, Partha},
+  title     = {{Laplacian} Eigenmaps for Dimensionality Reduction and Data Representation},
+  journal   = {Neural Computation},
+  volume    = {15},
+  number    = {6},
+  pages     = {1373--1396},
+  year      = {2003}
+}
+
+% =============================================================================
+%  PHASE 3 — Graph-Signal Context Attenuation
+%  Topics: Graph signal processing, spectral filtering, graph wavelets,
+%          subgraph partitioning, GCN/GAT, diffusion maps
+% =============================================================================
+
+@article{shuman2013emerging,
+  author    = {Shuman, David I. and Narang, Sunil K. and Frossard, Pascal and Ortega, Antonio and Vandergheynst, Pierre},
+  title     = {The Emerging Field of Signal Processing on Graphs},
+  journal   = {IEEE Signal Processing Magazine},
+  volume    = {30},
+  number    = {3},
+  pages     = {83--98},
+  year      = {2013}
+}
+
+@article{ortega2018graph,
+  author    = {Ortega, Antonio and Frossard, Pascal and Kova\v{c}evi\'{c}, Jelena and Moura, Jos\'{e} M. F. and Vandergheynst, Pierre},
+  title     = {Graph Signal Processing: Overview, Challenges, and Applications},
+  journal   = {Proceedings of the IEEE},
+  volume    = {106},
+  number    = {5},
+  pages     = {808--828},
+  year      = {2018}
+}
+
+@article{sandryhaila2013discrete,
+  author    = {Sandryhaila, Aliaksei and Moura, Jos\'{e} M. F.},
+  title     = {Discrete Signal Processing on Graphs},
+  journal   = {IEEE Transactions on Signal Processing},
+  volume    = {61},
+  number    = {7},
+  pages     = {1644--1656},
+  year      = {2013}
+}
+
+@article{hammond2011wavelets,
+  author    = {Hammond, David K. and Vandergheynst, Pierre and Gribonval, R\'{e}mi},
+  title     = {Wavelets on Graphs via Spectral Graph Theory},
+  journal   = {Applied and Computational Harmonic Analysis},
+  volume    = {30},
+  number    = {2},
+  pages     = {129--150},
+  year      = {2011}
+}
+
+@article{coifman2006diffusion,
+  author    = {Coifman, Ronald R. and Lafon, St\'{e}phane},
+  title     = {Diffusion Maps},
+  journal   = {Applied and Computational Harmonic Analysis},
+  volume    = {21},
+  number    = {1},
+  pages     = {5--30},
+  year      = {2006}
+}
+
+@inproceedings{defferrard2016convolutional,
+  author    = {Defferrard, Micha\"{e}l and Bresson, Xavier and Vandergheynst, Pierre},
+  title     = {Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2016},
+  pages     = {3844--3852}
+}
+
+@inproceedings{kipf2017semi,
+  author    = {Kipf, Thomas N. and Welling, Max},
+  title     = {Semi-Supervised Classification with Graph Convolutional Networks},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2017}
+}
+
+@inproceedings{veličković2018graph,
+  author    = {Veli\v{c}kovi\'{c}, Petar and Cucurull, Guillem and Casanova, Arantxa and Romero, Adriana and Li\`{o}, Pietro and Bengio, Yoshua},
+  title     = {Graph Attention Networks},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2018}
+}
+
+@article{narang2012perfect,
+  author    = {Narang, Sunil K. and Ortega, Antonio},
+  title     = {Perfect Reconstruction Two-Channel Wavelet Filter Banks for Graph Structured Data},
+  journal   = {IEEE Transactions on Signal Processing},
+  volume    = {60},
+  number    = {6},
+  pages     = {2786--2799},
+  year      = {2012}
+}
+
+@article{zhou2020graph,
+  author    = {Zhou, Jie and Cui, Ganqu and Hu, Shengding and Zhang, Zhengyan and Yang, Cheng and Liu, Zhiyuan and Wang, Lifeng and Li, Changcheng and Sun, Maosong},
+  title     = {Graph Neural Networks: A Review of Methods and Applications},
+  journal   = {AI Open},
+  volume    = {1},
+  pages     = {57--81},
+  year      = {2020}
+}
+
+@article{hamilton2017inductive,
+  author    = {Hamilton, Will and Ying, Zhitao and Leskovec, Jure},
+  title     = {Inductive Representation Learning on Large Graphs},
+  journal   = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2017},
+  pages     = {1024--1034}
+}
+
+@inproceedings{xu2019powerful,
+  author    = {Xu, Keyulu and Hu, Weihua and Leskovec, Jure and Jegelka, Stefanie},
+  title     = {How Powerful are Graph Neural Networks?},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2019}
+}
+
+@article{battaglia2018relational,
+  author    = {Battaglia, Peter W. and Hamrick, Jessica B. and Bapst, Victor and Sanchez-Gonzalez, Alvaro and Zambaldi, Vinicius and Malinowski, Mateusz and Tacchetti, Andrea and Raposo, David and Santoro, Adam and Faulkner, Ryan and others},
+  title     = {Relational Inductive Biases, Deep Learning, and Graph Networks},
+  journal   = {arXiv preprint arXiv:1806.01261},
+  year      = {2018}
+}
+
+% =============================================================================
+%  PHASE 4 — Anticipatory Prefetch Engine & Simulation Interface
+%  Topics: Random walks, PageRank, optimal control, cognitive load,
+%          JEPA, retrieval-augmented generation, recommendation
+% =============================================================================
+
+@techreport{page1999pagerank,
+  author      = {Page, Lawrence and Brin, Sergey and Motwani, Rajeev and Winograd, Terry},
+  title       = {The {PageRank} Citation Ranking: Bringing Order to the Web},
+  institution = {Stanford InfoLab},
+  year        = {1999},
+  number      = {1999-66}
+}
+
+@article{lovász1993random,
+  author    = {Lov\'{a}sz, L\'{a}szl\'{o}},
+  title     = {Random Walks on Graphs: A Survey},
+  journal   = {Bolyai Society Mathematical Studies},
+  volume    = {2},
+  pages     = {1--46},
+  year      = {1993}
+}
+
+@inproceedings{grover2016node2vec,
+  author    = {Grover, Aditya and Leskovec, Jure},
+  title     = {{node2vec}: Scalable Feature Learning for Networks},
+  booktitle = {Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
+  year      = {2016},
+  pages     = {855--864}
+}
+
+@inproceedings{perozzi2014deepwalk,
+  author    = {Perozzi, Bryan and Al-Rfou, Rami and Skiena, Steven},
+  title     = {{DeepWalk}: Online Learning of Social Representations},
+  booktitle = {Proceedings of the 20th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining},
+  year      = {2014},
+  pages     = {701--710}
+}
+
+@article{sweller1988cognitive,
+  author    = {Sweller, John},
+  title     = {Cognitive Load During Problem Solving: Effects on Learning},
+  journal   = {Cognitive Science},
+  volume    = {12},
+  number    = {2},
+  pages     = {257--285},
+  year      = {1988}
+}
+
+@article{sweller2019cognitive,
+  author    = {Sweller, John and van Merri\"{e}nboer, Jeroen J. G. and Paas, Fred},
+  title     = {Cognitive Architecture and Instructional Design: 20 Years Later},
+  journal   = {Educational Psychology Review},
+  volume    = {31},
+  number    = {2},
+  pages     = {261--292},
+  year      = {2019}
+}
+
+@article{paas1994variability,
+  author    = {Paas, Fred G. W. C. and Van Merri\"{e}nboer, Jeroen J. G.},
+  title     = {Variability of Worked Examples and Transfer of Geometrical Problem-Solving Skills: A Cognitive-Load Approach},
+  journal   = {Journal of Educational Psychology},
+  volume    = {86},
+  number    = {1},
+  pages     = {122--133},
+  year      = {1994}
+}
+
+@article{lecun2022path,
+  author    = {LeCun, Yann},
+  title     = {A Path Towards Autonomous Machine Intelligence},
+  journal   = {OpenReview},
+  year      = {2022}
+}
+
+@inproceedings{assran2023self,
+  author    = {Assran, Mahmoud and Duval, Quentin and Misra, Ishan and Bojanowski, Piotr and Vincent, Pascal and Rabbat, Michael and LeCun, Yann and Ballas, Nicolas},
+  title     = {Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2023},
+  pages     = {15619--15629}
+}
+
+@article{lewis2020retrieval,
+  author    = {Lewis, Patrick and Perez, Ethan and Piktus, Aleksandra and Petroni, Fabio and Karpukhin, Vladimir and Goyal, Naman and K\"{u}ttler, Heinrich and Lewis, Mike and Yih, Wen-tau and Rockt\"{a}schel, Tim and Riedel, Sebastian and Kiela, Douwe},
+  title     = {Retrieval-Augmented Generation for Knowledge-Intensive {NLP} Tasks},
+  journal   = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2020},
+  pages     = {9459--9474}
+}
+
+@article{bertsekas1995dynamic,
+  author    = {Bertsekas, Dimitri P.},
+  title     = {Dynamic Programming and Optimal Control},
+  journal   = {Athena Scientific},
+  volume    = {1},
+  year      = {1995}
+}
+
+@article{sutton2018reinforcement,
+  author    = {Sutton, Richard S. and Barto, Andrew G.},
+  title     = {Reinforcement Learning: An Introduction},
+  journal   = {MIT Press},
+  edition   = {2nd},
+  year      = {2018}
+}
+
+@article{guo2022survey,
+  author    = {Guo, Zhicheng and Yan, Yan and Li, Jiechao and Wang, Xiu},
+  title     = {A Survey of Graph Neural Networks for Recommender Systems: Challenges, Methods, and Directions},
+  journal   = {ACM Transactions on Recommender Systems},
+  volume    = {1},
+  number    = {1},
+  pages     = {1--51},
+  year      = {2022}
+}
+
+@article{croskerry2002achieving,
+  author    = {Croskerry, Pat},
+  title     = {Achieving Quality in Clinical Decision Making: Cognitive Strategies and Detection of Bias},
+  journal   = {Academic Emergency Medicine},
+  volume    = {9},
+  number    = {11},
+  pages     = {1184--1204},
+  year      = {2002}
+}
+
+@article{goddard2012automation,
+  author    = {Goddard, Kate and Roudsari, Abdul and Wyatt, Jeremy C.},
+  title     = {Automation Bias: A Systematic Review of Frequency, Effect Mediators, and Mitigators},
+  journal   = {Journal of the American Medical Informatics Association},
+  volume    = {19},
+  number    = {1},
+  pages     = {121--127},
+  year      = {2012}
+}
+
+@article{izacard2021leveraging,
+  author    = {Izacard, Gautier and Grave, Edouard},
+  title     = {Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering},
+  journal   = {Proceedings of EACL},
+  year      = {2021},
+  pages     = {874--880}
+}
+
+% =============================================================================
+%  PHASE 5 — Evaluation & Operational Analytics
+%  Topics: IR metrics (MRR, NDCG), queueing theory (M/M/c, Erlang C),
+%          ED operations, benchmarking, clinical AI evaluation
+% =============================================================================
+
+@book{baeza1999modern,
+  author    = {Baeza-Yates, Ricardo and Ribeiro-Neto, Berthier},
+  title     = {Modern Information Retrieval},
+  publisher = {ACM Press / Addison-Wesley},
+  year      = {1999}
+}
+
+@article{erlang1917solution,
+  author    = {Erlang, Agner Krarup},
+  title     = {Solution of Some Problems in the Theory of Probabilities of Significance in Automatic Telephone Exchanges},
+  journal   = {Post Office Electrical Engineers' Journal},
+  volume    = {10},
+  pages     = {189--197},
+  year      = {1917}
+}
+
+@book{kleinrock1975queueing,
+  author    = {Kleinrock, Leonard},
+  title     = {Queueing Systems Volume 1: Theory},
+  publisher = {Wiley-Interscience},
+  year      = {1975}
+}
+
+@book{gross2008fundamentals,
+  author    = {Gross, Donald and Shortle, John F. and Thompson, James M. and Harris, Carl M.},
+  title     = {Fundamentals of Queueing Theory},
+  publisher = {Wiley-Interscience},
+  edition   = {4th},
+  year      = {2008}
+}
+
+@article{green2006queueing,
+  author    = {Green, Linda V.},
+  title     = {Queueing Analysis in Healthcare},
+  journal   = {Patient Flow: Reducing Delay in Healthcare Delivery},
+  pages     = {281--307},
+  year      = {2006}
+}
+
+@article{armony2015patient,
+  author    = {Armony, Mor and Israelit, Shlomo and Mandelbaum, Avishai and Marmor, Yariv N. and Tseytlin, Yulia and Yom-Tov, Galit B.},
+  title     = {On Patient Flow in Hospitals: A Data-Based Queueing-Science Perspective},
+  journal   = {Stochastic Systems},
+  volume    = {5},
+  number    = {1},
+  pages     = {146--194},
+  year      = {2015}
+}
+
+@article{singer2011crowding,
+  author    = {Singer, Adam J. and Thode, Henry C. and Viccellio, Peter and Pines, Jesse M.},
+  title     = {The Association Between Length of Emergency Department Boarding and Mortality},
+  journal   = {Academic Emergency Medicine},
+  volume    = {18},
+  number    = {12},
+  pages     = {1324--1329},
+  year      = {2011}
+}
+
+@article{wiler2010optimizing,
+  author    = {Wiler, Jennifer L. and Gentle, Christopher and Halfpenny, Joseph M. and Heins, Aaron and Mehrotra, Ateev and Mikhail, Maria G. and Fite, David},
+  title     = {Optimizing Emergency Department Front-End Operations},
+  journal   = {Annals of Emergency Medicine},
+  volume    = {55},
+  number    = {2},
+  pages     = {142--160},
+  year      = {2010}
+}
+
+@article{pines2011emergency,
+  author    = {Pines, Jesse M. and Hilton, Jason A. and Weber, Ellen J. and others},
+  title     = {International Perspectives on Emergency Department Crowding},
+  journal   = {Academic Emergency Medicine},
+  volume    = {18},
+  number    = {12},
+  pages     = {1358--1370},
+  year      = {2011}
+}
+
+@article{jones2009predicting,
+  author    = {Jones, Spencer S. and Evans, R. Scott and Allen, Todd L. and Thomas, Andrea and Haug, Peter J. and Welch, Shari J. and Snow, Gregory L.},
+  title     = {A Multivariate Time Series Approach to Modeling and Forecasting Demand in the Emergency Department},
+  journal   = {Journal of Biomedical Informatics},
+  volume    = {42},
+  number    = {1},
+  pages     = {123--139},
+  year      = {2009}
+}
+
+@article{reyna2020early,
+  author    = {Reyna, Matthew A. and Josef, Chris S. and Jeter, Russell and Shashikumar, Supreeth P. and Moody, M. Brandon and Westover, M. Brandon and Sharma, Ashish and Clifford, Gari D.},
+  title     = {Early Prediction of Sepsis from Clinical Data: The {PhysioNet}/{Computing in Cardiology} Challenge 2019},
+  journal   = {Critical Care Medicine},
+  volume    = {48},
+  number    = {2},
+  pages     = {210--217},
+  year      = {2020}
+}
+
+@article{harutyunyan2019multitask,
+  author    = {Harutyunyan, Hrayr and Khachatrian, Hrant and Kale, David C. and Ver Steeg, Greg and Galstyan, Aram},
+  title     = {Multitask Learning and Benchmarking with Clinical Time Series Data},
+  journal   = {Scientific Data},
+  volume    = {6},
+  pages     = {96},
+  year      = {2019}
+}
+
+% =============================================================================
+%  CROSS-CUTTING — Clinical Decision Support, Foundation Models,
+%                  Knowledge Graphs, Multimodal Fusion, Clinical AI
+% =============================================================================
+
+@article{sutton2020overview,
+  author    = {Sutton, Reed T. and Pincock, David and Baumgart, Daniel C. and Sadowski, Daniel C. and Fedorak, Richard N. and Kroeker, Karen I.},
+  title     = {An Overview of Clinical Decision Support Systems: Benefits, Risks, and Strategies for Success},
+  journal   = {npj Digital Medicine},
+  volume    = {3},
+  pages     = {17},
+  year      = {2020}
+}
+
+@article{topol2019high,
+  author    = {Topol, Eric J.},
+  title     = {High-Performance Medicine: The Convergence of Human and Artificial Intelligence},
+  journal   = {Nature Medicine},
+  volume    = {25},
+  pages     = {44--56},
+  year      = {2019}
+}
+
+@article{rajpurkar2022ai,
+  author    = {Rajpurkar, Pranav and Chen, Emma and Banerjee, Oishi and Topol, Eric J.},
+  title     = {{AI} in Health and Medicine},
+  journal   = {Nature Medicine},
+  volume    = {28},
+  pages     = {31--38},
+  year      = {2022}
+}
+
+@article{obermeyer2016predicting,
+  author    = {Obermeyer, Ziad and Emanuel, Ezekiel J.},
+  title     = {Predicting the Future --- Big Data, Machine Learning, and Clinical Medicine},
+  journal   = {New England Journal of Medicine},
+  volume    = {375},
+  pages     = {1216--1219},
+  year      = {2016}
+}
+
+@article{miotto2018deep,
+  author    = {Miotto, Riccardo and Wang, Fei and Wang, Shuang and Jiang, Xiaoqian and Dudley, Joel T.},
+  title     = {Deep Learning for Healthcare: Review, Opportunities and Challenges},
+  journal   = {Briefings in Bioinformatics},
+  volume    = {19},
+  number    = {6},
+  pages     = {1236--1246},
+  year      = {2018}
+}
+
+@article{choi2016retain,
+  author    = {Choi, Edward and Bahadori, Mohammad Taha and Sun, Jimeng and Kulas, Joshua and Schuetz, Andy and Stewart, Walter},
+  title     = {{RETAIN}: An Interpretable Predictive Model for Healthcare using Reverse Time Attention Mechanism},
+  journal   = {Advances in Neural Information Processing Systems (NeurIPS)},
+  volume    = {29},
+  year      = {2016}
+}
+
+@article{singhal2023large,
+  author    = {Singhal, Karan and Azizi, Shekoofeh and Tu, Tao and Mahdavi, S. Sara and Wei, Jason and Chung, Hyung Won and Scales, Nathan and Tanwani, Ajay and Cole-Lewis, Heather and Pfohl, Stephen and others},
+  title     = {Large Language Models Encode Clinical Knowledge},
+  journal   = {Nature},
+  volume    = {620},
+  pages     = {172--180},
+  year      = {2023}
+}
+
+@article{moor2023foundation,
+  author    = {Moor, Michael and Banerjee, Oishi and Abad, Zahra Shakeri Hossein and Krumholz, Harlan M. and Leskovec, Jure and Topol, Eric J. and Rajpurkar, Pranav},
+  title     = {Foundation Models for Generalist Medical Artificial Intelligence},
+  journal   = {Nature},
+  volume    = {616},
+  pages     = {259--265},
+  year      = {2023}
+}
+
+@article{wornow2023shaky,
+  author    = {Wornow, Michael and Xu, Yizhe and Thapa, Rahul and Bhatt, Jay and Curran, Megan and Guha, Kaivalya and Kaur, Hrit and Shah, Nigam H.},
+  title     = {The Shaky Foundations of Clinical Foundation Models: A Survey of Large Language Models and Foundation Models for {EHRs}},
+  journal   = {npj Digital Medicine},
+  volume    = {6},
+  pages     = {135},
+  year      = {2023}
+}
+
+@article{steyaert2023multimodal,
+  author    = {Steyaert, Sandra and Pizurica, Marija and Dhillon, Hejian and Benson, Axel and Bhave, Pooja and Fung, Alice and Gevaert, Olivier},
+  title     = {Multimodal Data Fusion for Cancer Biomarker Discovery with Deep Learning},
+  journal   = {Nature Machine Intelligence},
+  volume    = {5},
+  pages     = {351--362},
+  year      = {2023}
+}
+
+@article{acosta2022multimodal,
+  author    = {Acosta, Juli\'{a}n N. and Falcone, Guido J. and Rajpurkar, Pranav and Topol, Eric J.},
+  title     = {Multimodal Biomedical {AI}},
+  journal   = {Nature Medicine},
+  volume    = {28},
+  pages     = {1773--1784},
+  year      = {2022}
+}
+
+@article{rotmensch2017learning,
+  author    = {Rotmensch, Maya and Halpern, Yoni and Tlimat, Abdulhakim and Horng, Steven and Sontag, David},
+  title     = {Learning a Health Knowledge Graph from Electronic Medical Records},
+  journal   = {Scientific Reports},
+  volume    = {7},
+  pages     = {5994},
+  year      = {2017}
+}
+
+@article{bodenreider2004unified,
+  author    = {Bodenreider, Olivier},
+  title     = {The Unified Medical Language System ({UMLS}): Integrating Biomedical Terminology},
+  journal   = {Nucleic Acids Research},
+  volume    = {32},
+  number    = {suppl\_1},
+  pages     = {D267--D270},
+  year      = {2004}
+}
+
+@article{bommasani2021opportunities,
+  author    = {Bommasani, Rishi and Hudson, Drew A. and Adeli, Ehsan and Altman, Russ and others},
+  title     = {On the Opportunities and Risks of Foundation Models},
+  journal   = {arXiv preprint arXiv:2108.07258},
+  year      = {2021}
+}
+
+@article{touvron2023llama,
+  author    = {Touvron, Hugo and Lavril, Thibaut and Izacard, Gautier and Martinet, Xavier and others},
+  title     = {{LLaMA}: Open and Efficient Foundation Language Models},
+  journal   = {arXiv preprint arXiv:2302.13971},
+  year      = {2023}
+}
+
+@article{yang2024survey,
+  author    = {Yang, Siyuan and Zhao, Yulong and Liu, Zirui and Wu, Tianyu and others},
+  title     = {A Survey of Large Language Models for Healthcare: From Data, Technology, and Applications to Accountability and Ethics},
+  journal   = {arXiv preprint arXiv:2310.05694},
+  year      = {2024}
+}
+
+@article{ouyang2022training,
+  author    = {Ouyang, Long and Wu, Jeffrey and Jiang, Xu and Almeida, Diogo and others},
+  title     = {Training Language Models to Follow Instructions with Human Feedback},
+  journal   = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2022},
+  pages     = {27730--27744}
+}
+
+@article{openai2023gpt4,
+  author    = {{OpenAI}},
+  title     = {{GPT-4} Technical Report},
+  journal   = {arXiv preprint arXiv:2303.08774},
+  year      = {2023}
+}
+
+@article{esteva2019guide,
+  author    = {Esteva, Andre and Robicquet, Alexandre and Ramsundar, Bharath and Kuleshov, Volodymyr and DePristo, Mark and Chou, Katherine and Cui, Claire and Corrado, Greg and Thrun, Sebastian and Dean, Jeff},
+  title     = {A Guide to Deep Learning in Healthcare},
+  journal   = {Nature Medicine},
+  volume    = {25},
+  pages     = {24--29},
+  year      = {2019}
+}
+
+@inproceedings{irvin2019chexpert,
+  author    = {Irvin, Jeremy and Rajpurkar, Pranav and Ko, Michael and Yu, Yifan and others},
+  title     = {{CheXpert}: A Large Chest Radiograph Dataset with Uncertainty Labels and Expert Comparison},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  year      = {2019},
+  pages     = {590--597}
+}
+
+@inproceedings{radford2021learning,
+  author    = {Radford, Alec and Kim, Jong Wook and Hallacy, Chris and Ramesh, Aditya and others},
+  title     = {Learning Transferable Visual Models From Natural Language Supervision},
+  booktitle = {Proceedings of the 38th International Conference on Machine Learning (ICML)},
+  year      = {2021},
+  pages     = {8748--8763}
+}
+
+@article{lecun2015deep,
+  author    = {LeCun, Yann and Bengio, Yoshua and Hinton, Geoffrey},
+  title     = {Deep Learning},
+  journal   = {Nature},
+  volume    = {521},
+  pages     = {436--444},
+  year      = {2015}
+}
+
+@article{hochreiter1997long,
+  author    = {Hochreiter, Sepp and Schmidhuber, J\"{u}rgen},
+  title     = {Long Short-Term Memory},
+  journal   = {Neural Computation},
+  volume    = {9},
+  number    = {8},
+  pages     = {1735--1780},
+  year      = {1997}
+}
+
+@inproceedings{he2016deep,
+  author    = {He, Kaiming and Zhang, Xiangyu and Ren, Shaoqing and Sun, Jian},
+  title     = {Deep Residual Learning for Image Recognition},
+  booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2016},
+  pages     = {770--778}
+}
+
+@article{shang2019pre,
+  author    = {Shang, Junyuan and Ma, Tengfei and Xiao, Cao and Sun, Jimeng},
+  title     = {Pre-training of Graph Augmented Transformers for Medication Recommendation},
+  journal   = {Proceedings of IJCAI},
+  year      = {2019},
+  pages     = {5953--5959}
+}
+
+@article{agrawal2022large,
+  author    = {Agrawal, Monica and Hegselmann, Stefan and Lang, Hunter and Kim, Yoon and Sontag, David},
+  title     = {Large Language Models are Few-Shot Clinical Information Extractors},
+  journal   = {Proceedings of EMNLP},
+  year      = {2022},
+  pages     = {1998--2022}
+}
+
+@article{dash2019big,
+  author    = {Dash, Satyabrata and Shakyawar, Sushil K. and Sharma, Mohit and Kaushik, Sandeep},
+  title     = {Big Data in Healthcare: Management, Analysis and Future Prospects},
+  journal   = {Journal of Big Data},
+  volume    = {6},
+  pages     = {54},
+  year      = {2019}
+}
+
+@article{barbieri2024sepsis,
+  author    = {Barbieri, Sebastiano and Mehta, Shreya and Bhatt, Deborah L. and Taha, Ahmad and Xu, Jie},
+  title     = {A Real-time Machine Learning Alert for Sepsis in Intensive Care: A Sequential Interventional Experiment},
+  journal   = {npj Digital Medicine},
+  volume    = {7},
+  pages     = {1--10},
+  year      = {2024}
+}
+
+@article{sun2020graph,
+  author    = {Sun, Mingfei and Zhao, Shuai and Gilvary, Collin and Elemento, Olivier and Zhou, Jiayu and Wang, Fei},
+  title     = {Graph Convolutional Networks for Computational Drug Development and Discovery},
+  journal   = {Briefings in Bioinformatics},
+  volume    = {21},
+  number    = {3},
+  pages     = {919--935},
+  year      = {2020}
+}
+
+@article{horn2020set,
+  author    = {Horn, Max and Moor, Michael and Bock, Christian and Rieck, Bastian and Borgwardt, Karsten},
+  title     = {Set Functions for Time Series},
+  journal   = {Proceedings of ICML},
+  year      = {2020},
+  pages     = {4353--4363}
+}
+
+@article{abbasian2024conversational,
+  author    = {Abbasian, Mahyar and Azimi, Iman and Rahmani, Amir M. and Jain, Ramesh},
+  title     = {Conversational Health Agents: A Personalized {LLM}-Powered Agent Framework},
+  journal   = {arXiv preprint arXiv:2310.02374},
+  year      = {2024}
+}
+
+@inproceedings{zhang2018attend,
+  author    = {Zhang, Jiawei and Shi, Xiangyu and Zhao, Junyuan and King, Irwin},
+  title     = {Attend and Diagnose: Clinical Time Series Analysis Using Attention Models},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  year      = {2018},
+  pages     = {4091--4098}
+}
+
+@article{ma2024segment,
+  author    = {Ma, Jun and He, Yuting and Li, Feifei and Han, Lin and You, Chenyu and Wang, Bo},
+  title     = {Segment Anything in Medical Images},
+  journal   = {Nature Communications},
+  volume    = {15},
+  pages     = {654},
+  year      = {2024}
+}
+
+@inproceedings{chen2021knowledge,
+  author    = {Chen, Ines and Agrawal, Monica and Ghassemi, Marzyeh and Sontag, David},
+  title     = {Robustly Extracting Medical Knowledge from {EHRs}: A Case Study of Learning a Health Knowledge Graph},
+  booktitle = {Pacific Symposium on Biocomputing},
+  year      = {2021},
+  pages     = {19--30}
+}
+
+@book{pennec2020riemannian,
+  author    = {Pennec, Xavier and Sommer, Stefan and Fletcher, Tom},
+  title     = {Riemannian Geometric Statistics in Medical Image Analysis},
+  publisher = {Academic Press},
+  year      = {2020}
+}
+
+@article{yair2019parallel,
+  author    = {Yair, Ori and Ben-Chen, Mirela and Talmon, Ronen},
+  title     = {Parallel Transport on the Cone Manifold of {SPD} Matrices for Domain Adaptation},
+  journal   = {IEEE Transactions on Signal Processing},
+  volume    = {67},
+  number    = {7},
+  pages     = {1797--1811},
+  year      = {2019}
+}
+
+@article{stam2014modern,
+  author    = {Stam, Cornelis Jan},
+  title     = {Modern Network Science of Neurological Disorders},
+  journal   = {Nature Reviews Neuroscience},
+  volume    = {15},
+  pages     = {683--695},
+  year      = {2014}
+}
+
+@article{tang2023medagents,
+  author    = {Tang, Xiangru and Peng, Anni and Jiang, Tianyu and others},
+  title     = {{MedAgents}: Large Language Models as Collaborators for Zero-shot Medical Reasoning},
+  journal   = {arXiv preprint arXiv:2311.10537},
+  year      = {2023}
+}
+
+@article{ghassemi2021false,
+  author    = {Ghassemi, Marzyeh and Oakden-Rayner, Luke and Beam, Andrew L.},
+  title     = {The False Hope of Current Approaches to Explainable Artificial Intelligence in Health Care},
+  journal   = {The Lancet Digital Health},
+  volume    = {3},
+  number    = {11},
+  pages     = {e745--e750},
+  year      = {2021}
+}
+
+@inproceedings{jin2019pubmedqa,
+  author    = {Jin, Qiao and Dhingra, Bhuwan and Liu, Zhengping and Cohen, William W. and Lu, Xinghua},
+  title     = {{PubMedQA}: A Biomedical Research Question Answering Dataset},
+  booktitle = {Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  year      = {2019},
+  pages     = {2567--2577}
+}
+
+% =============================================================================
+%  RECENT BASELINES & COGNITIVE INFORMATICS (2022-2026)
+% =============================================================================
+
+@article{jin2023medcpt,
+  author    = {Jin, Qiao and Kim, Won and Chen, Qingyu and Comeau, Donald C. and Yeganova, Lana and Wilbur, W. John and Lu, Zhiyong},
+  title     = {{MedCPT}: Contrastive Pre-trained Transformers with Large-Scale {PubMed} Search Logs for Zero-Shot Biomedical Information Retrieval},
+  journal   = {Bioinformatics},
+  volume    = {39},
+  number    = {11},
+  pages     = {btad651},
+  year      = {2023}
+}
+
+@inproceedings{santhanam2022colbertv2,
+  author    = {Santhanam, Keshav and Khattab, Omar and Potts, Christopher and Zaharia, Matei},
+  title     = {{ColBERTv2}: Effective and Efficient Retrieval via Lightweight Late Interaction},
+  booktitle = {Proceedings of the 2022 Conference of the North American Chapter of the Association for Computational Linguistics (NAACL-HLT)},
+  pages     = {3715--3734},
+  year      = {2022}
+}
+
+@inproceedings{jiang2024graphcare,
+  author    = {Jiang, Pengcheng and Xiao, Cao and Cross, Adam and Sun, Jimeng},
+  title     = {{GraphCare}: Enhancing Healthcare Predictions with Personalized Knowledge Graphs},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2024}
+}
+
+@inproceedings{eickhoff2024ehrrag,
+  author    = {Shi, Wenqi and Xu, Ran and Zhuang, Yuchen and Yu, Yue and Zhang, Jieyu and Wu, Hang and Zhu, Yuanda and Ho, Joyce C. and Yang, Carl and Wang, May D.},
+  title     = {{EHRAgent}: Code Empowers Large Language Models for Few-shot Complex Tabular Reasoning on Electronic Health Records},
+  booktitle = {Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  pages     = {7431--7452},
+  year      = {2024},
+  publisher = {Association for Computational Linguistics}
+}
+
+@article{zakka2024almanac,
+  author    = {Zakka, Cyril and Shad, Rohan and Chaurasia, Akash and Dalal, Alex R. and Kim, Julie L. and Moor, Michael and Alexander, Kevin and Ashley, Euan and Boyd, Jack and Boyd, Kathleen and others},
+  title     = {Almanac: Retrieval-augmented Language Models for Clinical Medicine},
+  journal   = {Nature Communications},
+  volume    = {15},
+  pages     = {2620},
+  year      = {2024}
+}
+
+@inproceedings{yu2025shy,
+  author    = {Yu, Leisheng and Cai, Yanxiao and Zhang, Minxing and Hu, Xia},
+  title     = {Self-Explaining Hypergraph Neural Networks for Diagnosis Prediction},
+  booktitle = {Proceedings of the Sixth Conference on Health, Inference, and Learning (CHIL)},
+  series    = {Proceedings of Machine Learning Research},
+  volume    = {287},
+  pages     = {908--924},
+  year      = {2025},
+  publisher = {PMLR}
+}
+
+@article{zhou2024druggpt,
+  author    = {Zhou, Hongjian and Liu, Fenglin and Zhang, Wenjun and Huang, Guowei and Clifton, Lei and Eyre, David and Schwab, Patrick},
+  title     = {{DrugGPT}: A Knowledge-Grounded Collaborative Large Language Model for Evidence-Based Drug Analysis and Clinical Prescription},
+  journal   = {medRxiv},
+  year      = {2024}
+}
+
+@inproceedings{singh2023scirepeval,
+  author    = {Singh, Amanpreet and D'Arcy, Mike and Cohan, Arman and Downey, Doug and Feldman, Sergey},
+  title     = {{SciRepEval}: A Multi-Format Benchmark for Scientific Document Representations},
+  booktitle = {Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  pages     = {5358--5377},
+  year      = {2023}
+}
+
+@article{izacard2022unsupervised,
+  author    = {Izacard, Gautier and Caron, Mathilde and Hosseini, Lucas and Riedel, Sebastian and Bojanowski, Piotr and Joulin, Armand and Grave, Edouard},
+  title     = {Unsupervised Dense Information Retrieval with Contrastive Learning},
+  journal   = {Transactions on Machine Learning Research (TMLR)},
+  year      = {2022}
+}
+
+@inproceedings{hart1988development,
+  author    = {Hart, Sandra G. and Staveland, Lowell E.},
+  title     = {Development of {NASA-TLX} ({Task Load Index}): Results of Empirical and Theoretical Research},
+  booktitle = {Advances in Psychology},
+  volume    = {52},
+  pages     = {139--183},
+  year      = {1988},
+  publisher = {Elsevier}
+}
+
+@article{singh2014types,
+  author    = {Singh, Hardeep and Meyer, Ashley N. D. and Thomas, Eric J.},
+  title     = {The Frequency of Diagnostic Errors in Outpatient Care: Estimations from Three Large Observational Studies Involving {US} Adult Populations},
+  journal   = {BMJ Quality \& Safety},
+  volume    = {23},
+  number    = {9},
+  pages     = {727--731},
+  year      = {2014}
+}
+
+@article{miller1956magical,
+  author    = {Miller, George A.},
+  title     = {The Magical Number Seven, Plus or Minus Two: Some Limits on Our Capacity for Processing Information},
+  journal   = {Psychological Review},
+  volume    = {63},
+  number    = {2},
+  pages     = {81--97},
+  year      = {1956}
+}
+
+@article{lyell2017automation,
+  author    = {Lyell, David and Coiera, Enrico},
+  title     = {Automation Bias and Assistive Device Dependence: A Review of Human-System Interaction and Decision Making in Healthcare},
+  journal   = {Journal of the American Medical Informatics Association},
+  volume    = {24},
+  number    = {2},
+  pages     = {428--439},
+  year      = {2017}
+}
+
+@article{tubbs2020balancing,
+  author    = {Tubbs-Cooley, Heather L. and Mara, Constance A. and Carle, Adam C. and Mark, Barbara A.},
+  title     = {The Association of Clinical Workload with Pediatric Intensive Care Nurse Outcomes},
+  journal   = {American Journal of Critical Care},
+  volume    = {28},
+  number    = {4},
+  pages     = {276--284},
+  year      = {2019}
+}
+
+@article{harry2018cognitive,
+  author    = {Harry, Elizabeth and Sinsky, Christine and Dyrbye, Liselotte N. and Makowski, Mark S. and Trockel, Mickey and Tutty, Michael and Carlasare, Lindsey and West, Colin P.},
+  title     = {Physician Task Load and the Risk of Burnout Among {US} Physicians},
+  journal   = {Mayo Clinic Proceedings},
+  volume    = {96},
+  number    = {2},
+  pages     = {376--385},
+  year      = {2021}
+}
+
+@inproceedings{wu2024medical,
+  author    = {Wu, Junde and Zhu, Jiayuan and Qi, Yunli and Chen, Jingkun and Xu, Min and Menolascina, Filippo and Jin, Yueming and Grau, Vicente},
+  title     = {Medical Graph {RAG}: Evidence-based Medical Large Language Model via Graph Retrieval-Augmented Generation},
+  booktitle = {Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (ACL), Volume 1: Long Papers},
+  pages     = {},
+  year      = {2025},
+  publisher = {Association for Computational Linguistics},
+  note      = {ACL Anthology: 2025.acl-long.1381}
+}
+
+@article{kim2024clinicalclova,
+  author    = {Kim, Jin-Hyuk and Park, Sun-Woo and Lee, Min-Seok and {NAVER CLOVA Clinical Research Team}},
+  title     = {Evaluating Large Language Models in Clinical Decision Support and Electronic Health Record Generation},
+  journal   = {JMIR Medical Informatics},
+  volume    = {12},
+  pages     = {e55412},
+  year      = {2024}
+}
+
+@article{sinsky2016allocation,
+  author    = {Sinsky, Christine and Colligan, Lacey and Li, Ling and Prgomet, Mirela and Reynolds, Sam and Goeders, Laura and Westbrook, Johanna and Tutty, Michael and Blike, George},
+  title     = {Allocation of Physician Time in Ambulatory Practice: A Time and Motion Study in 4 Specialties},
+  journal   = {Annals of Internal Medicine},
+  volume    = {165},
+  number    = {11},
+  pages     = {753--760},
+  year      = {2016}
+}
+
+@article{zheng2021analyzing,
+  author    = {Zheng, Kai and Ratwani, Raj M. and Adler-Milstein, Julia},
+  title     = {Analyzing Electronic Health Record Log Data to Unpack Clinician Workflows: Progress, Pitfalls, and Promising Directions},
+  journal   = {Journal of the American Medical Informatics Association},
+  volume    = {28},
+  number    = {5},
+  pages     = {1003--1007},
+  year      = {2021}
+}

@@ -1,0 +1,76 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{booktabs}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!70!black,
+    urlcolor=blue!70!black
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+
+\begin{document}
+
+\begin{flushright}
+    September 23, 2026
+\end{flushright}
+
+\textbf{Prof. Yu Ding, Ph.D.}\\
+Editor-in-Chief, \textit{INFORMS Journal on Data Science}\\
+Anderson-Interface Chair and Professor\\
+H. Milton Stewart School of Industrial and Systems Engineering\\
+Georgia Institute of Technology\\
+Atlanta, GA 30332, USA
+
+\vspace{10pt}
+
+\textbf{RE: Formal Resubmission of IJDS-2026-0250 as a Substantially Revised Manuscript}\\
+\textbf{Title:} Spectral Diagnostic Trajectories: Multi-Modal Hypergraph State-Space Tracking, Context Decoupling, and Congestion Mitigation in Stochastic Clinical Service Systems
+
+\vspace{8pt}
+
+Dear Professor Ding,
+
+Thank you for your editorial decision and constructive guidance regarding our earlier submission, IJDS-2026-0250. We sincerely apologize for our administrative error and the submission of unadapted materials that improperly included draft disclosure forms from an earlier target venue. We deeply regret this oversight and fully understand and respect the high standards that you and the editorial board uphold for the \textit{INFORMS Journal on Data Science}.
+
+We appreciate your willingness to consider a significant resubmission. Over the past several days, our team has performed a comprehensive, rigorous overhaul of the manuscript to align it fully with IJDS's editorial scope, format, and review policies. Specifically, we have addressed every point raised in your letter:
+
+\begin{enumerate}
+    \item \textbf{Strict Double-Anonymous Compliance}: 
+    In strict compliance with IJDS policy, we have removed all author names, institutional affiliations, contact emails, ORCID numbers, funding disclosures, and personal repository links from the main manuscript and figures. All self-citations are referenced strictly in the third person. A separate, unblinded Title Page file has been prepared for upload via ScholarOne.
+
+    \item \textbf{Official IJDS LaTeX Template and Style Implementation}:
+    The entire manuscript has been rewritten and formatted using the official INFORMS document class (\texttt{informs4.cls}) under the \texttt{[ijds, dblanonrev]} options. The abstract has been completely restructured into a single paragraph of under 300 words that strictly addresses the three mandatory questions: (1) Research problem statement and data science relevance, (2) Methods and quantitative results, and (3) Theoretical insights and operational implications.
+
+    \item \textbf{Official IJDS Data and Code Disclosure Form}:
+    We have discarded all previous forms and completed the official INFORMS Journal on Data Science Data \& Code Disclosure Form. In accordance with IJDS's updated policy, we certify our commitment to upload complete, documented source code, synthetic validation traces, and reproducible environment definitions to the official IJDS Online Supplemental Page upon acceptance.
+
+    \item \textbf{Substantial Methodological and Operational Reframing for IJDS}:
+    We have substantially reoriented the paper from a clinical informatics tool to an advanced \textbf{Operations Research and Data Science} methodology:
+    \begin{itemize}
+        \item \emph{Dynamic Graph Signal Processing}: We formalize the multi-modal interaction state as an evolving hypergraph Laplacian ($L_t$) spanning continuous 125\,Hz telemetry waveforms (modeled via linear state-space Mamba-2 representations), discrete events, and clinical text.
+        \item \emph{Theoretical Spectral Guarantees}: We provide rigorous Courant-Fischer proofs (Theorem~1) demonstrating linear-time $\mathcal{O}(|E_t|)$ pivot detection via algebraic connectivity ($\lambda_2$), coupled with Chebyshev graph filtering and formal Cheeger conductance bounds (Theorem~2) that strictly bound context leakage ($\phi \le \sqrt{2\lambda_2}$).
+        \item \emph{Constrained Combinatorial Optimization}: We formulate prospective prefetching as an information-theoretic 0/1 knapsack problem bounded by Sweller working-memory surprisal budgets.
+        \item \emph{Erlang C ($M/M/c$) Queueing Sensitivity}: Crucially for the INFORMS readership, we provide a formal mathematical derivation proving that the sensitivity derivative of waiting time $\frac{\partial W_q}{\partial (\Delta t)}$ scales as $\mathcal{O}((1-\rho)^{-2})$ near server capacity. We demonstrate that recovering 25.6 seconds of search latency yields an estimated 12.31-minute reduction in emergency room boarding delays, eliminating over 10,200 hours of cumulative queue delay annually.
+    \end{itemize}
+\end{enumerate}
+
+We believe this substantially revised manuscript demonstrates the utmost respect for IJDS and offers a high-impact contribution bridging data-driven hypergraph spectral theory with stochastic queueing optimization in human-in-the-loop service operations. 
+
+We thank you for your time, editorial leadership, and reconsideration of our work.
+
+\vspace{14pt}
+
+Sincerely,
+
+\vspace{8pt}
+The Authors\\
+(Submitting Authors: Hemanth Manchabale Papachappa \& Aniruddha Ganguly)
+
+\end{document}
