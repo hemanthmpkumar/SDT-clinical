@@ -32,6 +32,18 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
+# GPU telemetry import
+try:
+    from src.sdt.device_utils import log_gpu_telemetry
+    _gpu_telemetry_enabled = True
+except ImportError:
+    _gpu_telemetry_enabled = False
+
+def _log_gpu(phase: str):
+    """Helper to log GPU telemetry if available."""
+    if _gpu_telemetry_enabled:
+        log_gpu_telemetry(phase)
+
 np.seterr(divide="ignore", invalid="ignore", over="ignore")
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
@@ -39,8 +51,14 @@ from src.data.prepare import load_corpus_and_vignettes
 from src.experiments.simulate_users import run_experiment, CONDITION_PARAMS
 from src.models.baseline import BaselineRetriever
 from src.models.bm25 import BM25Retriever
-from src.models.cma import CMARetriever
-from src.models.gdt import GDTRetriever
+try:
+    from src.models.cma import CMARetriever
+except ImportError:
+    CMARetriever = None
+try:
+    from src.models.gdt import GDTRetriever
+except ImportError:
+    GDTRetriever = None
 from src.sdt import SDTRetriever, ed_impact_table
 
 SDT_PARAMS = {
@@ -69,6 +87,8 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--c-servers", type=int, default=8, dest="c_servers", help="Number of servers for Erlang C")
     p.add_argument("--all-baselines", action="store_true", help="Include all 4 new baselines")
     p.add_argument("--resume", action="store_true", help="Resume from existing outputs/results.csv without re-running simulation")
+    p.add_argument("--sdt-only", action="store_true", help="Run only SDT condition (no CMA/GDT required)")
+    p.add_argument("--n-vignettes", type=int, default=None, help="Number of vignettes to test (first N from test set)")
     return p.parse_args()
 
 import subprocess
@@ -82,7 +102,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-def build_retrievers(args, corpus, vignettes):
+def build_retrievers(args, corpus, vignettes, sdt_only=False):
     logger.info("Initializing retrievers...")
     
     t0 = time.time()
@@ -92,33 +112,57 @@ def build_retrievers(args, corpus, vignettes):
     logger.info("Building BM25...")
     bm25 = BM25Retriever(corpus)
     
-    logger.info("Building CMA (Dense RAG)...")
-    cma = CMARetriever(corpus)
-    logger.info("Fitting CMA predictor (this may take a moment)...")
-    cma.fit_predictor(vignettes, epochs=120, batch_size=64)
+    retrievers_dict = {"control": baseline, "bm25": bm25}
     
-    logger.info("Building GDT (SPD Manifold)...")
-    gdt = GDTRetriever(corpus)
-    logger.info("Fitting GDT predictor...")
-    gdt.fit_predictor(vignettes, epochs=120, batch_size=64)
+    if sdt_only:
+        logger.info("SDT-only mode: skipping CMA/GDT...")
+        logger.info("Building SDT (Spectral Hypergraph, TF-IDF only)...")
+        sdt = SDTRetriever(
+            corpus=corpus,
+            tau_pivot=args.tau_pivot,
+            alpha=args.alpha,
+            window_k=args.window_k,
+            gamma_filter=args.gamma,
+            tau_walk=args.tau_walk,
+            c_max=args.c_max,
+            lexical_weight=args.lex_weight,
+            semantic_weight=args.sem_weight,
+            prefetch_weight=args.pf_weight,
+            seed=args.seed,
+        )
+        retrievers_dict["sdt"] = sdt
+    else:
+        if CMARetriever is None:
+            raise RuntimeError("CMA module not available. Use --sdt-only or install CMA.")
+        if GDTRetriever is None:
+            raise RuntimeError("GDT module not available. Use --sdt-only or install GDT.")
+        
+        logger.info("Building CMA (Dense RAG)...")
+        cma = CMARetriever(corpus)
+        logger.info("Fitting CMA predictor (this may take a moment)...")
+        cma.fit_predictor(vignettes, epochs=120, batch_size=64)
+        
+        logger.info("Building GDT (SPD Manifold)...")
+        gdt = GDTRetriever(corpus)
+        logger.info("Fitting GDT predictor...")
+        gdt.fit_predictor(vignettes, epochs=120, batch_size=64)
 
-    logger.info("Building SDT (Spectral Hypergraph)...")
-    sdt = SDTRetriever(
-        corpus=corpus,
-        tau_pivot=args.tau_pivot,
-        alpha=args.alpha,
-        window_k=args.window_k,
-        gamma_filter=args.gamma,
-        tau_walk=args.tau_walk,
-        c_max=args.c_max,
-        lexical_weight=args.lex_weight,
-        semantic_weight=args.sem_weight,
-        prefetch_weight=args.pf_weight,
-        cma_retriever=cma,
-        seed=args.seed,
-    )
-    
-    retrievers_dict = {"control": baseline, "bm25": bm25, "cma": cma, "gdt": gdt, "sdt": sdt}
+        logger.info("Building SDT (Spectral Hypergraph)...")
+        sdt = SDTRetriever(
+            corpus=corpus,
+            tau_pivot=args.tau_pivot,
+            alpha=args.alpha,
+            window_k=args.window_k,
+            gamma_filter=args.gamma,
+            tau_walk=args.tau_walk,
+            c_max=args.c_max,
+            lexical_weight=args.lex_weight,
+            semantic_weight=args.sem_weight,
+            prefetch_weight=args.pf_weight,
+            cma_retriever=cma,
+            seed=args.seed,
+        )
+        retrievers_dict = {"control": baseline, "bm25": bm25, "cma": cma, "gdt": gdt, "sdt": sdt}
 
     if args.all_baselines:
         logger.info("Building additional baselines (MedCPT, ColBERT, GraphCare, LLM-RAG)...")
@@ -215,16 +259,27 @@ def main():
     corpus, vignettes = load_corpus_and_vignettes(processed_dir)
     logger.info(f"Loaded {len(corpus)} corpus documents and {len(vignettes)} vignettes.")
     
-    retrievers = build_retrievers(args, corpus, vignettes)
+    # Subset vignettes if requested
+    if args.n_vignettes is not None:
+        vignettes = vignettes[:args.n_vignettes]
+        logger.info(f"Using subset: {len(vignettes)} vignettes")
+    
+    sdt_only = getattr(args, 'sdt_only', False)
+    retrievers = build_retrievers(args, corpus, vignettes, sdt_only=sdt_only)
 
-    full_params = {
-        **CONDITION_PARAMS,
-        "sdt": SDT_PARAMS,
-        "medcpt": {"query_time_mu": 3.65, "latency_mu": 4.95, "cognitive_relief": 13.0},
-        "colbert": {"query_time_mu": 3.63, "latency_mu": 5.05, "cognitive_relief": 14.0},
-        "graphcare": {"query_time_mu": 3.62, "latency_mu": 5.00, "cognitive_relief": 14.5},
-        "llm_rag": {"query_time_mu": 3.61, "latency_mu": 5.10, "cognitive_relief": 15.0},
-    }
+    # Build CONDITION_PARAMS only for conditions that exist
+    full_params = {**CONDITION_PARAMS, "sdt": SDT_PARAMS}
+    if "cma" in retrievers:
+        full_params["cma"] = {"query_time_mu": 3.68, "latency_mu": 4.98, "cognitive_relief": 12.0}
+    if "gdt" in retrievers:
+        full_params["gdt"] = {"query_time_mu": 3.60, "latency_mu": 4.85, "cognitive_relief": 16.0}
+    if sdt_only:
+        logger.info(f"SDT-only mode: running conditions {list(retrievers.keys())}")
+    else:
+        full_params["medcpt"] = {"query_time_mu": 3.65, "latency_mu": 4.95, "cognitive_relief": 13.0}
+        full_params["colbert"] = {"query_time_mu": 3.63, "latency_mu": 5.05, "cognitive_relief": 14.0}
+        full_params["graphcare"] = {"query_time_mu": 3.62, "latency_mu": 5.00, "cognitive_relief": 14.5}
+        full_params["llm_rag"] = {"query_time_mu": 3.61, "latency_mu": 5.10, "cognitive_relief": 15.0}
     import src.experiments.simulate_users as _sim
     _orig = _sim.CONDITION_PARAMS
     _sim.CONDITION_PARAMS = full_params

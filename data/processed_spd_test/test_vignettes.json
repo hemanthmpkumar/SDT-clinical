@@ -1,8 +1,478 @@
 [
   {
-    "vignette_id": "V059",
-    "patient_id": "SYN_00322",
+    "vignette_id": "V931",
+    "patient_id": "16790266",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_T",
+        "text": "admission post location",
+        "target_note_id": "MIV_STRUCT_22869120"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_22869120"
+    ]
+  },
+  {
+    "vignette_id": "V737",
+    "patient_id": "13188363",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_F",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_26865475"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_Z",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_24905329"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_T",
+        "text": "approach open admission",
+        "target_note_id": "MIV_STRUCT_24879827"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_T",
+        "text": "approach open admission",
+        "target_note_id": "MIV_STRUCT_24879827"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24879827",
+      "MIV_STRUCT_26865475",
+      "MIV_STRUCT_24905329"
+    ]
+  },
+  {
+    "vignette_id": "V740",
+    "patient_id": "16924642",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_S",
+        "text": "admission location trauma",
+        "target_note_id": "MIV_STRUCT_23849824"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23849824"
+    ]
+  },
+  {
+    "vignette_id": "V004",
+    "patient_id": "18572264",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      2,
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_21597756"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_21597756"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location hypertension",
+        "target_note_id": "MIV_STRUCT_25224015"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_21597756"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_25224015",
+      "MIV_STRUCT_21597756"
+    ]
+  },
+  {
+    "vignette_id": "V909",
+    "patient_id": "16098894",
     "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_genitourinary",
+        "text": "admission location percutaneous",
+        "target_note_id": "MIV_STRUCT_23444895"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_skin",
+        "text": "admission location hospital",
+        "target_note_id": "MIV_STRUCT_20536918"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23444895",
+      "MIV_STRUCT_20536918"
+    ]
+  },
+  {
+    "vignette_id": "V162",
+    "patient_id": "12527820",
+    "specialty": "critical_care",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_blood",
+        "text": "admission location major",
+        "target_note_id": "MIV_STRUCT_25827213"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission excision tissue",
+        "target_note_id": "MIV_STRUCT_21160675"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_supplemental",
+        "text": "admission location diagnosis",
+        "target_note_id": "MIV_STRUCT_26513872"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission excision tissue",
+        "target_note_id": "MIV_STRUCT_21160675"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd9_supplemental",
+        "text": "admission location diagnosis",
+        "target_note_id": "MIV_STRUCT_24395757"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_21160675",
+      "MIV_STRUCT_24395757",
+      "MIV_STRUCT_26513872",
+      "MIV_STRUCT_25827213"
+    ]
+  },
+  {
+    "vignette_id": "V446",
+    "patient_id": "18408630",
+    "specialty": "emergency",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission diagnosis vein",
+        "target_note_id": "MIV_STRUCT_29038205"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_F",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_27813557"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_27813557",
+      "MIV_STRUCT_29038205"
+    ]
+  },
+  {
+    "vignette_id": "V932",
+    "patient_id": "18627113",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      2,
+      3,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_26721492"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_digestive",
+        "text": "admission digestive location",
+        "target_note_id": "MIV_STRUCT_25645397"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_genitourinary",
+        "text": "admission procedures location",
+        "target_note_id": "MIV_STRUCT_26593881"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission procedures location",
+        "target_note_id": "MIV_STRUCT_29301862"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd9_genitourinary",
+        "text": "admission procedures location",
+        "target_note_id": "MIV_STRUCT_26593881"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_25645397",
+      "MIV_STRUCT_26721492",
+      "MIV_STRUCT_29301862",
+      "MIV_STRUCT_26593881"
+    ]
+  },
+  {
+    "vignette_id": "V999",
+    "patient_id": "19364461",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_23335730"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_23335730"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission location neoplasms",
+        "target_note_id": "MIV_STRUCT_24709686"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission location care",
+        "target_note_id": "MIV_STRUCT_27939145"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission procedures location",
+        "target_note_id": "MIV_STRUCT_22739607"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24709686",
+      "MIV_STRUCT_22739607",
+      "MIV_STRUCT_27939145",
+      "MIV_STRUCT_23335730"
+    ]
+  },
+  {
+    "vignette_id": "V956",
+    "patient_id": "17118056",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_22717251"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_22717251"
+    ]
+  },
+  {
+    "vignette_id": "V657",
+    "patient_id": "15211280",
+    "specialty": "emergency",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_28557844"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_23375859"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23375859",
+      "MIV_STRUCT_28557844"
+    ]
+  },
+  {
+    "vignette_id": "V788",
+    "patient_id": "18933211",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_F",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_25226085"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_I",
+        "text": "open admission procedures",
+        "target_note_id": "MIV_STRUCT_27204779"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_F",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_25226085"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_F",
+        "text": "admission location psychoses",
+        "target_note_id": "MIV_STRUCT_27331360"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_27331360",
+      "MIV_STRUCT_25226085",
+      "MIV_STRUCT_27204779"
+    ]
+  },
+  {
+    "vignette_id": "V900",
+    "patient_id": "11584066",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      2,
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_A",
+        "text": "admission location significant",
+        "target_note_id": "MIV_STRUCT_28731300"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_A",
+        "text": "admission location significant",
+        "target_note_id": "MIV_STRUCT_28731300"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_musculoskeletal",
+        "text": "decompression spinal admission",
+        "target_note_id": "MIV_STRUCT_23333455"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission type observation",
+        "target_note_id": "MIV_STRUCT_29425519"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23333455",
+      "MIV_STRUCT_28731300",
+      "MIV_STRUCT_29425519"
+    ]
+  },
+  {
+    "vignette_id": "V769",
+    "patient_id": "15153384",
+    "specialty": "critical_care",
     "experience_group": "<5_years",
     "complexity": "low",
     "n_queries": 3,
@@ -10,197 +480,1962 @@
     "queries": [
       {
         "order": 0,
-        "diagnosis": "atrial_fibrillation",
-        "text": "doac chads atrial fibrillation",
-        "target_note_id": "SYN_00322_N004"
+        "diagnosis": "icd9_digestive",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_25775038"
       },
       {
         "order": 1,
-        "diagnosis": "atrial_fibrillation",
-        "text": "doac irregularly irregular warfarin",
-        "target_note_id": "SYN_00322_N004"
+        "diagnosis": "icd9_digestive",
+        "text": "admission digestive location",
+        "target_note_id": "MIV_STRUCT_26939200"
       },
       {
         "order": 2,
-        "diagnosis": "atrial_fibrillation",
-        "text": "chads anticoagulation warfarin",
-        "target_note_id": "SYN_00322_N006"
+        "diagnosis": "icd9_digestive",
+        "text": "admission procedures hernia",
+        "target_note_id": "MIV_STRUCT_29791578"
       }
     ],
     "ground_truth_note_ids": [
-      "SYN_00322_N004",
-      "SYN_00322_N006"
+      "MIV_STRUCT_29791578",
+      "MIV_STRUCT_25775038",
+      "MIV_STRUCT_26939200"
+    ]
+  },
+  {
+    "vignette_id": "V937",
+    "patient_id": "17056073",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_G",
+        "text": "open approach repair",
+        "target_note_id": "MIV_STRUCT_29138608"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_T",
+        "text": "admission location hospital",
+        "target_note_id": "MIV_STRUCT_24142138"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_Z",
+        "text": "admission percutaneous approach",
+        "target_note_id": "MIV_STRUCT_25184103"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24142138",
+      "MIV_STRUCT_25184103",
+      "MIV_STRUCT_29138608"
+    ]
+  },
+  {
+    "vignette_id": "V699",
+    "patient_id": "19240818",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_mental",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_27624017"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_mental",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_22650350"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_27624017",
+      "MIV_STRUCT_22650350"
+    ]
+  },
+  {
+    "vignette_id": "V118",
+    "patient_id": "11677801",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission coronary artery",
+        "target_note_id": "MIV_STRUCT_20918059"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_I",
+        "text": "coronary admission artery",
+        "target_note_id": "MIV_STRUCT_21390868"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission type observation",
+        "target_note_id": "MIV_STRUCT_23251907"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_21390868",
+      "MIV_STRUCT_20918059",
+      "MIV_STRUCT_23251907"
+    ]
+  },
+  {
+    "vignette_id": "V739",
+    "patient_id": "18496136",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission location procedures",
+        "target_note_id": "MIV_STRUCT_20104208"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_M",
+        "text": "admission location hospital",
+        "target_note_id": "MIV_STRUCT_26161816"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission location procedures",
+        "target_note_id": "MIV_STRUCT_20104208"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_C",
+        "text": "open approach excision",
+        "target_note_id": "MIV_STRUCT_22588862"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission location procedures",
+        "target_note_id": "MIV_STRUCT_21388597"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_21388597",
+      "MIV_STRUCT_20104208",
+      "MIV_STRUCT_22588862",
+      "MIV_STRUCT_26161816"
+    ]
+  },
+  {
+    "vignette_id": "V831",
+    "patient_id": "18335994",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "cardiovascular admission coronary",
+        "target_note_id": "MIV_STRUCT_21840205"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_skin",
+        "text": "admission location skin",
+        "target_note_id": "MIV_STRUCT_26443983"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_musculoskeletal",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_21079460"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_26443983",
+      "MIV_STRUCT_21079460",
+      "MIV_STRUCT_21840205"
     ]
   },
   {
     "vignette_id": "V012",
-    "patient_id": "SYN_00450",
-    "specialty": "emergency",
+    "patient_id": "19602712",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_T",
+        "text": "left approach open",
+        "target_note_id": "MIV_STRUCT_23521691"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23521691"
+    ]
+  },
+  {
+    "vignette_id": "V567",
+    "patient_id": "17309286",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      1,
+      2,
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission system observation",
+        "target_note_id": "MIV_STRUCT_28778852"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_infectious",
+        "text": "admission location major",
+        "target_note_id": "MIV_STRUCT_29188057"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_digestive",
+        "text": "admission biliary location",
+        "target_note_id": "MIV_STRUCT_27055142"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location liver",
+        "target_note_id": "MIV_STRUCT_27349660"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_29188057",
+      "MIV_STRUCT_27055142",
+      "MIV_STRUCT_28778852",
+      "MIV_STRUCT_27349660"
+    ]
+  },
+  {
+    "vignette_id": "V258",
+    "patient_id": "19812504",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_circulatory",
+        "text": "amputation admission location",
+        "target_note_id": "MIV_STRUCT_29826035"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_20786235"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_21047416"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_20786235",
+      "MIV_STRUCT_29826035",
+      "MIV_STRUCT_21047416"
+    ]
+  },
+  {
+    "vignette_id": "V542",
+    "patient_id": "11863318",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_21818164"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_21818164"
+    ]
+  },
+  {
+    "vignette_id": "V480",
+    "patient_id": "14534978",
+    "specialty": "internal_medicine",
     "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_mental",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_23021019"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_mental",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_28758174"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_mental",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_25558015"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_28758174",
+      "MIV_STRUCT_23021019",
+      "MIV_STRUCT_25558015"
+    ]
+  },
+  {
+    "vignette_id": "V964",
+    "patient_id": "16907232",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission procedures location",
+        "target_note_id": "MIV_STRUCT_27428392"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission procedures location",
+        "target_note_id": "MIV_STRUCT_27428392"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_27428392"
+    ]
+  },
+  {
+    "vignette_id": "V391",
+    "patient_id": "10875295",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_A",
+        "text": "admission right location",
+        "target_note_id": "MIV_STRUCT_25049726"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_25049726"
+    ]
+  },
+  {
+    "vignette_id": "V395",
+    "patient_id": "15728762",
+    "specialty": "hospital_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_N",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_29260053"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_20803100"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_20803100",
+      "MIV_STRUCT_29260053"
+    ]
+  },
+  {
+    "vignette_id": "V066",
+    "patient_id": "12029650",
+    "specialty": "critical_care",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission location malignancy",
+        "target_note_id": "MIV_STRUCT_25476987"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission location arteriography",
+        "target_note_id": "MIV_STRUCT_24408426"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission location malignancy",
+        "target_note_id": "MIV_STRUCT_25476987"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_25476987",
+      "MIV_STRUCT_24408426"
+    ]
+  },
+  {
+    "vignette_id": "V611",
+    "patient_id": "17767237",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1,
+      2,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_supplemental",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_27298477"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_28891050"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_mental",
+        "text": "admission location alcohol",
+        "target_note_id": "MIV_STRUCT_27360173"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_mental",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_27550832"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_28891050"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_27298477",
+      "MIV_STRUCT_27550832",
+      "MIV_STRUCT_28891050",
+      "MIV_STRUCT_27360173"
+    ]
+  },
+  {
+    "vignette_id": "V957",
+    "patient_id": "19461484",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_29496922"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_23556155"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23556155",
+      "MIV_STRUCT_29496922"
+    ]
+  },
+  {
+    "vignette_id": "V697",
+    "patient_id": "16097924",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_supplemental",
+        "text": "admission location diagnosis",
+        "target_note_id": "MIV_STRUCT_21264306"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission location lymphoma",
+        "target_note_id": "MIV_STRUCT_29183203"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_21710268"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_respiratory",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_28712630"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission location lymphoma",
+        "target_note_id": "MIV_STRUCT_23489983"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_28712630",
+      "MIV_STRUCT_21710268",
+      "MIV_STRUCT_21264306",
+      "MIV_STRUCT_29183203",
+      "MIV_STRUCT_23489983"
+    ]
+  },
+  {
+    "vignette_id": "V812",
+    "patient_id": "14358282",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
     "complexity": "high",
     "n_queries": 5,
     "pivots": [],
     "queries": [
       {
         "order": 0,
-        "diagnosis": "sepsis",
-        "text": "qsofa fever septic",
-        "target_note_id": "SYN_00450_N007"
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location circulatory",
+        "target_note_id": "MIV_STRUCT_25030277"
       },
       {
         "order": 1,
-        "diagnosis": "sepsis",
-        "text": "bandemia septic hypotension",
-        "target_note_id": "SYN_00450_N005"
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location coronary",
+        "target_note_id": "MIV_STRUCT_22131249"
       },
       {
         "order": 2,
-        "diagnosis": "sepsis",
-        "text": "lactate vasopressor bandemia",
-        "target_note_id": "SYN_00450_N002"
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location cardiac",
+        "target_note_id": "MIV_STRUCT_28634263"
       },
       {
         "order": 3,
-        "diagnosis": "sepsis",
-        "text": "fever bandemia vasopressor",
-        "target_note_id": "SYN_00450_N005"
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location coronary",
+        "target_note_id": "MIV_STRUCT_22131249"
       },
       {
         "order": 4,
-        "diagnosis": "sepsis",
-        "text": "fever hypotension lactate",
-        "target_note_id": "SYN_00450_N007"
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location cardiac",
+        "target_note_id": "MIV_STRUCT_27646970"
       }
     ],
     "ground_truth_note_ids": [
-      "SYN_00450_N007",
-      "SYN_00450_N005",
-      "SYN_00450_N002"
+      "MIV_STRUCT_22131249",
+      "MIV_STRUCT_25030277",
+      "MIV_STRUCT_28634263",
+      "MIV_STRUCT_27646970"
     ]
   },
   {
-    "vignette_id": "V055",
-    "patient_id": "SYN_00423",
+    "vignette_id": "V959",
+    "patient_id": "17468815",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      1,
+      2,
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_respiratory",
+        "text": "admission location chronic",
+        "target_note_id": "MIV_STRUCT_22739412"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission femur location",
+        "target_note_id": "MIV_STRUCT_26910907"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_respiratory",
+        "text": "admission location chronic",
+        "target_note_id": "MIV_STRUCT_20015204"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission femur location",
+        "target_note_id": "MIV_STRUCT_26910907"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_20015204",
+      "MIV_STRUCT_22739412",
+      "MIV_STRUCT_26910907"
+    ]
+  },
+  {
+    "vignette_id": "V643",
+    "patient_id": "17972374",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_endocrine_nutritional",
+        "text": "admission amputation location",
+        "target_note_id": "MIV_STRUCT_24121532"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location heart",
+        "target_note_id": "MIV_STRUCT_28189639"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_endocrine_nutritional",
+        "text": "admission amputation location",
+        "target_note_id": "MIV_STRUCT_24121532"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_endocrine_nutritional",
+        "text": "admission location diabetes",
+        "target_note_id": "MIV_STRUCT_28315937"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_28189639",
+      "MIV_STRUCT_24121532",
+      "MIV_STRUCT_28315937"
+    ]
+  },
+  {
+    "vignette_id": "V157",
+    "patient_id": "14217131",
+    "specialty": "hospital_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_pregnancy",
+        "text": "admission location antepartum",
+        "target_note_id": "MIV_STRUCT_22417212"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission procedures location",
+        "target_note_id": "MIV_STRUCT_26237530"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_22417212",
+      "MIV_STRUCT_26237530"
+    ]
+  },
+  {
+    "vignette_id": "V113",
+    "patient_id": "13336663",
+    "specialty": "hospital_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_infectious",
+        "text": "admission location major",
+        "target_note_id": "MIV_STRUCT_20050800"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_20050800"
+    ]
+  },
+  {
+    "vignette_id": "V049",
+    "patient_id": "13206237",
+    "specialty": "hospital_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_digestive",
+        "text": "admission digestive observation",
+        "target_note_id": "MIV_STRUCT_23621509"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23621509"
+    ]
+  },
+  {
+    "vignette_id": "V774",
+    "patient_id": "12801790",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_skin",
+        "text": "admission location skin",
+        "target_note_id": "MIV_STRUCT_26854069"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_26854069"
+    ]
+  },
+  {
+    "vignette_id": "V094",
+    "patient_id": "17926213",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_circulatory",
+        "text": "open replacement heart",
+        "target_note_id": "MIV_STRUCT_20149698"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location heart",
+        "target_note_id": "MIV_STRUCT_27988238"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location heart",
+        "target_note_id": "MIV_STRUCT_27988238"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_20149698",
+      "MIV_STRUCT_27988238"
+    ]
+  },
+  {
+    "vignette_id": "V506",
+    "patient_id": "16830759",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_22795770"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_digestive",
+        "text": "admission procedures hernia",
+        "target_note_id": "MIV_STRUCT_20205741"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_digestive",
+        "text": "transplant admission liver",
+        "target_note_id": "MIV_STRUCT_23685711"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23685711",
+      "MIV_STRUCT_20205741",
+      "MIV_STRUCT_22795770"
+    ]
+  },
+  {
+    "vignette_id": "V522",
+    "patient_id": "17077306",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      1,
+      2,
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_nervous_sense",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_28752962"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_endocrine_nutritional",
+        "text": "admission location diabetes",
+        "target_note_id": "MIV_STRUCT_23376243"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_skin",
+        "text": "admission location skin",
+        "target_note_id": "MIV_STRUCT_23822881"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_nervous_sense",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_28752962"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_28752962",
+      "MIV_STRUCT_23822881",
+      "MIV_STRUCT_23376243"
+    ]
+  },
+  {
+    "vignette_id": "V142",
+    "patient_id": "14730231",
+    "specialty": "hospital_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_A",
+        "text": "admission location hospital",
+        "target_note_id": "MIV_STRUCT_23622644"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_C",
+        "text": "admission natural artificial",
+        "target_note_id": "MIV_STRUCT_28744973"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission location heart",
+        "target_note_id": "MIV_STRUCT_28949136"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23622644",
+      "MIV_STRUCT_28744973",
+      "MIV_STRUCT_28949136"
+    ]
+  },
+  {
+    "vignette_id": "V882",
+    "patient_id": "10754991",
+    "specialty": "emergency",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission location coronary",
+        "target_note_id": "MIV_STRUCT_25419098"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_external",
+        "text": "admission location diabetes",
+        "target_note_id": "MIV_STRUCT_20976196"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_external",
+        "text": "admission location kidney",
+        "target_note_id": "MIV_STRUCT_28829354"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_28829354",
+      "MIV_STRUCT_20976196",
+      "MIV_STRUCT_25419098"
+    ]
+  },
+  {
+    "vignette_id": "V926",
+    "patient_id": "13138698",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_N",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_28580024"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission percutaneous location",
+        "target_note_id": "MIV_STRUCT_28451536"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_28451536",
+      "MIV_STRUCT_28580024"
+    ]
+  },
+  {
+    "vignette_id": "V409",
+    "patient_id": "13466264",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      2,
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_pregnancy",
+        "text": "admission delivery location",
+        "target_note_id": "MIV_STRUCT_24511338"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_pregnancy",
+        "text": "admission location diagnosis",
+        "target_note_id": "MIV_STRUCT_20671597"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_20233948"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_pregnancy",
+        "text": "admission delivery location",
+        "target_note_id": "MIV_STRUCT_24511338"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24511338",
+      "MIV_STRUCT_20233948",
+      "MIV_STRUCT_20671597"
+    ]
+  },
+  {
+    "vignette_id": "V598",
+    "patient_id": "11536399",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_mental",
+        "text": "admission location psych",
+        "target_note_id": "MIV_STRUCT_28516043"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_28516043"
+    ]
+  },
+  {
+    "vignette_id": "V439",
+    "patient_id": "19805942",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      3,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_28596401"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_26794737"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission cardiac location",
+        "target_note_id": "MIV_STRUCT_26381933"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location heart",
+        "target_note_id": "MIV_STRUCT_25649665"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission cardiac location",
+        "target_note_id": "MIV_STRUCT_26381933"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_26794737",
+      "MIV_STRUCT_28596401",
+      "MIV_STRUCT_25649665",
+      "MIV_STRUCT_26381933"
+    ]
+  },
+  {
+    "vignette_id": "V599",
+    "patient_id": "12248257",
+    "specialty": "critical_care",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_respiratory",
+        "text": "admission location asthma",
+        "target_note_id": "MIV_STRUCT_28927644"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_endocrine_nutritional",
+        "text": "admission location nutritional",
+        "target_note_id": "MIV_STRUCT_27761201"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_28927644",
+      "MIV_STRUCT_27761201"
+    ]
+  },
+  {
+    "vignette_id": "V765",
+    "patient_id": "11943894",
+    "specialty": "emergency",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_mental",
+        "text": "admission location abuse",
+        "target_note_id": "MIV_STRUCT_28636752"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_mental",
+        "text": "admission location alcohol",
+        "target_note_id": "MIV_STRUCT_24219792"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_mental",
+        "text": "admission location alcohol",
+        "target_note_id": "MIV_STRUCT_29764266"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_27035342"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_27035342",
+      "MIV_STRUCT_24219792",
+      "MIV_STRUCT_29764266",
+      "MIV_STRUCT_28636752"
+    ]
+  },
+  {
+    "vignette_id": "V270",
+    "patient_id": "11208819",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_Z",
+        "text": "admission percutaneous approach",
+        "target_note_id": "MIV_STRUCT_23322254"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_Z",
+        "text": "admission location diagnosis",
+        "target_note_id": "MIV_STRUCT_22442582"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23322254",
+      "MIV_STRUCT_22442582"
+    ]
+  },
+  {
+    "vignette_id": "V552",
+    "patient_id": "12757934",
+    "specialty": "emergency",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location infarction",
+        "target_note_id": "MIV_STRUCT_22338601"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_external",
+        "text": "admission approach location",
+        "target_note_id": "MIV_STRUCT_29426841"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_22338601",
+      "MIV_STRUCT_29426841"
+    ]
+  },
+  {
+    "vignette_id": "V975",
+    "patient_id": "18459336",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_N",
+        "text": "drainage kidney admission",
+        "target_note_id": "MIV_STRUCT_24231819"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24231819"
+    ]
+  },
+  {
+    "vignette_id": "V763",
+    "patient_id": "11725800",
+    "specialty": "hospital_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1,
+      2,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_A",
+        "text": "percutaneous approach admission",
+        "target_note_id": "MIV_STRUCT_28009509"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location cardiac",
+        "target_note_id": "MIV_STRUCT_21908915"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_A",
+        "text": "percutaneous approach admission",
+        "target_note_id": "MIV_STRUCT_28009509"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_A",
+        "text": "admission location hospital",
+        "target_note_id": "MIV_STRUCT_23427118"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission procedures location",
+        "target_note_id": "MIV_STRUCT_21342597"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_21908915",
+      "MIV_STRUCT_23427118",
+      "MIV_STRUCT_21342597",
+      "MIV_STRUCT_28009509"
+    ]
+  },
+  {
+    "vignette_id": "V253",
+    "patient_id": "15712636",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      1,
+      2,
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_J",
+        "text": "admission location pneumonia",
+        "target_note_id": "MIV_STRUCT_26081942"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_musculoskeletal",
+        "text": "admission tissue location",
+        "target_note_id": "MIV_STRUCT_23485208"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_respiratory",
+        "text": "admission location pneumonia",
+        "target_note_id": "MIV_STRUCT_27164786"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_J",
+        "text": "admission location pneumonia",
+        "target_note_id": "MIV_STRUCT_20610845"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_26081942",
+      "MIV_STRUCT_20610845",
+      "MIV_STRUCT_23485208",
+      "MIV_STRUCT_27164786"
+    ]
+  },
+  {
+    "vignette_id": "V993",
+    "patient_id": "19858606",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_mental",
+        "text": "admission location psych",
+        "target_note_id": "MIV_STRUCT_27969437"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_27969437"
+    ]
+  },
+  {
+    "vignette_id": "V272",
+    "patient_id": "19284186",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission percutaneous location",
+        "target_note_id": "MIV_STRUCT_21056856"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_27329241"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_A",
+        "text": "admission location hospital",
+        "target_note_id": "MIV_STRUCT_25387986"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_25387986",
+      "MIV_STRUCT_21056856",
+      "MIV_STRUCT_27329241"
+    ]
+  },
+  {
+    "vignette_id": "V147",
+    "patient_id": "17839768",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_A",
+        "text": "admission location skilled",
+        "target_note_id": "MIV_STRUCT_24244960"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission location back",
+        "target_note_id": "MIV_STRUCT_25195895"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24244960",
+      "MIV_STRUCT_25195895"
+    ]
+  },
+  {
+    "vignette_id": "V470",
+    "patient_id": "15247647",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_23647921"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location alcoholic",
+        "target_note_id": "MIV_STRUCT_25952190"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location alcoholic",
+        "target_note_id": "MIV_STRUCT_27433950"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_25952190",
+      "MIV_STRUCT_23647921",
+      "MIV_STRUCT_27433950"
+    ]
+  },
+  {
+    "vignette_id": "V659",
+    "patient_id": "10352433",
+    "specialty": "critical_care",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location infarction",
+        "target_note_id": "MIV_STRUCT_22497285"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_22497285"
+    ]
+  },
+  {
+    "vignette_id": "V406",
+    "patient_id": "11760975",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_endocrine_nutritional",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_24875643"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_infectious",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_25835558"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_29301089"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_endocrine_nutritional",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_24875643"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission poisoning location",
+        "target_note_id": "MIV_STRUCT_22173959"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24875643",
+      "MIV_STRUCT_29301089",
+      "MIV_STRUCT_25835558",
+      "MIV_STRUCT_22173959"
+    ]
+  },
+  {
+    "vignette_id": "V512",
+    "patient_id": "14180462",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_25551047"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_G",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_22591035"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_G",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_26656978"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_G",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_25393444"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd10_chapter_G",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_25393444"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_26656978",
+      "MIV_STRUCT_25551047",
+      "MIV_STRUCT_22591035",
+      "MIV_STRUCT_25393444"
+    ]
+  },
+  {
+    "vignette_id": "V672",
+    "patient_id": "16649652",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_22699786"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_nervous_sense",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_23735079"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_nervous_sense",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_22167636"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_nervous_sense",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_23735079"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd9_nervous_sense",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_23735079"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23735079",
+      "MIV_STRUCT_22699786",
+      "MIV_STRUCT_22167636"
+    ]
+  },
+  {
+    "vignette_id": "V218",
+    "patient_id": "15331128",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_21027689"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_J",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_21757697"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_21027689",
+      "MIV_STRUCT_21757697"
+    ]
+  },
+  {
+    "vignette_id": "V323",
+    "patient_id": "16289064",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_supplemental",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_29865197"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_neoplasms",
+        "text": "biopsy admission bone",
+        "target_note_id": "MIV_STRUCT_20268006"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_G",
+        "text": "admission spinal location",
+        "target_note_id": "MIV_STRUCT_21748359"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_J",
+        "text": "admission location procedures",
+        "target_note_id": "MIV_STRUCT_25471124"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd9_supplemental",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_22026962"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_20268006",
+      "MIV_STRUCT_21748359",
+      "MIV_STRUCT_22026962",
+      "MIV_STRUCT_29865197",
+      "MIV_STRUCT_25471124"
+    ]
+  },
+  {
+    "vignette_id": "V736",
+    "patient_id": "16618220",
+    "specialty": "critical_care",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1,
+      3,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_D",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_23309973"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location insertion",
+        "target_note_id": "MIV_STRUCT_24593808"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location insertion",
+        "target_note_id": "MIV_STRUCT_24593808"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_I",
+        "text": "percutaneous approach cardiac",
+        "target_note_id": "MIV_STRUCT_25114797"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd10_chapter_D",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_24205585"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24593808",
+      "MIV_STRUCT_24205585",
+      "MIV_STRUCT_25114797",
+      "MIV_STRUCT_23309973"
+    ]
+  },
+  {
+    "vignette_id": "V581",
+    "patient_id": "13270054",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_Z",
+        "text": "admission location diagnosis",
+        "target_note_id": "MIV_STRUCT_20012034"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_A",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_27875835"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_T",
+        "text": "approach percutaneous admission",
+        "target_note_id": "MIV_STRUCT_21535175"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_20012034",
+      "MIV_STRUCT_27875835",
+      "MIV_STRUCT_21535175"
+    ]
+  },
+  {
+    "vignette_id": "V217",
+    "patient_id": "17405329",
+    "specialty": "critical_care",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_supplemental",
+        "text": "admission location diagnosis",
+        "target_note_id": "MIV_STRUCT_26182159"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_26182159"
+    ]
+  },
+  {
+    "vignette_id": "V068",
+    "patient_id": "11230452",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_respiratory",
+        "text": "admission diagnosis respiratory",
+        "target_note_id": "MIV_STRUCT_27622683"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission diagnosis hours",
+        "target_note_id": "MIV_STRUCT_28959832"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_28959832",
+      "MIV_STRUCT_27622683"
+    ]
+  },
+  {
+    "vignette_id": "V275",
+    "patient_id": "18284681",
     "specialty": "emergency",
     "experience_group": ">=5_years",
     "complexity": "high",
     "n_queries": 4,
     "pivots": [
-      1,
-      2,
       3
     ],
     "queries": [
       {
         "order": 0,
-        "diagnosis": "uti_pyelonephritis",
-        "text": "pyelonephritis dysuria urine culture",
-        "target_note_id": "SYN_00423_N003"
+        "diagnosis": "icd9_mental",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_23359857"
       },
       {
         "order": 1,
-        "diagnosis": "pneumonia",
-        "text": "crackles infiltrate pneumonia",
-        "target_note_id": "SYN_00423_N000"
+        "diagnosis": "icd9_mental",
+        "text": "electroshock therapy admission",
+        "target_note_id": "MIV_STRUCT_29757837"
       },
       {
         "order": 2,
-        "diagnosis": "uti_pyelonephritis",
-        "text": "ciprofloxacin enterococcus pyuria",
-        "target_note_id": "SYN_00423_N003"
+        "diagnosis": "icd9_mental",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_23359857"
       },
       {
         "order": 3,
-        "diagnosis": "pneumonia",
-        "text": "sputum crackles infiltrate",
-        "target_note_id": "SYN_00423_N002"
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_21457914"
       }
     ],
     "ground_truth_note_ids": [
-      "SYN_00423_N003",
-      "SYN_00423_N002",
-      "SYN_00423_N000"
+      "MIV_STRUCT_23359857",
+      "MIV_STRUCT_21457914",
+      "MIV_STRUCT_29757837"
     ]
   },
   {
-    "vignette_id": "V023",
-    "patient_id": "SYN_00114",
+    "vignette_id": "V411",
+    "patient_id": "13089507",
     "specialty": "internal_medicine",
     "experience_group": "<5_years",
-    "complexity": "low",
-    "n_queries": 3,
-    "pivots": [
-      1,
-      2
-    ],
-    "queries": [
-      {
-        "order": 0,
-        "diagnosis": "pneumonia",
-        "text": "sputum cough oxygen",
-        "target_note_id": "SYN_00114_N002"
-      },
-      {
-        "order": 1,
-        "diagnosis": "copd_exacerbation",
-        "text": "wheezing steroid dyspnea",
-        "target_note_id": "SYN_00114_N005"
-      },
-      {
-        "order": 2,
-        "diagnosis": "atrial_fibrillation",
-        "text": "warfarin chads doac",
-        "target_note_id": "SYN_00114_N007"
-      }
-    ],
-    "ground_truth_note_ids": [
-      "SYN_00114_N007",
-      "SYN_00114_N002",
-      "SYN_00114_N005"
-    ]
-  },
-  {
-    "vignette_id": "V047",
-    "patient_id": "SYN_00132",
-    "specialty": "critical_care",
-    "experience_group": "<5_years",
-    "complexity": "low",
-    "n_queries": 3,
-    "pivots": [
-      1,
-      2
-    ],
-    "queries": [
-      {
-        "order": 0,
-        "diagnosis": "copd_exacerbation",
-        "text": "theophylline copd wheezing",
-        "target_note_id": "SYN_00132_N006"
-      },
-      {
-        "order": 1,
-        "diagnosis": "atrial_fibrillation",
-        "text": "chads doac irregularly irregular",
-        "target_note_id": "SYN_00132_N008"
-      },
-      {
-        "order": 2,
-        "diagnosis": "sepsis",
-        "text": "septic lactate hypotension",
-        "target_note_id": "SYN_00132_N007"
-      }
-    ],
-    "ground_truth_note_ids": [
-      "SYN_00132_N006",
-      "SYN_00132_N007",
-      "SYN_00132_N008"
-    ]
-  },
-  {
-    "vignette_id": "V041",
-    "patient_id": "SYN_00409",
-    "specialty": "hospital_medicine",
-    "experience_group": ">=5_years",
     "complexity": "high",
     "n_queries": 4,
     "pivots": [
@@ -211,79 +2446,1187 @@
     "queries": [
       {
         "order": 0,
-        "diagnosis": "uti_pyelonephritis",
-        "text": "ciprofloxacin pyuria dysuria",
-        "target_note_id": "SYN_00409_N007"
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_22255512"
       },
       {
         "order": 1,
-        "diagnosis": "sepsis",
-        "text": "lactate bandemia fever",
-        "target_note_id": "SYN_00409_N000"
+        "diagnosis": "icd9_mental",
+        "text": "admission location psych",
+        "target_note_id": "MIV_STRUCT_26882352"
       },
       {
         "order": 2,
-        "diagnosis": "pneumonia",
-        "text": "infiltrate crackles pneumonia",
-        "target_note_id": "SYN_00409_N001"
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_22255512"
       },
       {
         "order": 3,
-        "diagnosis": "uti_pyelonephritis",
-        "text": "ciprofloxacin pyelonephritis pyuria",
-        "target_note_id": "SYN_00409_N010"
+        "diagnosis": "icd9_mental",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_27161331"
       }
     ],
     "ground_truth_note_ids": [
-      "SYN_00409_N010",
-      "SYN_00409_N007",
-      "SYN_00409_N001",
-      "SYN_00409_N000"
+      "MIV_STRUCT_26882352",
+      "MIV_STRUCT_22255512",
+      "MIV_STRUCT_27161331"
     ]
   },
   {
-    "vignette_id": "V003",
-    "patient_id": "SYN_00143",
+    "vignette_id": "V324",
+    "patient_id": "19543748",
+    "specialty": "hospital_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission procedures location",
+        "target_note_id": "MIV_STRUCT_21393431"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_21393431"
+    ]
+  },
+  {
+    "vignette_id": "V825",
+    "patient_id": "11984647",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_T",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_27989625"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_C",
+        "text": "admission location malignancy",
+        "target_note_id": "MIV_STRUCT_28825005"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_C",
+        "text": "admission location malignancy",
+        "target_note_id": "MIV_STRUCT_28825005"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_27989625",
+      "MIV_STRUCT_28825005"
+    ]
+  },
+  {
+    "vignette_id": "V983",
+    "patient_id": "13699714",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location drainage",
+        "target_note_id": "MIV_STRUCT_28759395"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location drainage",
+        "target_note_id": "MIV_STRUCT_28759395"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location drainage",
+        "target_note_id": "MIV_STRUCT_28759395"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_D",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_28162204"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_28162204",
+      "MIV_STRUCT_28759395"
+    ]
+  },
+  {
+    "vignette_id": "V842",
+    "patient_id": "12930386",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location procedures",
+        "target_note_id": "MIV_STRUCT_29082743"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location procedures",
+        "target_note_id": "MIV_STRUCT_25944994"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_29082743",
+      "MIV_STRUCT_25944994"
+    ]
+  },
+  {
+    "vignette_id": "V235",
+    "patient_id": "16697199",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_F",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_21300189"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_F",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_25558394"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_F",
+        "text": "admission location psych",
+        "target_note_id": "MIV_STRUCT_26754539"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_mental",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_25717930"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_26754539",
+      "MIV_STRUCT_21300189",
+      "MIV_STRUCT_25558394",
+      "MIV_STRUCT_25717930"
+    ]
+  },
+  {
+    "vignette_id": "V058",
+    "patient_id": "15646684",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1,
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_U",
+        "text": "admission location percutaneous",
+        "target_note_id": "MIV_STRUCT_27985561"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_C",
+        "text": "percutaneous approach natural",
+        "target_note_id": "MIV_STRUCT_29739622"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_C",
+        "text": "approach percutaneous admission",
+        "target_note_id": "MIV_STRUCT_28743215"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_Z",
+        "text": "admission location acute",
+        "target_note_id": "MIV_STRUCT_20727574"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd10_chapter_Z",
+        "text": "admission location chemotherapy",
+        "target_note_id": "MIV_STRUCT_22365819"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_29739622",
+      "MIV_STRUCT_22365819",
+      "MIV_STRUCT_28743215",
+      "MIV_STRUCT_27985561",
+      "MIV_STRUCT_20727574"
+    ]
+  },
+  {
+    "vignette_id": "V795",
+    "patient_id": "11656390",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location disorders",
+        "target_note_id": "MIV_STRUCT_27183555"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location disorders",
+        "target_note_id": "MIV_STRUCT_27183555"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_27183555"
+    ]
+  },
+  {
+    "vignette_id": "V787",
+    "patient_id": "13341408",
+    "specialty": "hospital_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location alcoholic",
+        "target_note_id": "MIV_STRUCT_25542571"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location hospital",
+        "target_note_id": "MIV_STRUCT_24173989"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location hospital",
+        "target_note_id": "MIV_STRUCT_23129058"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission location symptoms",
+        "target_note_id": "MIV_STRUCT_25419789"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission location symptoms",
+        "target_note_id": "MIV_STRUCT_25419789"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24173989",
+      "MIV_STRUCT_23129058",
+      "MIV_STRUCT_25419789",
+      "MIV_STRUCT_25542571"
+    ]
+  },
+  {
+    "vignette_id": "V864",
+    "patient_id": "17333389",
+    "specialty": "emergency",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission small surgical",
+        "target_note_id": "MIV_STRUCT_23780486"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission procedures location",
+        "target_note_id": "MIV_STRUCT_23536525"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_digestive",
+        "text": "admission procedures hernia",
+        "target_note_id": "MIV_STRUCT_25693311"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23536525",
+      "MIV_STRUCT_23780486",
+      "MIV_STRUCT_25693311"
+    ]
+  },
+  {
+    "vignette_id": "V333",
+    "patient_id": "14589477",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location liver",
+        "target_note_id": "MIV_STRUCT_20316962"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_M",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_26533679"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location liver",
+        "target_note_id": "MIV_STRUCT_20316962"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_20316962",
+      "MIV_STRUCT_26533679"
+    ]
+  },
+  {
+    "vignette_id": "V702",
+    "patient_id": "10979442",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_endocrine_nutritional",
+        "text": "admission location diagnosis",
+        "target_note_id": "MIV_STRUCT_29193211"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_29290335"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_29290335",
+      "MIV_STRUCT_29193211"
+    ]
+  },
+  {
+    "vignette_id": "V225",
+    "patient_id": "19281042",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location hemorrhage",
+        "target_note_id": "MIV_STRUCT_22141653"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_skin",
+        "text": "admission skin location",
+        "target_note_id": "MIV_STRUCT_25932912"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_infectious",
+        "text": "admission location septicemia",
+        "target_note_id": "MIV_STRUCT_23869244"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_22141653",
+      "MIV_STRUCT_25932912",
+      "MIV_STRUCT_23869244"
+    ]
+  },
+  {
+    "vignette_id": "V571",
+    "patient_id": "11697368",
     "specialty": "critical_care",
     "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      2,
+      3,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_K",
+        "text": "stomach natural artificial",
+        "target_note_id": "MIV_STRUCT_20916463"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_K",
+        "text": "stomach natural artificial",
+        "target_note_id": "MIV_STRUCT_20916463"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission natural artificial",
+        "target_note_id": "MIV_STRUCT_22449880"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_20253231"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_20285424"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_20253231",
+      "MIV_STRUCT_20285424",
+      "MIV_STRUCT_22449880",
+      "MIV_STRUCT_20916463"
+    ]
+  },
+  {
+    "vignette_id": "V705",
+    "patient_id": "16454295",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_T",
+        "text": "admission location hospital",
+        "target_note_id": "MIV_STRUCT_21020239"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_21020239"
+    ]
+  },
+  {
+    "vignette_id": "V656",
+    "patient_id": "17955642",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1,
+      2,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_22381139"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_C",
+        "text": "approach admission procedures",
+        "target_note_id": "MIV_STRUCT_25070692"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_22381139"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_20885789"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission location hospital",
+        "target_note_id": "MIV_STRUCT_29662533"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_29662533",
+      "MIV_STRUCT_22381139",
+      "MIV_STRUCT_25070692",
+      "MIV_STRUCT_20885789"
+    ]
+  },
+  {
+    "vignette_id": "V277",
+    "patient_id": "10095982",
+    "specialty": "emergency",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission post location",
+        "target_note_id": "MIV_STRUCT_25445790"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_digestive",
+        "text": "admission liver location",
+        "target_note_id": "MIV_STRUCT_25886557"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_25445790",
+      "MIV_STRUCT_25886557"
+    ]
+  },
+  {
+    "vignette_id": "V389",
+    "patient_id": "10585182",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_A",
+        "text": "admission location septicemia",
+        "target_note_id": "MIV_STRUCT_23865346"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_28818807"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23865346",
+      "MIV_STRUCT_28818807"
+    ]
+  },
+  {
+    "vignette_id": "V474",
+    "patient_id": "16130527",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location heart",
+        "target_note_id": "MIV_STRUCT_22850684"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_genitourinary",
+        "text": "admission location kidney",
+        "target_note_id": "MIV_STRUCT_25977436"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location initial",
+        "target_note_id": "MIV_STRUCT_21738352"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_25977436",
+      "MIV_STRUCT_22850684",
+      "MIV_STRUCT_21738352"
+    ]
+  },
+  {
+    "vignette_id": "V168",
+    "patient_id": "15352446",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
     "complexity": "high",
     "n_queries": 4,
     "pivots": [],
     "queries": [
       {
         "order": 0,
-        "diagnosis": "uti_pyelonephritis",
-        "text": "pyuria pyelonephritis urine culture",
-        "target_note_id": "SYN_00143_N008"
+        "diagnosis": "icd9_pregnancy",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_25495471"
       },
       {
         "order": 1,
-        "diagnosis": "uti_pyelonephritis",
-        "text": "ciprofloxacin dysuria pyuria",
-        "target_note_id": "SYN_00143_N003"
+        "diagnosis": "icd9_pregnancy",
+        "text": "admission delivery location",
+        "target_note_id": "MIV_STRUCT_24694060"
       },
       {
         "order": 2,
-        "diagnosis": "uti_pyelonephritis",
-        "text": "ciprofloxacin pyuria urine culture",
-        "target_note_id": "SYN_00143_N005"
+        "diagnosis": "icd9_pregnancy",
+        "text": "admission location curettage",
+        "target_note_id": "MIV_STRUCT_23960879"
       },
       {
         "order": 3,
-        "diagnosis": "uti_pyelonephritis",
-        "text": "dysuria pyuria enterococcus",
-        "target_note_id": "SYN_00143_N005"
+        "diagnosis": "icd9_pregnancy",
+        "text": "admission delivery location",
+        "target_note_id": "MIV_STRUCT_22128937"
       }
     ],
     "ground_truth_note_ids": [
-      "SYN_00143_N005",
-      "SYN_00143_N003",
-      "SYN_00143_N008"
+      "MIV_STRUCT_24694060",
+      "MIV_STRUCT_25495471",
+      "MIV_STRUCT_23960879",
+      "MIV_STRUCT_22128937"
     ]
   },
   {
-    "vignette_id": "V022",
-    "patient_id": "SYN_00447",
+    "vignette_id": "V995",
+    "patient_id": "17710401",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_endocrine_nutritional",
+        "text": "admission location peripheral",
+        "target_note_id": "MIV_STRUCT_27914549"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_23677120"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_skin",
+        "text": "admission location skin",
+        "target_note_id": "MIV_STRUCT_27881069"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_27881069",
+      "MIV_STRUCT_23677120",
+      "MIV_STRUCT_27914549"
+    ]
+  },
+  {
+    "vignette_id": "V747",
+    "patient_id": "16909345",
+    "specialty": "critical_care",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_supplemental",
+        "text": "admission location diagnosis",
+        "target_note_id": "MIV_STRUCT_21393756"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_supplemental",
+        "text": "admission location diagnosis",
+        "target_note_id": "MIV_STRUCT_21393756"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission location lymphoma",
+        "target_note_id": "MIV_STRUCT_27969579"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission location neoplasms",
+        "target_note_id": "MIV_STRUCT_29350977"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_29350977",
+      "MIV_STRUCT_21393756",
+      "MIV_STRUCT_27969579"
+    ]
+  },
+  {
+    "vignette_id": "V547",
+    "patient_id": "11342314",
+    "specialty": "hospital_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_24793394"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24793394"
+    ]
+  },
+  {
+    "vignette_id": "V176",
+    "patient_id": "15151778",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_endocrine_nutritional",
+        "text": "admission location disorders",
+        "target_note_id": "MIV_STRUCT_29024106"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_29024106"
+    ]
+  },
+  {
+    "vignette_id": "V908",
+    "patient_id": "17131210",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location peripheral",
+        "target_note_id": "MIV_STRUCT_21960251"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_21960251"
+    ]
+  },
+  {
+    "vignette_id": "V624",
+    "patient_id": "15345462",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_mental",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_26014229"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_24167738"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_26014229",
+      "MIV_STRUCT_24167738"
+    ]
+  },
+  {
+    "vignette_id": "V074",
+    "patient_id": "19891253",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission location replacement",
+        "target_note_id": "MIV_STRUCT_25786771"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_26307811"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_26307811",
+      "MIV_STRUCT_25786771"
+    ]
+  },
+  {
+    "vignette_id": "V664",
+    "patient_id": "16721536",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission location hospital",
+        "target_note_id": "MIV_STRUCT_29864834"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission location procedures",
+        "target_note_id": "MIV_STRUCT_20153164"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission location hospital",
+        "target_note_id": "MIV_STRUCT_29864834"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_29864834",
+      "MIV_STRUCT_20153164"
+    ]
+  },
+  {
+    "vignette_id": "V700",
+    "patient_id": "19986341",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_D",
+        "text": "admission blood location",
+        "target_note_id": "MIV_STRUCT_23902444"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_G",
+        "text": "admission location hospital",
+        "target_note_id": "MIV_STRUCT_25746750"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_T",
+        "text": "admission location care",
+        "target_note_id": "MIV_STRUCT_25864889"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_28863569"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission location cardiac",
+        "target_note_id": "MIV_STRUCT_27575763"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23902444",
+      "MIV_STRUCT_27575763",
+      "MIV_STRUCT_25864889",
+      "MIV_STRUCT_28863569",
+      "MIV_STRUCT_25746750"
+    ]
+  },
+  {
+    "vignette_id": "V971",
+    "patient_id": "11867181",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      2,
+      3,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location asian",
+        "target_note_id": "MIV_STRUCT_29548290"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_digestive",
+        "text": "admission digestive observation",
+        "target_note_id": "MIV_STRUCT_29419929"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission observation asian",
+        "target_note_id": "MIV_STRUCT_26291610"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission observation asian",
+        "target_note_id": "MIV_STRUCT_23711121"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location disorders",
+        "target_note_id": "MIV_STRUCT_21061502"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_29548290",
+      "MIV_STRUCT_26291610",
+      "MIV_STRUCT_21061502",
+      "MIV_STRUCT_29419929",
+      "MIV_STRUCT_23711121"
+    ]
+  },
+  {
+    "vignette_id": "V274",
+    "patient_id": "15643451",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      2,
+      3,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_musculoskeletal",
+        "text": "admission location replacement",
+        "target_note_id": "MIV_STRUCT_25017689"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_musculoskeletal",
+        "text": "admission location replacement",
+        "target_note_id": "MIV_STRUCT_25017689"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_endocrine_nutritional",
+        "text": "admission location care",
+        "target_note_id": "MIV_STRUCT_21753180"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_M",
+        "text": "approach left open",
+        "target_note_id": "MIV_STRUCT_27000006"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission location revision",
+        "target_note_id": "MIV_STRUCT_20768240"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_27000006",
+      "MIV_STRUCT_21753180",
+      "MIV_STRUCT_20768240",
+      "MIV_STRUCT_25017689"
+    ]
+  },
+  {
+    "vignette_id": "V687",
+    "patient_id": "19994592",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_F",
+        "text": "admission location psych",
+        "target_note_id": "MIV_STRUCT_24090308"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_F",
+        "text": "admission location psychoses",
+        "target_note_id": "MIV_STRUCT_22001973"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_F",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_28792122"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_22867810"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_22001973",
+      "MIV_STRUCT_22867810",
+      "MIV_STRUCT_24090308",
+      "MIV_STRUCT_28792122"
+    ]
+  },
+  {
+    "vignette_id": "V215",
+    "patient_id": "17864819",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_29977068"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_I",
+        "text": "percutaneous approach admission",
+        "target_note_id": "MIV_STRUCT_23600289"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23600289",
+      "MIV_STRUCT_29977068"
+    ]
+  },
+  {
+    "vignette_id": "V364",
+    "patient_id": "18816142",
     "specialty": "hospital_medicine",
     "experience_group": ">=5_years",
     "complexity": "high",
@@ -297,113 +3640,3411 @@
     "queries": [
       {
         "order": 0,
-        "diagnosis": "heart_failure",
-        "text": "ejection ace inhibitor bnp",
-        "target_note_id": "SYN_00447_N000"
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission location allogeneic",
+        "target_note_id": "MIV_STRUCT_26434617"
       },
       {
         "order": 1,
-        "diagnosis": "pneumonia",
-        "text": "fever oxygen cough",
-        "target_note_id": "SYN_00447_N001"
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location hospital",
+        "target_note_id": "MIV_STRUCT_22043510"
       },
       {
         "order": 2,
-        "diagnosis": "heart_failure",
-        "text": "edema bnp dyspnea",
-        "target_note_id": "SYN_00447_N000"
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission biopsy bone",
+        "target_note_id": "MIV_STRUCT_24487344"
       },
       {
         "order": 3,
-        "diagnosis": "pneumonia",
-        "text": "fever pneumonia wbc",
-        "target_note_id": "SYN_00447_N004"
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_24052161"
       },
       {
         "order": 4,
-        "diagnosis": "heart_failure",
-        "text": "edema furosemide lasix",
-        "target_note_id": "SYN_00447_N000"
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission location allogeneic",
+        "target_note_id": "MIV_STRUCT_26434617"
       }
     ],
     "ground_truth_note_ids": [
-      "SYN_00447_N000",
-      "SYN_00447_N001",
-      "SYN_00447_N004"
+      "MIV_STRUCT_22043510",
+      "MIV_STRUCT_24052161",
+      "MIV_STRUCT_24487344",
+      "MIV_STRUCT_26434617"
     ]
   },
   {
-    "vignette_id": "V034",
-    "patient_id": "SYN_00073",
-    "specialty": "internal_medicine",
+    "vignette_id": "V380",
+    "patient_id": "10502984",
+    "specialty": "emergency",
     "experience_group": "<5_years",
     "complexity": "low",
-    "n_queries": 3,
-    "pivots": [
-      1,
-      2
-    ],
+    "n_queries": 1,
+    "pivots": [],
     "queries": [
       {
         "order": 0,
-        "diagnosis": "pneumonia",
-        "text": "cough sputum oxygen",
-        "target_note_id": "SYN_00073_N006"
-      },
-      {
-        "order": 1,
-        "diagnosis": "gi_bleed",
-        "text": "endoscopy hematochezia gi bleed",
-        "target_note_id": "SYN_00073_N007"
-      },
-      {
-        "order": 2,
-        "diagnosis": "atrial_fibrillation",
-        "text": "chads doac irregularly irregular",
-        "target_note_id": "SYN_00073_N001"
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_22916416"
       }
     ],
     "ground_truth_note_ids": [
-      "SYN_00073_N001",
-      "SYN_00073_N006",
-      "SYN_00073_N007"
+      "MIV_STRUCT_22916416"
     ]
   },
   {
-    "vignette_id": "V035",
-    "patient_id": "SYN_00358",
-    "specialty": "internal_medicine",
+    "vignette_id": "V167",
+    "patient_id": "19046950",
+    "specialty": "critical_care",
     "experience_group": ">=5_years",
     "complexity": "low",
     "n_queries": 3,
     "pivots": [
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_digestive",
+        "text": "admission digestive location",
+        "target_note_id": "MIV_STRUCT_22016556"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_digestive",
+        "text": "admission digestive location",
+        "target_note_id": "MIV_STRUCT_22016556"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission procedures location",
+        "target_note_id": "MIV_STRUCT_27188070"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_27188070",
+      "MIV_STRUCT_22016556"
+    ]
+  },
+  {
+    "vignette_id": "V374",
+    "patient_id": "13141889",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_endocrine_nutritional",
+        "text": "admission location diabetes",
+        "target_note_id": "MIV_STRUCT_27495201"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_27495201"
+    ]
+  },
+  {
+    "vignette_id": "V855",
+    "patient_id": "16474473",
+    "specialty": "emergency",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_supplemental",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_28881205"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_mental",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_21417865"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_mental",
+        "text": "admission location psychoses",
+        "target_note_id": "MIV_STRUCT_23002699"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_21417865",
+      "MIV_STRUCT_28881205",
+      "MIV_STRUCT_23002699"
+    ]
+  },
+  {
+    "vignette_id": "V651",
+    "patient_id": "14585953",
+    "specialty": "emergency",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      1,
+      2,
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_N",
+        "text": "admission location kidney",
+        "target_note_id": "MIV_STRUCT_28551516"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_nervous_sense",
+        "text": "admission nervous location",
+        "target_note_id": "MIV_STRUCT_22953279"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location heart",
+        "target_note_id": "MIV_STRUCT_28813829"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_N",
+        "text": "admission location kidney",
+        "target_note_id": "MIV_STRUCT_28551516"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_28813829",
+      "MIV_STRUCT_22953279",
+      "MIV_STRUCT_28551516"
+    ]
+  },
+  {
+    "vignette_id": "V465",
+    "patient_id": "18645624",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_J",
+        "text": "admission location pneumonia",
+        "target_note_id": "MIV_STRUCT_28017326"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission coronary artery",
+        "target_note_id": "MIV_STRUCT_28497478"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_C",
+        "text": "drainage admission right",
+        "target_note_id": "MIV_STRUCT_29726641"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission coronary stent",
+        "target_note_id": "MIV_STRUCT_25351248"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission coronary artery",
+        "target_note_id": "MIV_STRUCT_28497478"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_29726641",
+      "MIV_STRUCT_28017326",
+      "MIV_STRUCT_25351248",
+      "MIV_STRUCT_28497478"
+    ]
+  },
+  {
+    "vignette_id": "V955",
+    "patient_id": "13010083",
+    "specialty": "hospital_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_endocrine_nutritional",
+        "text": "admission location peripheral",
+        "target_note_id": "MIV_STRUCT_21361401"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_21361401"
+    ]
+  },
+  {
+    "vignette_id": "V948",
+    "patient_id": "15814891",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_skin",
+        "text": "admission location skin",
+        "target_note_id": "MIV_STRUCT_21267203"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_endocrine_nutritional",
+        "text": "admission location peripheral",
+        "target_note_id": "MIV_STRUCT_23874064"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23874064",
+      "MIV_STRUCT_21267203"
+    ]
+  },
+  {
+    "vignette_id": "V104",
+    "patient_id": "19157730",
+    "specialty": "hospital_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      1,
+      2,
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_digestive",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_28675196"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_23131105"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_endocrine_nutritional",
+        "text": "admission procedures location",
+        "target_note_id": "MIV_STRUCT_27259805"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_28543177"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23131105",
+      "MIV_STRUCT_28675196",
+      "MIV_STRUCT_28543177",
+      "MIV_STRUCT_27259805"
+    ]
+  },
+  {
+    "vignette_id": "V888",
+    "patient_id": "16964222",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_29830385"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_29830385"
+    ]
+  },
+  {
+    "vignette_id": "V979",
+    "patient_id": "18541137",
+    "specialty": "hospital_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      2,
+      3,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_blood",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_20495468"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_blood",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_20495468"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_genitourinary",
+        "text": "admission procedures location",
+        "target_note_id": "MIV_STRUCT_22406523"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_blood",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_20495468"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd9_genitourinary",
+        "text": "admission procedures location",
+        "target_note_id": "MIV_STRUCT_22406523"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_20495468",
+      "MIV_STRUCT_22406523"
+    ]
+  },
+  {
+    "vignette_id": "V876",
+    "patient_id": "16702864",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_I",
+        "text": "artery percutaneous admission",
+        "target_note_id": "MIV_STRUCT_23633494"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_25739498"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_25739498",
+      "MIV_STRUCT_23633494"
+    ]
+  },
+  {
+    "vignette_id": "V082",
+    "patient_id": "16543938",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 3,
+    "pivots": [
       1,
       2
     ],
     "queries": [
       {
         "order": 0,
-        "diagnosis": "atrial_fibrillation",
-        "text": "irregularly irregular doac anticoagulation",
-        "target_note_id": "SYN_00358_N001"
+        "diagnosis": "icd9_genitourinary",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_26349497"
       },
       {
         "order": 1,
-        "diagnosis": "uti_pyelonephritis",
-        "text": "urine culture dysuria ciprofloxacin",
-        "target_note_id": "SYN_00358_N006"
+        "diagnosis": "icd9_digestive",
+        "text": "admission peritoneal location",
+        "target_note_id": "MIV_STRUCT_26994649"
       },
       {
         "order": 2,
-        "diagnosis": "acute_kidney_injury",
-        "text": "oliguria creatinine hyperkalemia",
-        "target_note_id": "SYN_00358_N008"
+        "diagnosis": "icd10_chapter_M",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_27827425"
       }
     ],
     "ground_truth_note_ids": [
-      "SYN_00358_N001",
-      "SYN_00358_N008",
-      "SYN_00358_N006"
+      "MIV_STRUCT_26349497",
+      "MIV_STRUCT_27827425",
+      "MIV_STRUCT_26994649"
+    ]
+  },
+  {
+    "vignette_id": "V297",
+    "patient_id": "14292830",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1,
+      2,
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_23844162"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_M",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_24824644"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_N",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_25247260"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_27195616"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_27960528"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_27195616",
+      "MIV_STRUCT_27960528",
+      "MIV_STRUCT_25247260",
+      "MIV_STRUCT_23844162",
+      "MIV_STRUCT_24824644"
+    ]
+  },
+  {
+    "vignette_id": "V792",
+    "patient_id": "13871298",
+    "specialty": "hospital_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_nervous_sense",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_20194834"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location pulmonary",
+        "target_note_id": "MIV_STRUCT_29944973"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_20194834",
+      "MIV_STRUCT_29944973"
+    ]
+  },
+  {
+    "vignette_id": "V234",
+    "patient_id": "15113508",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_pregnancy",
+        "text": "admission location antepartum",
+        "target_note_id": "MIV_STRUCT_20777052"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_20777052"
+    ]
+  },
+  {
+    "vignette_id": "V678",
+    "patient_id": "19992507",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_K",
+        "text": "approach device percutaneous",
+        "target_note_id": "MIV_STRUCT_27219994"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_supplemental",
+        "text": "admission location diagnosis",
+        "target_note_id": "MIV_STRUCT_24978183"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_supplemental",
+        "text": "admission location diagnosis",
+        "target_note_id": "MIV_STRUCT_26892751"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_26892751",
+      "MIV_STRUCT_27219994",
+      "MIV_STRUCT_24978183"
+    ]
+  },
+  {
+    "vignette_id": "V047",
+    "patient_id": "19159236",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_respiratory",
+        "text": "admission respiratory location",
+        "target_note_id": "MIV_STRUCT_20575000"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission poisoning location",
+        "target_note_id": "MIV_STRUCT_25025704"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_20575000",
+      "MIV_STRUCT_25025704"
+    ]
+  },
+  {
+    "vignette_id": "V072",
+    "patient_id": "16513924",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      2,
+      3,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_mental",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_22063963"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_mental",
+        "text": "admission location alcohol",
+        "target_note_id": "MIV_STRUCT_21080956"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_22165689"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_F",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_21174905"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd9_mental",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_24199841"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_22165689",
+      "MIV_STRUCT_21080956",
+      "MIV_STRUCT_21174905",
+      "MIV_STRUCT_22063963",
+      "MIV_STRUCT_24199841"
+    ]
+  },
+  {
+    "vignette_id": "V722",
+    "patient_id": "19586042",
+    "specialty": "emergency",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_respiratory",
+        "text": "admission respiratory location",
+        "target_note_id": "MIV_STRUCT_24641270"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_supplemental",
+        "text": "admission location diagnosis",
+        "target_note_id": "MIV_STRUCT_22675274"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24641270",
+      "MIV_STRUCT_22675274"
+    ]
+  },
+  {
+    "vignette_id": "V197",
+    "patient_id": "12691429",
+    "specialty": "emergency",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location drainage",
+        "target_note_id": "MIV_STRUCT_24552371"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location drainage",
+        "target_note_id": "MIV_STRUCT_24552371"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location skilled",
+        "target_note_id": "MIV_STRUCT_25223993"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location skilled",
+        "target_note_id": "MIV_STRUCT_25223993"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_25223993",
+      "MIV_STRUCT_24552371"
+    ]
+  },
+  {
+    "vignette_id": "V592",
+    "patient_id": "15824992",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_29831010"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_K",
+        "text": "insertion device percutaneous",
+        "target_note_id": "MIV_STRUCT_28848016"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_F",
+        "text": "admission location against",
+        "target_note_id": "MIV_STRUCT_21435803"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_29831010"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd10_chapter_F",
+        "text": "admission location alcohol",
+        "target_note_id": "MIV_STRUCT_28170652"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_29831010",
+      "MIV_STRUCT_21435803",
+      "MIV_STRUCT_28848016",
+      "MIV_STRUCT_28170652"
+    ]
+  },
+  {
+    "vignette_id": "V371",
+    "patient_id": "19289869",
+    "specialty": "hospital_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_skin",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_29247543"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_29247543"
+    ]
+  },
+  {
+    "vignette_id": "V883",
+    "patient_id": "15629470",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_respiratory",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_24115757"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_respiratory",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_28791179"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24115757",
+      "MIV_STRUCT_28791179"
+    ]
+  },
+  {
+    "vignette_id": "V907",
+    "patient_id": "18137740",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_24676125"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_T",
+        "text": "admission type direct",
+        "target_note_id": "MIV_STRUCT_22100566"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24676125",
+      "MIV_STRUCT_22100566"
+    ]
+  },
+  {
+    "vignette_id": "V634",
+    "patient_id": "12423125",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_mental",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_29998095"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_mental",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_22073607"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_F",
+        "text": "electroconvulsive therapy unilateral",
+        "target_note_id": "MIV_STRUCT_22324941"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_22073607",
+      "MIV_STRUCT_29998095",
+      "MIV_STRUCT_22324941"
+    ]
+  },
+  {
+    "vignette_id": "V644",
+    "patient_id": "12429112",
+    "specialty": "emergency",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_25792530"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_C",
+        "text": "admission procedures drainage",
+        "target_note_id": "MIV_STRUCT_21332677"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_21332677",
+      "MIV_STRUCT_25792530"
+    ]
+  },
+  {
+    "vignette_id": "V850",
+    "patient_id": "19339564",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location care",
+        "target_note_id": "MIV_STRUCT_20603181"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location care",
+        "target_note_id": "MIV_STRUCT_20603181"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_20603181"
+    ]
+  },
+  {
+    "vignette_id": "V301",
+    "patient_id": "19794590",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      1,
+      2,
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_supplemental",
+        "text": "admission location diagnosis",
+        "target_note_id": "MIV_STRUCT_29109326"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_28920772"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_infectious",
+        "text": "admission location disorders",
+        "target_note_id": "MIV_STRUCT_26233078"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_digestive",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_25978232"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_25978232",
+      "MIV_STRUCT_26233078",
+      "MIV_STRUCT_29109326",
+      "MIV_STRUCT_28920772"
+    ]
+  },
+  {
+    "vignette_id": "V566",
+    "patient_id": "16482395",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_respiratory",
+        "text": "admission location pneumonia",
+        "target_note_id": "MIV_STRUCT_28790421"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_respiratory",
+        "text": "admission location interstitial",
+        "target_note_id": "MIV_STRUCT_22583005"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_J",
+        "text": "admission location chronic",
+        "target_note_id": "MIV_STRUCT_20049891"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_J",
+        "text": "admission location chronic",
+        "target_note_id": "MIV_STRUCT_27556374"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_27556374",
+      "MIV_STRUCT_22583005",
+      "MIV_STRUCT_28790421",
+      "MIV_STRUCT_20049891"
+    ]
+  },
+  {
+    "vignette_id": "V081",
+    "patient_id": "12233384",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location heart",
+        "target_note_id": "MIV_STRUCT_24280938"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location heart",
+        "target_note_id": "MIV_STRUCT_23499400"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24280938",
+      "MIV_STRUCT_23499400"
+    ]
+  },
+  {
+    "vignette_id": "V388",
+    "patient_id": "15691899",
+    "specialty": "critical_care",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_respiratory",
+        "text": "admission location asthma",
+        "target_note_id": "MIV_STRUCT_27958204"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_F",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_20721179"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_mental",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_20996673"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_20721179",
+      "MIV_STRUCT_20996673",
+      "MIV_STRUCT_27958204"
+    ]
+  },
+  {
+    "vignette_id": "V128",
+    "patient_id": "16076716",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location liver",
+        "target_note_id": "MIV_STRUCT_25462740"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_25462740"
+    ]
+  },
+  {
+    "vignette_id": "V550",
+    "patient_id": "10623751",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_J",
+        "text": "admission location diagnosis",
+        "target_note_id": "MIV_STRUCT_22971148"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_J",
+        "text": "admission location diagnosis",
+        "target_note_id": "MIV_STRUCT_22971148"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_J",
+        "text": "admission location diagnosis",
+        "target_note_id": "MIV_STRUCT_22971148"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission type observation",
+        "target_note_id": "MIV_STRUCT_23305917"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23305917",
+      "MIV_STRUCT_22971148"
+    ]
+  },
+  {
+    "vignette_id": "V471",
+    "patient_id": "14063594",
+    "specialty": "critical_care",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location disorders",
+        "target_note_id": "MIV_STRUCT_20343172"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location hospital",
+        "target_note_id": "MIV_STRUCT_28166542"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_digestive",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_21046748"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_20343172",
+      "MIV_STRUCT_21046748",
+      "MIV_STRUCT_28166542"
+    ]
+  },
+  {
+    "vignette_id": "V748",
+    "patient_id": "15606157",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_N",
+        "text": "admission location hospital",
+        "target_note_id": "MIV_STRUCT_24421367"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_digestive",
+        "text": "admission digestive location",
+        "target_note_id": "MIV_STRUCT_25847312"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_C",
+        "text": "admission location respiratory",
+        "target_note_id": "MIV_STRUCT_25637196"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_25847312",
+      "MIV_STRUCT_25637196",
+      "MIV_STRUCT_24421367"
+    ]
+  },
+  {
+    "vignette_id": "V045",
+    "patient_id": "12234568",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_infectious",
+        "text": "admission infectious location",
+        "target_note_id": "MIV_STRUCT_29928217"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission infusion biopsy",
+        "target_note_id": "MIV_STRUCT_21701205"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_supplemental",
+        "text": "admission location chemo",
+        "target_note_id": "MIV_STRUCT_24402799"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_21701205",
+      "MIV_STRUCT_29928217",
+      "MIV_STRUCT_24402799"
+    ]
+  },
+  {
+    "vignette_id": "V827",
+    "patient_id": "17568722",
+    "specialty": "hospital_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_25665082"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_Z",
+        "text": "admission location acute",
+        "target_note_id": "MIV_STRUCT_29109774"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_29109774",
+      "MIV_STRUCT_25665082"
+    ]
+  },
+  {
+    "vignette_id": "V271",
+    "patient_id": "13818168",
+    "specialty": "critical_care",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_N",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_25119958"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_N",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_21669418"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_A",
+        "text": "admission location septicemia",
+        "target_note_id": "MIV_STRUCT_29526391"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_25119958",
+      "MIV_STRUCT_21669418",
+      "MIV_STRUCT_29526391"
+    ]
+  },
+  {
+    "vignette_id": "V619",
+    "patient_id": "10745469",
+    "specialty": "critical_care",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_L",
+        "text": "admission location cellulitis",
+        "target_note_id": "MIV_STRUCT_22450690"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_nervous_sense",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_21118152"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_22450690",
+      "MIV_STRUCT_21118152"
+    ]
+  },
+  {
+    "vignette_id": "V353",
+    "patient_id": "19337609",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_T",
+        "text": "admission drainage post",
+        "target_note_id": "MIV_STRUCT_27945188"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_27945188"
+    ]
+  },
+  {
+    "vignette_id": "V868",
+    "patient_id": "17226466",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission post location",
+        "target_note_id": "MIV_STRUCT_25956654"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_musculoskeletal",
+        "text": "admission location replacement",
+        "target_note_id": "MIV_STRUCT_27039853"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_musculoskeletal",
+        "text": "admission location replacement",
+        "target_note_id": "MIV_STRUCT_27039853"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_musculoskeletal",
+        "text": "admission location replacement",
+        "target_note_id": "MIV_STRUCT_27039853"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_25956654",
+      "MIV_STRUCT_27039853"
+    ]
+  },
+  {
+    "vignette_id": "V368",
+    "patient_id": "10549730",
+    "specialty": "emergency",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      1,
+      2,
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_external",
+        "text": "admission location disorders",
+        "target_note_id": "MIV_STRUCT_26498502"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission location heart",
+        "target_note_id": "MIV_STRUCT_27943599"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_N",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_28796466"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_U",
+        "text": "percutaneous approach admission",
+        "target_note_id": "MIV_STRUCT_29501946"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_27943599",
+      "MIV_STRUCT_28796466",
+      "MIV_STRUCT_26498502",
+      "MIV_STRUCT_29501946"
+    ]
+  },
+  {
+    "vignette_id": "V100",
+    "patient_id": "19648564",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_21574334"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission trauma location",
+        "target_note_id": "MIV_STRUCT_29365558"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission trauma location",
+        "target_note_id": "MIV_STRUCT_29365558"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_29365558",
+      "MIV_STRUCT_21574334"
+    ]
+  },
+  {
+    "vignette_id": "V390",
+    "patient_id": "12669717",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_supplemental",
+        "text": "admission location diagnosis",
+        "target_note_id": "MIV_STRUCT_26494500"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_skin",
+        "text": "admission skin location",
+        "target_note_id": "MIV_STRUCT_22416394"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location care",
+        "target_note_id": "MIV_STRUCT_25135524"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location major",
+        "target_note_id": "MIV_STRUCT_27508491"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location alcoholic",
+        "target_note_id": "MIV_STRUCT_22504879"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_25135524",
+      "MIV_STRUCT_26494500",
+      "MIV_STRUCT_22504879",
+      "MIV_STRUCT_22416394",
+      "MIV_STRUCT_27508491"
+    ]
+  },
+  {
+    "vignette_id": "V095",
+    "patient_id": "12477040",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_supplemental",
+        "text": "admission procedures small",
+        "target_note_id": "MIV_STRUCT_29621862"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location hospital",
+        "target_note_id": "MIV_STRUCT_26690105"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location procedures",
+        "target_note_id": "MIV_STRUCT_24506036"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location hospital",
+        "target_note_id": "MIV_STRUCT_26690105"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd9_infectious",
+        "text": "admission location major",
+        "target_note_id": "MIV_STRUCT_20751207"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_20751207",
+      "MIV_STRUCT_29621862",
+      "MIV_STRUCT_24506036",
+      "MIV_STRUCT_26690105"
+    ]
+  },
+  {
+    "vignette_id": "V991",
+    "patient_id": "12485084",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location heart",
+        "target_note_id": "MIV_STRUCT_29874156"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_29874156"
+    ]
+  },
+  {
+    "vignette_id": "V345",
+    "patient_id": "19451054",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      1,
+      2,
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_digestive",
+        "text": "admission procedures location",
+        "target_note_id": "MIV_STRUCT_26688057"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_27771913"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_digestive",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_20328372"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_29515838"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_29515838",
+      "MIV_STRUCT_26688057",
+      "MIV_STRUCT_27771913",
+      "MIV_STRUCT_20328372"
+    ]
+  },
+  {
+    "vignette_id": "V782",
+    "patient_id": "18562980",
+    "specialty": "hospital_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_respiratory",
+        "text": "admission respiratory location",
+        "target_note_id": "MIV_STRUCT_25947480"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_respiratory",
+        "text": "admission diagnosis respiratory",
+        "target_note_id": "MIV_STRUCT_28184186"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_respiratory",
+        "text": "admission location pneumonia",
+        "target_note_id": "MIV_STRUCT_27086959"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_respiratory",
+        "text": "admission diagnosis respiratory",
+        "target_note_id": "MIV_STRUCT_24191892"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd9_respiratory",
+        "text": "admission diagnosis respiratory",
+        "target_note_id": "MIV_STRUCT_24191892"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24191892",
+      "MIV_STRUCT_27086959",
+      "MIV_STRUCT_28184186",
+      "MIV_STRUCT_25947480"
+    ]
+  },
+  {
+    "vignette_id": "V221",
+    "patient_id": "12224488",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_T",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_23474775"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_N",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_24155097"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location hospital",
+        "target_note_id": "MIV_STRUCT_24875081"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24875081",
+      "MIV_STRUCT_23474775",
+      "MIV_STRUCT_24155097"
+    ]
+  },
+  {
+    "vignette_id": "V160",
+    "patient_id": "11368344",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission location procedures",
+        "target_note_id": "MIV_STRUCT_28322477"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_23039301"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission location procedures",
+        "target_note_id": "MIV_STRUCT_28322477"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23039301",
+      "MIV_STRUCT_28322477"
+    ]
+  },
+  {
+    "vignette_id": "V965",
+    "patient_id": "19271750",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location liver",
+        "target_note_id": "MIV_STRUCT_20385975"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_T",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_24523282"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission diagnosis location",
+        "target_note_id": "MIV_STRUCT_29693067"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location liver",
+        "target_note_id": "MIV_STRUCT_20385975"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24523282",
+      "MIV_STRUCT_29693067",
+      "MIV_STRUCT_20385975"
+    ]
+  },
+  {
+    "vignette_id": "V349",
+    "patient_id": "13108883",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_endocrine_nutritional",
+        "text": "tissue admission excision",
+        "target_note_id": "MIV_STRUCT_28065292"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_infectious",
+        "text": "admission infectious location",
+        "target_note_id": "MIV_STRUCT_20111892"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location care",
+        "target_note_id": "MIV_STRUCT_20500026"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_infectious",
+        "text": "admission infectious location",
+        "target_note_id": "MIV_STRUCT_20111892"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_25128532"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_20111892",
+      "MIV_STRUCT_28065292",
+      "MIV_STRUCT_25128532",
+      "MIV_STRUCT_20500026"
+    ]
+  },
+  {
+    "vignette_id": "V984",
+    "patient_id": "15119212",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_27377592"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_27377592"
+    ]
+  },
+  {
+    "vignette_id": "V715",
+    "patient_id": "11567158",
+    "specialty": "hospital_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1,
+      2,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_21660251"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_29642675"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_21474610"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_21474610"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location procedures",
+        "target_note_id": "MIV_STRUCT_27951466"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_21660251",
+      "MIV_STRUCT_27951466",
+      "MIV_STRUCT_29642675",
+      "MIV_STRUCT_21474610"
+    ]
+  },
+  {
+    "vignette_id": "V164",
+    "patient_id": "16289299",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_29160361"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_nervous_sense",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_28662703"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_29160361"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_28662703",
+      "MIV_STRUCT_29160361"
+    ]
+  },
+  {
+    "vignette_id": "V826",
+    "patient_id": "10913302",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_T",
+        "text": "admission location post",
+        "target_note_id": "MIV_STRUCT_24439614"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_skin",
+        "text": "admission location skin",
+        "target_note_id": "MIV_STRUCT_25257207"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_25257207",
+      "MIV_STRUCT_24439614"
+    ]
+  },
+  {
+    "vignette_id": "V778",
+    "patient_id": "14361828",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_N",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_24919313"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_N",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_24919313"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_N",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_24919313"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24919313"
+    ]
+  },
+  {
+    "vignette_id": "V007",
+    "patient_id": "17739994",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_O",
+        "text": "admission location antepartum",
+        "target_note_id": "MIV_STRUCT_24797631"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_pregnancy",
+        "text": "admission location diagnosis",
+        "target_note_id": "MIV_STRUCT_26812593"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_pregnancy",
+        "text": "admission location antepartum",
+        "target_note_id": "MIV_STRUCT_26682219"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_pregnancy",
+        "text": "admission location antepartum",
+        "target_note_id": "MIV_STRUCT_21912317"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24797631",
+      "MIV_STRUCT_26682219",
+      "MIV_STRUCT_26812593",
+      "MIV_STRUCT_21912317"
+    ]
+  },
+  {
+    "vignette_id": "V891",
+    "patient_id": "15070677",
+    "specialty": "hospital_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_T",
+        "text": "admission location device",
+        "target_note_id": "MIV_STRUCT_23625964"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23625964"
+    ]
+  },
+  {
+    "vignette_id": "V829",
+    "patient_id": "15467188",
+    "specialty": "hospital_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_28201799"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_28158842"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_endocrine_nutritional",
+        "text": "admission location disorders",
+        "target_note_id": "MIV_STRUCT_28393099"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_28201799",
+      "MIV_STRUCT_28393099",
+      "MIV_STRUCT_28158842"
+    ]
+  },
+  {
+    "vignette_id": "V285",
+    "patient_id": "18039147",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      2,
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location upper",
+        "target_note_id": "MIV_STRUCT_24536714"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission pancreas location",
+        "target_note_id": "MIV_STRUCT_23953741"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_infectious",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_22815074"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location upper",
+        "target_note_id": "MIV_STRUCT_24536714"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24536714",
+      "MIV_STRUCT_23953741",
+      "MIV_STRUCT_22815074"
+    ]
+  },
+  {
+    "vignette_id": "V604",
+    "patient_id": "15973356",
+    "specialty": "emergency",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_respiratory",
+        "text": "admission location pneumonia",
+        "target_note_id": "MIV_STRUCT_27745963"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_external",
+        "text": "admission kidney location",
+        "target_note_id": "MIV_STRUCT_27299131"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_external",
+        "text": "admission kidney location",
+        "target_note_id": "MIV_STRUCT_27299131"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_27299131",
+      "MIV_STRUCT_27745963"
+    ]
+  },
+  {
+    "vignette_id": "V460",
+    "patient_id": "19394739",
+    "specialty": "emergency",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_supplemental",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_25099708"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_genitourinary",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_27813597"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_genitourinary",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_27813597"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_25099708",
+      "MIV_STRUCT_27813597"
+    ]
+  },
+  {
+    "vignette_id": "V226",
+    "patient_id": "16478904",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission location cardiac",
+        "target_note_id": "MIV_STRUCT_27190495"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission location heart",
+        "target_note_id": "MIV_STRUCT_24520950"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24520950",
+      "MIV_STRUCT_27190495"
+    ]
+  },
+  {
+    "vignette_id": "V430",
+    "patient_id": "10627407",
+    "specialty": "critical_care",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_25789023"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission location cardiac",
+        "target_note_id": "MIV_STRUCT_21187686"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_25789023"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_21187686",
+      "MIV_STRUCT_25789023"
+    ]
+  },
+  {
+    "vignette_id": "V987",
+    "patient_id": "10737349",
+    "specialty": "hospital_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission post location",
+        "target_note_id": "MIV_STRUCT_25964266"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location peripheral",
+        "target_note_id": "MIV_STRUCT_25065326"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_T",
+        "text": "artery open approach",
+        "target_note_id": "MIV_STRUCT_21369470"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_T",
+        "text": "artery open approach",
+        "target_note_id": "MIV_STRUCT_21369470"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_25065326",
+      "MIV_STRUCT_25964266",
+      "MIV_STRUCT_21369470"
+    ]
+  },
+  {
+    "vignette_id": "V719",
+    "patient_id": "16795352",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_endocrine_nutritional",
+        "text": "admission amputation vessel",
+        "target_note_id": "MIV_STRUCT_28503411"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_skin",
+        "text": "admission skin location",
+        "target_note_id": "MIV_STRUCT_23300860"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission location endoscopic",
+        "target_note_id": "MIV_STRUCT_25533171"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_25533171",
+      "MIV_STRUCT_23300860",
+      "MIV_STRUCT_28503411"
+    ]
+  },
+  {
+    "vignette_id": "V666",
+    "patient_id": "10805461",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      2,
+      3,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_infectious",
+        "text": "admission infectious location",
+        "target_note_id": "MIV_STRUCT_27102623"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_infectious",
+        "text": "admission location related",
+        "target_note_id": "MIV_STRUCT_22946338"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location circulatory",
+        "target_note_id": "MIV_STRUCT_20178114"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_respiratory",
+        "text": "admission location pneumonia",
+        "target_note_id": "MIV_STRUCT_21509367"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd9_infectious",
+        "text": "admission infectious location",
+        "target_note_id": "MIV_STRUCT_27102623"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_20178114",
+      "MIV_STRUCT_27102623",
+      "MIV_STRUCT_21509367",
+      "MIV_STRUCT_22946338"
+    ]
+  },
+  {
+    "vignette_id": "V734",
+    "patient_id": "11494753",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_23624410"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_mental",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_22995374"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_23624410"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location disorders",
+        "target_note_id": "MIV_STRUCT_27118194"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd9_mental",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_22995374"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_27118194",
+      "MIV_STRUCT_22995374",
+      "MIV_STRUCT_23624410"
+    ]
+  },
+  {
+    "vignette_id": "V204",
+    "patient_id": "19369491",
+    "specialty": "emergency",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      1,
+      2,
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_F",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_24381449"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_T",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_27542900"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_F",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_24381449"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_27496022"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24381449",
+      "MIV_STRUCT_27496022",
+      "MIV_STRUCT_27542900"
+    ]
+  },
+  {
+    "vignette_id": "V575",
+    "patient_id": "12920064",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location hospital",
+        "target_note_id": "MIV_STRUCT_22138334"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission vessel observation",
+        "target_note_id": "MIV_STRUCT_24338640"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location procedure",
+        "target_note_id": "MIV_STRUCT_23916701"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission cardiovascular system",
+        "target_note_id": "MIV_STRUCT_24367060"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_22138334",
+      "MIV_STRUCT_24367060",
+      "MIV_STRUCT_23916701",
+      "MIV_STRUCT_24338640"
+    ]
+  },
+  {
+    "vignette_id": "V028",
+    "patient_id": "13305426",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission location lymphoma",
+        "target_note_id": "MIV_STRUCT_21209968"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_25769900"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission location transplant",
+        "target_note_id": "MIV_STRUCT_26336946"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission location transplant",
+        "target_note_id": "MIV_STRUCT_26336946"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission location lymphoma",
+        "target_note_id": "MIV_STRUCT_28207415"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_25769900",
+      "MIV_STRUCT_21209968",
+      "MIV_STRUCT_26336946",
+      "MIV_STRUCT_28207415"
+    ]
+  },
+  {
+    "vignette_id": "V617",
+    "patient_id": "10391076",
+    "specialty": "hospital_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_mental",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_26571770"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_26571770"
+    ]
+  },
+  {
+    "vignette_id": "V518",
+    "patient_id": "15987240",
+    "specialty": "hospital_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_C",
+        "text": "admission location hospital",
+        "target_note_id": "MIV_STRUCT_22795291"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_mental",
+        "text": "admission location psychoses",
+        "target_note_id": "MIV_STRUCT_21432277"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_21432277",
+      "MIV_STRUCT_22795291"
+    ]
+  },
+  {
+    "vignette_id": "V239",
+    "patient_id": "13415410",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_U",
+        "text": "admission respiratory location",
+        "target_note_id": "MIV_STRUCT_24921335"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_J",
+        "text": "admission respiratory location",
+        "target_note_id": "MIV_STRUCT_22458524"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24921335",
+      "MIV_STRUCT_22458524"
+    ]
+  },
+  {
+    "vignette_id": "V224",
+    "patient_id": "14696276",
+    "specialty": "emergency",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 3,
+    "pivots": [
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission hospital observation",
+        "target_note_id": "MIV_STRUCT_20264141"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_23232719"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_respiratory",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_27322219"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23232719",
+      "MIV_STRUCT_20264141",
+      "MIV_STRUCT_27322219"
+    ]
+  },
+  {
+    "vignette_id": "V096",
+    "patient_id": "15767435",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission procedures surgical",
+        "target_note_id": "MIV_STRUCT_29392718"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_digestive",
+        "text": "admission nail location",
+        "target_note_id": "MIV_STRUCT_28984660"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_28984660",
+      "MIV_STRUCT_29392718"
+    ]
+  },
+  {
+    "vignette_id": "V031",
+    "patient_id": "14741471",
+    "specialty": "critical_care",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_26414819"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_26414819"
+    ]
+  },
+  {
+    "vignette_id": "V033",
+    "patient_id": "16388630",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location drainage",
+        "target_note_id": "MIV_STRUCT_26520955"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location drainage",
+        "target_note_id": "MIV_STRUCT_26520955"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_26520955"
+    ]
+  },
+  {
+    "vignette_id": "V433",
+    "patient_id": "12452610",
+    "specialty": "emergency",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission percutaneous location",
+        "target_note_id": "MIV_STRUCT_21963574"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_21963574"
+    ]
+  },
+  {
+    "vignette_id": "V605",
+    "patient_id": "17454817",
+    "specialty": "hospital_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_G",
+        "text": "admission location headaches",
+        "target_note_id": "MIV_STRUCT_23536802"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23536802"
+    ]
+  },
+  {
+    "vignette_id": "V090",
+    "patient_id": "19002339",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      1,
+      2,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location peripheral",
+        "target_note_id": "MIV_STRUCT_24304596"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_23167038"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_respiratory",
+        "text": "admission location chronic",
+        "target_note_id": "MIV_STRUCT_21812932"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd9_respiratory",
+        "text": "admission location chronic",
+        "target_note_id": "MIV_STRUCT_25283580"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission cardiac location",
+        "target_note_id": "MIV_STRUCT_22902351"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_21812932",
+      "MIV_STRUCT_25283580",
+      "MIV_STRUCT_22902351",
+      "MIV_STRUCT_24304596",
+      "MIV_STRUCT_23167038"
+    ]
+  },
+  {
+    "vignette_id": "V559",
+    "patient_id": "13748151",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission coma location",
+        "target_note_id": "MIV_STRUCT_28313065"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location hemorrhage",
+        "target_note_id": "MIV_STRUCT_26374524"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_26374524",
+      "MIV_STRUCT_28313065"
+    ]
+  },
+  {
+    "vignette_id": "V914",
+    "patient_id": "18274431",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_26518264"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_L",
+        "text": "admission location skin",
+        "target_note_id": "MIV_STRUCT_28459322"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_26518264",
+      "MIV_STRUCT_28459322"
+    ]
+  },
+  {
+    "vignette_id": "V759",
+    "patient_id": "11551014",
+    "specialty": "critical_care",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_C",
+        "text": "admission approach procedures",
+        "target_note_id": "MIV_STRUCT_23912758"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_29309554"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_29309554",
+      "MIV_STRUCT_23912758"
+    ]
+  },
+  {
+    "vignette_id": "V693",
+    "patient_id": "19555898",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_N",
+        "text": "admission location kidney",
+        "target_note_id": "MIV_STRUCT_24485763"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24485763"
+    ]
+  },
+  {
+    "vignette_id": "V105",
+    "patient_id": "14163173",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_T",
+        "text": "right approach open",
+        "target_note_id": "MIV_STRUCT_20618256"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_20618256"
+    ]
+  },
+  {
+    "vignette_id": "V755",
+    "patient_id": "13974607",
+    "specialty": "emergency",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_R",
+        "text": "admission dilation vein",
+        "target_note_id": "MIV_STRUCT_29697761"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_25552257"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_25552257"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_K",
+        "text": "admission location gastrointestinal",
+        "target_note_id": "MIV_STRUCT_24281143"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_29697761",
+      "MIV_STRUCT_24281143",
+      "MIV_STRUCT_25552257"
+    ]
+  },
+  {
+    "vignette_id": "V143",
+    "patient_id": "13261557",
+    "specialty": "emergency",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission duct natural",
+        "target_note_id": "MIV_STRUCT_26181805"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_C",
+        "text": "admission location malignancy",
+        "target_note_id": "MIV_STRUCT_25415203"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_26181805",
+      "MIV_STRUCT_25415203"
+    ]
+  },
+  {
+    "vignette_id": "V229",
+    "patient_id": "10116310",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "low",
+    "n_queries": 1,
+    "pivots": [],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_endocrine_nutritional",
+        "text": "admission location disorders",
+        "target_note_id": "MIV_STRUCT_22838844"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_22838844"
+    ]
+  },
+  {
+    "vignette_id": "V251",
+    "patient_id": "15360211",
+    "specialty": "internal_medicine",
+    "experience_group": ">=5_years",
+    "complexity": "low",
+    "n_queries": 2,
+    "pivots": [
+      1
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_28949874"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission location complications",
+        "target_note_id": "MIV_STRUCT_20261496"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_28949874",
+      "MIV_STRUCT_20261496"
+    ]
+  },
+  {
+    "vignette_id": "V282",
+    "patient_id": "19304241",
+    "specialty": "critical_care",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_N",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_29272104"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_symptoms_signs",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_21220265"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_circulatory",
+        "text": "admission location heart",
+        "target_note_id": "MIV_STRUCT_26399147"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_29272104",
+      "MIV_STRUCT_26399147",
+      "MIV_STRUCT_21220265"
+    ]
+  },
+  {
+    "vignette_id": "V760",
+    "patient_id": "15432760",
+    "specialty": "emergency",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_skin",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_24814129"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission procedures location",
+        "target_note_id": "MIV_STRUCT_27891105"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_musculoskeletal",
+        "text": "admission location replacement",
+        "target_note_id": "MIV_STRUCT_23564211"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_24814129",
+      "MIV_STRUCT_23564211",
+      "MIV_STRUCT_27891105"
+    ]
+  },
+  {
+    "vignette_id": "V026",
+    "patient_id": "11014367",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 3,
+    "pivots": [
+      1,
+      2
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd9_digestive",
+        "text": "admission location inflammatory",
+        "target_note_id": "MIV_STRUCT_23470089"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_genitourinary",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_24493191"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd9_injury_poisoning",
+        "text": "admission location kidney",
+        "target_note_id": "MIV_STRUCT_26735277"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23470089",
+      "MIV_STRUCT_24493191",
+      "MIV_STRUCT_26735277"
+    ]
+  },
+  {
+    "vignette_id": "V115",
+    "patient_id": "15132645",
+    "specialty": "critical_care",
+    "experience_group": ">=5_years",
+    "complexity": "high",
+    "n_queries": 4,
+    "pivots": [
+      1,
+      2,
+      3
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_21042497"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd9_neoplasms",
+        "text": "admission observation hospital",
+        "target_note_id": "MIV_STRUCT_28871097"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_J",
+        "text": "admission location pneumonia",
+        "target_note_id": "MIV_STRUCT_27416016"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission location type",
+        "target_note_id": "MIV_STRUCT_21042497"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_21042497",
+      "MIV_STRUCT_27416016",
+      "MIV_STRUCT_28871097"
+    ]
+  },
+  {
+    "vignette_id": "V655",
+    "patient_id": "12518771",
+    "specialty": "internal_medicine",
+    "experience_group": "<5_years",
+    "complexity": "high",
+    "n_queries": 5,
+    "pivots": [
+      3,
+      4
+    ],
+    "queries": [
+      {
+        "order": 0,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission location cardiac",
+        "target_note_id": "MIV_STRUCT_23744173"
+      },
+      {
+        "order": 1,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission location cardiac",
+        "target_note_id": "MIV_STRUCT_23744173"
+      },
+      {
+        "order": 2,
+        "diagnosis": "icd10_chapter_I",
+        "text": "admission location heart",
+        "target_note_id": "MIV_STRUCT_26800317"
+      },
+      {
+        "order": 3,
+        "diagnosis": "icd10_chapter_A",
+        "text": "approach admission insertion",
+        "target_note_id": "MIV_STRUCT_20941461"
+      },
+      {
+        "order": 4,
+        "diagnosis": "icd9_external",
+        "text": "admission location hospital",
+        "target_note_id": "MIV_STRUCT_26840049"
+      }
+    ],
+    "ground_truth_note_ids": [
+      "MIV_STRUCT_23744173",
+      "MIV_STRUCT_20941461",
+      "MIV_STRUCT_26840049",
+      "MIV_STRUCT_26800317"
     ]
   }
 ]

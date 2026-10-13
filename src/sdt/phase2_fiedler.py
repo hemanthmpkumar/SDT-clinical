@@ -37,6 +37,32 @@ import scipy.linalg as sla
 import scipy.sparse as sp
 import scipy.sparse.linalg as spla
 
+# Lazy torch import for GPU acceleration
+_torch_phase2 = None
+_torch_available_phase2 = False
+
+def _import_torch_phase2():
+    """Lazy import torch for Phase 2 GPU acceleration."""
+    global _torch_phase2, _torch_available_phase2
+    if not _torch_available_phase2:
+        try:
+            import torch
+            _torch_phase2 = torch
+            _torch_available_phase2 = True
+        except ImportError:
+            _torch_available_phase2 = False
+    return _torch_available_phase2
+
+def _get_device_phase2():
+    """Get best available device for Phase 2."""
+    if not _import_torch_phase2():
+        return None
+    if hasattr(_torch_phase2.backends, 'mps') and _torch_phase2.backends.mps.is_available():
+        return _torch_phase2.device('mps')
+    if _torch_phase2.cuda.is_available():
+        return _torch_phase2.device('cuda')
+    return None
+
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 
@@ -86,6 +112,8 @@ class SpectralPivotDetector:
     def normalized_laplacian(A: np.ndarray) -> np.ndarray:
         """Compute the normalized Laplacian Lₜ = I − D^{-½} A D^{-½}.
 
+        Uses GPU matmul when available for large matrices (>100 nodes).
+
         Args:
             A : symmetric adjacency matrix of shape (n, n).
 
@@ -96,6 +124,21 @@ class SpectralPivotDetector:
         d = A.sum(axis=1)                              # degree vector
         d_inv_sqrt = np.where(d > 1e-9, 1.0 / np.sqrt(d), 0.0)
         D_inv_sqrt = np.diag(d_inv_sqrt)
+        
+        # GPU acceleration for large matrices
+        if _torch_available_phase2 and n > 100:
+            device = _get_device_phase2()
+            if device is not None:
+                try:
+                    torch = _torch_phase2
+                    A_t = torch.tensor(A, device=device)
+                    D_t = torch.tensor(D_inv_sqrt, device=device)
+                    prod = torch.matmul(D_t, torch.matmul(A_t, D_t))
+                    L = (torch.eye(n, device=device) - prod).cpu().numpy()
+                    return L.astype(np.float32)
+                except Exception:
+                    pass  # Fall back to numpy
+        
         L = np.eye(n, dtype=np.float32) - (D_inv_sqrt @ A @ D_inv_sqrt).astype(np.float32)
         return L
 
@@ -105,7 +148,8 @@ class SpectralPivotDetector:
     ) -> tuple[float, np.ndarray]:
         """Compute λ₂(L) and its eigenvector v₂ (the Fiedler vector).
 
-        Uses scipy.linalg.eigh for small dense subgraphs (n ≤ 512).
+        Uses GPU eigenvalue decomposition when available for large matrices.
+        Falls back to scipy.linalg.eigh for small dense subgraphs (n ≤ 512).
         For larger graphs, falls back to ARPACK sparse eigsh.
 
         Returns
@@ -121,6 +165,28 @@ class SpectralPivotDetector:
 
         try:
             if n <= 512:
+                # Dense path: try GPU first for large enough matrices, then scipy
+                if _torch_available_phase2 and n > 200:
+                    device = _get_device_phase2()
+                    if device is not None:
+                        try:
+                            torch = _torch_phase2
+                            L_t = torch.tensor(L, device=device)
+                            # eigh returns (values, vectors) for symmetric matrix
+                            eigvals, eigvecs = torch.linalg.eigh(L_t)
+                            # Take first 2 eigenvalues/vectors
+                            eigvals = eigvals[:2]
+                            eigvecs = eigvecs[:, :2]
+                            # Sort ascending
+                            order = torch.argsort(eigvals)
+                            eigvals = eigvals[order]
+                            eigvecs = eigvecs[:, order]
+                            lambda2 = float(torch.clamp(eigvals[1], 0.0, 2.0).cpu().item())
+                            v2 = eigvecs[:, 1].cpu().numpy().astype(np.float32)
+                            return lambda2, v2
+                        except Exception:
+                            pass  # Fall back to scipy below
+                
                 # Dense path: full eigendecomposition, take k=2.
                 eigvals, eigvecs = sla.eigh(L, subset_by_index=[0, 1])
             else:

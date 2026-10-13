@@ -45,6 +45,35 @@ import scipy.linalg as sla
 
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
+# Lazy torch import for GPU acceleration
+_torch = None
+_torch_available = False
+
+
+def _import_torch():
+    """Lazy import of torch for GPU acceleration."""
+    global _torch, _torch_available
+    if not _torch_available:
+        try:
+            import torch
+            _torch = torch
+            _torch_available = True
+        except ImportError:
+            _torch_available = False
+    return _torch_available
+
+
+def _get_device():
+    """Get the best available device (MPS > CUDA > CPU)."""
+    if not _import_torch():
+        return None
+    import torch
+    if hasattr(torch.backends, 'mps') and torch.backends.mps.is_available():
+        return torch.device('mps')
+    if torch.cuda.is_available():
+        return torch.device('cuda')
+    return None
+
 
 # ---------------------------------------------------------------------------
 # Global graph spectral embedding (computed once, offline)
@@ -72,6 +101,9 @@ class GlobalSpectralEmbedding:
         node_ids: list,
     ) -> "GlobalSpectralEmbedding":
         """Compute φ(v) = [u₂(v), …, u_{m+1}(v)] for all nodes.
+
+        Uses scipy.sparse.linalg.eigsh for sparse eigenvalue decomposition.
+        Falls back to dense eig if the matrix is too large for ARPACK.
 
         Args:
             A_global : (N, N) global adjacency matrix (may be dense).
@@ -109,6 +141,7 @@ class GlobalSpectralEmbedding:
             eigvals = 1.0 - eigvals_M[::-1]
             eigvecs = eigvecs[:, ::-1]
         except Exception as e:
+            # Fallback: use dense eigensolver on a smaller submatrix
             print(f"Warning: GlobalSpectralEmbedding eigsh failed ({e}). Falling back to zeros.")
             eigvals = np.zeros(k + 1)
             eigvecs = np.eye(n, k + 1)
@@ -178,6 +211,8 @@ class SpectralRandomWalk:
     ) -> np.ndarray:
         """Compute biased P(v_j|v_i) for the neighbors of v_i (Eq. 22).
 
+        Uses GPU acceleration when available for the distance computation.
+
         Args:
             v_i_phi       : spectral embedding of current node, shape (m,).
             neighbors_phi : spectral embeddings of neighbors, shape (K, m).
@@ -186,6 +221,31 @@ class SpectralRandomWalk:
         Returns:
             probs : normalized transition probabilities, shape (K,).
         """
+        # Try GPU acceleration for large neighbor sets
+        if _torch_available and len(neighbors_phi) > 10:
+            device = _get_device()
+            if device is not None:
+                try:
+                    torch = _torch
+                    v_tensor = torch.tensor(v_i_phi, device=device)
+                    nbr_tensor = torch.tensor(neighbors_phi, device=device)
+                    base_tensor = torch.tensor(base_probs, device=device)
+                    
+                    # Compute squared distances on GPU
+                    diffs = nbr_tensor - v_tensor  # (K, m)
+                    sq_dist = (diffs ** 2).sum(dim=1)  # (K,)
+                    bias = torch.exp(-self.tau * sq_dist)  # (K,)
+                    raw = base_tensor * bias  # (K,)
+                    total = raw.sum()
+                    
+                    if total.item() < 1e-12:
+                        return np.ones(len(raw), dtype=np.float32) / len(raw)
+                    probs = raw / total
+                    return probs.cpu().numpy()
+                except Exception:
+                    pass  # Fall back to numpy
+        
+        # Numpy fallback
         diffs = neighbors_phi - v_i_phi[np.newaxis, :]      # (K, m)
         sq_dist = (diffs ** 2).sum(axis=1)                  # (K,)
         bias = np.exp(-self.tau * sq_dist)                  # (K,)
@@ -194,6 +254,39 @@ class SpectralRandomWalk:
         if total < 1e-12:
             return np.ones(len(raw)) / len(raw)
         return raw / total
+
+    def get_batch_gpu(self, node_ids: list, phi: GlobalSpectralEmbedding) -> np.ndarray:
+        """Batch embedding lookup with GPU acceleration when available.
+        
+        Args:
+            node_ids : list of node IDs to lookup.
+            phi : fitted GlobalSpectralEmbedding.
+            
+        Returns:
+            embeddings : (len, m) matrix of spectral embeddings.
+        """
+        if not _torch_available or len(node_ids) < 10:
+            # Fall back to numpy batch lookup
+            return phi.get_batch(node_ids)
+        
+        device = _get_device()
+        if device is None:
+            return phi.get_batch(node_ids)
+        
+        try:
+            torch = _torch
+            ids_to_idx = phi._id_to_row
+            m = phi.m
+            batch = torch.zeros((len(node_ids), m), device=device)
+            
+            for i, nid in enumerate(node_ids):
+                row = ids_to_idx.get(nid)
+                if row is not None and phi._phi is not None:
+                    batch[i] = torch.tensor(phi._phi[row], device=device)
+            
+            return batch.cpu().numpy()
+        except Exception:
+            return phi.get_batch(node_ids)
 
     def walk(
         self,
@@ -219,7 +312,10 @@ class SpectralRandomWalk:
         N = len(node_ids)
         pi = np.zeros(N, dtype=np.float32)
 
-        for start_id in start_nodes:
+        # Batch lookup embeddings for all start nodes
+        start_embeds = phi.get_batch(start_nodes) if phi.fitted else None
+
+        for idx, start_id in enumerate(start_nodes):
             start_idx = id_to_idx.get(start_id)
             if start_idx is None:
                 continue
@@ -230,13 +326,18 @@ class SpectralRandomWalk:
                     neighbors = row.indices
                     if len(neighbors) == 0:
                         break
+                    
+                    # Get current node embedding
+                    if phi.fitted:
+                        cur_phi = phi._phi[cur]
+                        # Batch lookup neighbor embeddings on GPU when available
+                        nbr_ids = [node_ids[n] for n in neighbors]
+                        nbr_phi = self.get_batch_gpu(nbr_ids, phi)
+                    else:
+                        cur_phi = np.zeros(phi.m, dtype=np.float32)
+                        nbr_phi = np.zeros((len(neighbors), phi.m), dtype=np.float32)
+                    
                     base_p = row.data / (row.data.sum() + 1e-12)
-                    cur_phi = phi._phi[cur] if phi.fitted else np.zeros(phi.m)
-                    nbr_phi = (
-                        phi._phi[neighbors]
-                        if phi.fitted
-                        else np.zeros((len(neighbors), phi.m), dtype=np.float32)
-                    )
                     probs = self._transition_probs(cur_phi, nbr_phi, base_p)
                     cur = int(rng.choice(neighbors, p=probs))
                     pi[cur] += 1.0

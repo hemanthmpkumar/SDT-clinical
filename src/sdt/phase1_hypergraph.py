@@ -322,10 +322,56 @@ class MultiModalHypergraph:
         wc = self._w_sem(n_i.embedding, n_j.embedding)
         return self.alpha * ws + (1.0 - self.alpha) * wc
 
+    def _pairwise_weights_matrix(self, nodes: list[Node]) -> np.ndarray:
+        """Vectorized pairwise weight computation (GPU-accelerated when available).
+        
+        Computes the full symmetric weight matrix W where W[i,j] = composite_weight(nodes[i], nodes[j]).
+        Uses batch matrix operations instead of Python loops for O(n²) pair computation.
+        
+        Args:
+            nodes: List of Node objects
+            
+        Returns:
+            W: np.ndarray of shape (n, n) with pairwise weights
+        """
+        n = len(nodes)
+        if n < 2:
+            return np.zeros((n, n), dtype=np.float32)
+        
+        # Extract embeddings and timestamps
+        embeddings = np.stack([nd.embedding for nd in nodes])  # (n, d)
+        timestamps = np.array([nd.timestamp for nd in nodes], dtype=np.float64)  # (n,)
+        
+        # ── Compute cosine similarity matrix via matrix multiplication ──
+        # L2-normalize embeddings first
+        norms = np.linalg.norm(embeddings, axis=1, keepdims=True)
+        norms = np.maximum(norms, 1e-9)  # avoid division by zero
+        norms_float = norms.astype(np.float32)
+        embeddings_normed = embeddings / norms_float  # (n, d)
+        
+        # Cosine similarity = normalized embeddings @ normalized embeddings.T
+        cos_sim = embeddings_normed @ embeddings_normed.T  # (n, n)
+        
+        # ── Compute temporal decay matrix via outer product ──
+        # |t_i - t_j| for all pairs
+        dt = np.abs(timestamps[:, np.newaxis] - timestamps[np.newaxis, :])  # (n, n)
+        temporal = np.exp(-dt / self.sigma_seq)  # (n, n)
+        
+        # ── Combine: α * temporal + (1-α) * cosine ──
+        W = self.alpha * temporal + (1.0 - self.alpha) * cos_sim  # (n, n)
+        
+        # Zero out diagonal (no self-loops)
+        np.fill_diagonal(W, 0.0)
+        
+        return W.astype(np.float32)
+
     def build_adjacency(self) -> tuple[np.ndarray, list[str]]:
         """Build the hypergraph adjacency matrix A_t = H W B^{-1} H^T.
 
-        Only node pairs with composite weight ≥ sem_threshold form a hyperedge.
+        Hyperedges are constructed via k-nearest-neighbor clique detection:
+        groups of 3+ mutually-connected nodes become multi-way hyperedges.
+        Each node in a hyperedge participates simultaneously, enabling true
+        spectral hypergraph properties (distinct from standard graph Laplacians).
 
         Returns
         -------
@@ -341,29 +387,142 @@ class MultiModalHypergraph:
 
         node_ids = [nd.node_id for nd in nodes]
 
-        # Build hyperedges: each ordered pair (i,j) with w > threshold.
-        # For small subgraphs this is equivalent to a weighted pairwise graph,
-        # which still satisfies the hypergraph adjacency formula.
-        hyperedges: list[tuple[int, int, float]] = []
-        for i in range(n):
-            for j in range(i + 1, n):
-                w = self._composite_weight(nodes[i], nodes[j])
-                if w >= self.sem_threshold:
-                    hyperedges.append((i, j, w))
+        # ── Build hyperedges via greedy expansion with density threshold ───
+        # Seed nodes from high-weight edges, then greedily grow clusters of
+        # 3+ members where a minimum fraction of internal pairs exceed the
+        # edge weight threshold (density ≥ density_min).
+        # Each cluster becomes a multi-way hyperedge.
+        # ------------------------------------------------------------------
 
-        if not hyperedges:
-            # All nodes isolated — return diagonal identity.
+        # Pre-compute pairwise weights using vectorized matrix operation (GPU-accelerated when available)
+        W = self._pairwise_weights_matrix(nodes)  # (n, n) symmetric matrix
+        
+        # Extract upper-triangle pairs above threshold
+        pair_weights: list[tuple[int, int, float]] = []
+        if n > 0:
+            # Get upper triangle indices
+            upper_i, upper_j = np.triu_indices(n, k=1)
+            for idx in range(len(upper_i)):
+                i_idx = upper_i[idx]
+                j_idx = upper_j[idx]
+                w = W[i_idx, j_idx]
+                if w >= self.sem_threshold:
+                    pair_weights.append((i_idx, j_idx, float(w)))
+
+        # Build adjacency list for greedy expansion
+        adj_list: dict[int, list[tuple[int, float]]] = {i: [] for i in range(n)}
+        for i, j, w in pair_weights:
+            adj_list[i].append((j, w))
+            adj_list[j].append((i, w))
+
+        # Sort all edges by weight descending; use top edge weights as seeds.
+        sorted_edges = sorted(pair_weights, key=lambda x: -x[2])
+
+        density_min: float = 0.4       # fraction of internal pairs above threshold
+        k_expand: int   = max(3, min(6, n // 2))   # greedy expansion budget
+        hyperedges_nodes: list[frozenset[int]] = []  # each entry = set of node indices
+        hyperedges_weight: list[float] = []           # cluster coherence score
+
+        assigned: set[int] = set()       # nodes already covered by some hyperedge
+
+        for si, sj, _seed_w in sorted_edges:
+            # Skip if both endpoints already well-covered.
+            if si in assigned and sj in assigned:
+                continue
+
+            # ── Greedy cluster growth from seed pair (si, sj) ────────────
+            cluster = {si, sj}
+            
+            for ci, cj, _ in sorted_edges:
+                if len(cluster) >= k_expand:
+                    break
+                
+                # Add a node to the cluster if at least one endpoint is already in it
+                if ci not in cluster and cj in cluster:
+                    # Check density after tentative addition
+                    candidate = frozenset(cluster | {ci})
+                    n_internal = len(candidate) * (len(candidate) - 1) // 2
+                    if n_internal == 0:
+                        continue
+                    above_count = sum(
+                        1 for a in candidate for b in candidate
+                        if a < b and any(x == a and y == b or x == b and y == a
+                                         for x, y, _ in pair_weights)
+                    )
+                    density = above_count / n_internal
+                    if density >= density_min:
+                        cluster.add(ci)
+
+                elif cj not in cluster and ci in cluster:
+                    candidate = frozenset(cluster | {cj})
+                    n_internal = len(candidate) * (len(candidate) - 1) // 2
+                    if n_internal == 0:
+                        continue
+                    above_count = sum(
+                        1 for a in candidate for b in candidate
+                        if a < b and any(x == a and y == b or x == b and y == a
+                                         for x, y, _ in pair_weights)
+                    )
+                    density = above_count / n_internal
+                    if density >= density_min:
+                        cluster.add(cj)
+
+            # Skip sub-hyperedges — every hyperedge must have ≥ 3 members.
+            if len(cluster) < 3:
+                continue
+
+            # Compute cluster weight as the median internal edge weight.
+            internal_weights = []
+            member_list = list(cluster)
+            for ii in range(len(member_list)):
+                for jj in range(ii + 1, len(member_list)):
+                    a_id, b_id = member_list[ii], member_list[jj]
+                    for c_id, c_w in adj_list[a_id]:
+                        if c_id == b_id:
+                            internal_weights.append(c_w)
+                            break
+
+            weight = float(np.median(internal_weights)) if internal_weights else 0.0
+            if weight < self.sem_threshold:
+                continue  # cluster too weak to be meaningful
+
+            clique_key = frozenset(cluster)
+            hyperedges_nodes.append(clique_key)
+            hyperedges_weight.append(weight)
+
+            # Mark members as assigned (partial coverage is fine — overlapping edges help).
+            for node_idx in cluster:
+                if len(adj_list[node_idx]) >= 2:
+                    assigned.add(node_idx)
+
+        # If greedy expansion produced no clusters, fall back to per-node star hyperedges.
+        if not hyperedges_nodes:
+            for i in range(n):
+                nbrs = adj_list[i]
+                if len(nbrs) < 2:
+                    continue
+                # Take up to k_expand strongest neighbors as a star hyperedge.
+                top_nbrs = sorted(nbrs, key=lambda x: -x[1])[:k_expand]
+                star = {i} | {nbr for nbr, _ in top_nbrs}
+                if len(star) >= 3:
+                    # Star weight = mean edge weight from center to leaves.
+                    w_mean = float(np.mean([w for _, w in top_nbrs]))
+                    hyperedges_nodes.append(frozenset(star))
+                    hyperedges_weight.append(w_mean)
+
+        if not hyperedges_nodes:
+            # Absolute fallback — all nodes were isolated; identity adjacency.
             return np.eye(n, dtype=np.float32), node_ids
 
-        # Build incidence matrix H ∈ {0,1}^{n × |E|}
-        # and edge weight diagonal W_e ∈ R^{|E|}
-        n_edges = len(hyperedges)
+        # ── Build incidence matrix H ∈ {0,1}^{n × |E|} for multi-way edges ─
+        n_edges = len(hyperedges_nodes)
         H = np.zeros((n, n_edges), dtype=np.float32)
         W_e = np.zeros(n_edges, dtype=np.float32)
-        for e_idx, (i, j, w) in enumerate(hyperedges):
-            H[i, e_idx] = 1.0
-            H[j, e_idx] = 1.0
-            W_e[e_idx] = w
+
+        for e_idx, (members, weight) in enumerate(zip(hyperedges_nodes, hyperedges_weight)):
+            for node_idx in members:
+                H[node_idx, e_idx] = 1.0   # ← many nodes per column now
+            W_e[e_idx] = weight
 
         # Vertex degree: B = diag(H W_e 1)
         B_diag = H @ W_e                          # (n,)

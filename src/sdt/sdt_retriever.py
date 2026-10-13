@@ -57,13 +57,31 @@ from typing import Optional
 import numpy as np
 
 from src.models.base import BaseRetriever, build_tfidf
-from src.models.cma import CMARetriever
+
+# Lazy import of CMARetriever — only needed if cma_retriever is passed.
+# This allows SDT to run independently of the CMA model files.
+try:
+    from src.models.cma import CMARetriever
+except ImportError:
+    CMARetriever = None  # type: ignore
 
 from .phase1_hypergraph import MultiModalHypergraph, Node
 from .phase2_fiedler import SpectralPivotDetector
 from .phase3_attenuation import GraphSignalAttenuator
 from .phase4_prefetch import AnticipatoryPrefetchEngine
 from .phase5_evaluation import SDTEvaluator, QueryResult
+
+# GPU telemetry
+try:
+    from .device_utils import log_gpu_telemetry
+    _gpu_telemetry_enabled = True
+except ImportError:
+    _gpu_telemetry_enabled = False
+
+def _log_gpu(phase: str):
+    """Helper to log GPU telemetry if available."""
+    if _gpu_telemetry_enabled:
+        log_gpu_telemetry(phase)
 
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
@@ -105,6 +123,7 @@ class SDTRetriever(BaseRetriever):
         seed: int = 42,
     ):
         super().__init__(corpus)
+        self.note_ids = [rec["note_id"] for rec in corpus]
 
         # ── Reuse CMA/GDT encoder if provided, else build fresh ──────────
         doc_texts = [rec["text"] for rec in corpus]
@@ -185,7 +204,7 @@ class SDTRetriever(BaseRetriever):
         else:
             from sklearn.decomposition import TruncatedSVD
             X = self._doc_tfidf
-            k = min(64, X.shape[1] - 1, N - 1)
+            k = min(self._hypergraph.d, X.shape[1] - 1, N - 1)
             svd = TruncatedSVD(n_components=k, random_state=42)
             embeddings = svd.fit_transform(X).astype(np.float32)
 
@@ -271,6 +290,7 @@ class SDTRetriever(BaseRetriever):
         A, active_node_ids = self._hypergraph.build_adjacency()
         embeddings = self._hypergraph.embedding_matrix()   # (n, d)
         n = len(active_node_ids)
+        _log_gpu("Phase 1 - Hypergraph build")
 
         # ── Phase 2: Spectral pivot detection ─────────────────────────────
         gate_fired = False
@@ -280,6 +300,7 @@ class SDTRetriever(BaseRetriever):
             gate_fired, lambda2, fiedler_v = self._pivot_detector.update(A)
             if gate_fired:
                 self._gate_triggers += 1
+        _log_gpu("Phase 2 - Pivot detection")
 
         # ── Phase 3: Context attenuation (only on gate fire) ──────────────
         if gate_fired and fiedler_v is not None and n >= 2:
