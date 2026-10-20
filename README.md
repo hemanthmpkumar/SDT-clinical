@@ -1,73 +1,77 @@
-# Spectral Diagnostic Trajectories (SDT)
+# Spectral Trajectories Research Workspace
 
-This repository contains the official implementation of the **Spectral Diagnostic Trajectories (SDT)** framework for clinical search, as well as the experimental harness for evaluating simulated clinician chart review on MIMIC-IV vignettes.
+This repository houses the mathematical and computational frameworks extending spectral graph theory and dynamic hypergraph Laplacians into high-dimensional streaming environments.
 
-The SDT framework is a radical evolution over prior session-based search methods. It models diagnostic hypotheses not as dense vectors in Euclidean space, but as an evolving **multi-modal hypergraph** where the topology directly encodes the clinical state.
+---
 
-## Core Architecture (Phase 1–5)
+## Workspace Structure
 
-The code is strictly organized around the 5 mathematical phases of the SDT framework, all contained within `src/sdt/`:
+```
+.
+├── .venv/                   # Shared Python virtual environment
+├── .gitignore               # Workspace-wide Git exclusion rules
+├── SDT/                     # Spectral Diagnostic Trajectories (Clinical Decision Support)
+│   ├── README.md            # Detailed SDT documentation and phase descriptions
+│   ├── requirements.txt     # Python dependencies for SDT
+│   ├── run_experiments.py   # One-shot reproduction script
+│   ├── src/                 # 5-Phase SDT architecture & simulation harness
+│   ├── tests/               # Unit and regression test suite
+│   ├── data/                # Clinical vignettes and processed corpus
+│   ├── latex/               # Manuscript sources (JAMIA, NPJ Digital Medicine, IJDS)
+│   └── outputs/             # Simulation results, plots, and queueing tables
+└── SCT/                     # Spectral Cosmic Trajectories (Planetary & Astrophysical Discovery)
+    └── (In Development)     # Multi-modal hypergraph framework for streaming space data
+```
 
-- **Phase 1 (`phase1_hypergraph.py`)**: Defines the `MultiModalHypergraph` state space. Replaces flat matrices with dynamic text, EHR, and physiological nodes connected by composite temporal-semantic weights (Zhou et al. adjacency formulation).
-- **Phase 2 (`phase2_fiedler.py`)**: The `SpectralPivotDetector`. Tracks the Fiedler value $\lambda_2(L_t)$ of the normalized graph Laplacian. Detects abrupt topic pivots via the interference gate trigger $\Delta\lambda_2 > \tau_{pivot}$.
-- **Phase 3 (`phase3_attenuation.py`)**: The `GraphSignalAttenuator`. Upon interference, applies a high-pass graph signal filter and partitions the active window into $V_{stale}$ and $V_{active}$ via the Fiedler vector cut, generating the clean retrieval seed vector.
-- **Phase 4 (`phase4_prefetch.py`)**: The `AnticipatoryPrefetchEngine`. Executes spectrally-biased random walks over the global corpus graph. Bounds candidates via a greedy knapsack constraint matching Sweller’s Cognitive Load limit.
-- **Phase 5 (`phase5_evaluation.py`)**: Evaluates TTCI, MRR, Contextual Precision, and maps the simulated latency reductions into Emergency Department waiting room improvements via a closed-form Erlang C queueing model (M/M/c).
+---
 
-`sdt_retriever.py` orchestrates these 5 phases and exposes an interface compatible with standard sparse and dense search pipelines.
+## Quick Start
 
-## Installation
+### 1. Environment Setup
 
-We recommend using a Python virtual environment to manage dependencies:
+Activate the workspace virtual environment:
 
 ```bash
-# Create a new virtual environment
-python3 -m venv .venv
-
-# Activate the virtual environment
-# On macOS/Linux:
+# On macOS / Linux:
 source .venv/bin/activate
+
 # On Windows:
 # .venv\Scripts\activate
-
-# Install core dependencies
-pip install -r requirements.txt
 ```
 
-*Note: For performance, most Laplacian eigendecompositions in the SDT pipeline use `scipy.sparse.linalg` directly, without requiring `networkx` conversion overhead.*
+### 2. Clinical SDT Subsystem
 
-## Running the Experiments
-
-To run the simulated cross-over trial comparing SDT against the TF-IDF (Control) and BM25 sparse baselines:
+To work with or run the clinical decision support experiments:
 
 ```bash
+# Navigate to SDT
+cd SDT
+
+# Install dependencies if not already installed
+pip install -r requirements.txt
+
+# Run the 5-arm clinical search crossover simulation
 python src/experiments/run.py
+
+# Or run the full reproduction pipeline (data splits, model training, experiments, plots)
+python run_experiments.py
 ```
 
-This will run the full simulation and save outputs to the `outputs/` directory:
-- `sdt_results.csv`: Raw session metrics (time-to-info, accuracy, cognitive load)
-- `sdt_summary.csv`: Aggregated means and standard errors per condition
-- `sdt_queueing.csv`: The Erlang C operational impact projection table (mapping Time-To-Correct-Information to real ED wait-time improvements).
+To run tests across SDT from the root directory:
 
-## Repository Structure
+```bash
+PYTHONPATH=SDT pytest SDT/tests/
+```
 
-```
-├── README.md
-├── requirements.txt
-├── data/
-│   └── processed/          # Simulated patient vignettes and corpus
-├── src/
-│   ├── sdt/                # The 5-Phase SDT Architecture
-│   │   ├── sdt_retriever.py
-│   │   ├── phase1_hypergraph.py
-│   │   ├── phase2_fiedler.py
-│   │   ├── phase3_attenuation.py
-│   │   ├── phase4_prefetch.py
-│   │   └── phase5_evaluation.py
-│   ├── models/             # Baseline retrievers (BM25, Base TF-IDF)
-│   ├── experiments/        # Simulation and crossover testing scripts
-│   │   ├── run.py
-│   │   └── simulate_users.py
-│   └── analysis/           # Post-experiment analysis & plotting
-└── outputs/                # Experiment metrics and queueing tables
-```
+### 3. Planetary & Astrophysical SCT Subsystem
+
+For the upcoming **Spectral Cosmic Trajectories (SCT)** framework:
+- See the dedicated directory at [`SCT/`](SCT/) for the adaptive scientific discovery proposal and hypergraph Laplacian implementation on multi-messenger/planetary data streams (JWST spectra, light curves, retrieval grids).
+
+---
+
+## Documentation Links
+
+- [SDT Architecture & Framework Documentation](SDT/README.md)
+- [SDT 5-Phase Implementation](SDT/src/sdt/)
+- [SCT Project Directory](SCT/)

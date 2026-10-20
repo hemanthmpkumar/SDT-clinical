@@ -1,0 +1,58 @@
+{
+  "SCT": {
+    "PDL": Infinity,
+    "FPR": 0.0,
+    "RC": 0.0,
+    "FRA": 0.21453508987344272,
+    "OE": 0.0,
+    "n_obs_to_90pct": Infinity,
+    "pivot_steps_detected": [],
+    "lambda2_trajectory": [
+      0.1388108127884358,
+      0.3689343636636842,
+      0.3535648588213313,
+      0.33803963528333764,
+      0.3249117401949172
+    ]
+  },
+  "SBayes": {
+    "PDL": Infinity,
+    "FPR": 0.0,
+    "RC": 0.18,
+    "FRA": 0.9958823822586622,
+    "OE": 0.0,
+    "n_obs_to_90pct": Infinity,
+    "pivot_steps_detected": [],
+    "lambda2_trajectory": []
+  },
+  "GDT": {
+    "PDL": Infinity,
+    "FPR": 0.0,
+    "RC": 0.12,
+    "FRA": 0.9958823822586622,
+    "OE": 0.0,
+    "n_obs_to_90pct": Infinity,
+    "pivot_steps_detected": [],
+    "lambda2_trajectory": []
+  },
+  "BM25-Bay": {
+    "PDL": Infinity,
+    "FPR": 0.0,
+    "RC": 0.25,
+    "FRA": 0.9958823822586622,
+    "OE": 0.0,
+    "n_obs_to_90pct": Infinity,
+    "pivot_steps_detected": [],
+    "lambda2_trajectory": []
+  },
+  "No-Pivot": {
+    "PDL": 5.0,
+    "FPR": 0.0,
+    "RC": 0.42,
+    "FRA": 0.9971176675810635,
+    "OE": 0.5,
+    "n_obs_to_90pct": 5,
+    "pivot_steps_detected": [],
+    "lambda2_trajectory": []
+  }
+}

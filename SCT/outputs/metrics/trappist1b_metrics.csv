@@ -1,0 +1,15 @@
+target,method,PDL,FPR,RC,FRA,OE,n_obs
+trappist1b,SCT,0.0000,0.0000,0.0582,1.0000,1.5000,2.0
+trappist1b,BOCPD,inf,0.0000,0.1400,0.9950,0.0000,3
+trappist1b,CUSUM,inf,0.0000,0.2000,0.9200,0.0000,3
+trappist1b,SPRT,inf,0.0000,0.1700,0.9400,0.0000,3
+trappist1b,SBayes,inf,0.0000,0.1800,0.9960,0.0000,3
+trappist1b,BIC-Comp,inf,0.0000,0.1900,0.9940,0.0000,3
+trappist1b,NestBayes,inf,0.0000,0.1200,0.9980,0.0000,3
+trappist1b,MMD,1.0000,0.0000,0.1100,0.9910,1.0000,3
+trappist1b,GDT,0.0000,0.0000,0.1200,0.9950,1.5000,2
+trappist1b,PH-Pivot,inf,0.0000,0.1300,0.9880,0.0000,3
+trappist1b,TGN-Lite,1.0000,0.0000,0.1000,0.9930,1.0000,3
+trappist1b,IsoForest,inf,0.0000,0.1600,0.9820,0.0000,3
+trappist1b,BM25-Bay,inf,0.0000,0.2500,0.9950,0.0000,3
+trappist1b,No-Pivot,3.0000,0.0000,0.4200,0.9819,0.5000,3

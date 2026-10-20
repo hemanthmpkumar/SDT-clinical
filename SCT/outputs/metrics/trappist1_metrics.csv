@@ -1,0 +1,6 @@
+target,method,PDL,FPR,RC,FRA,OE,n_obs
+trappist1,SCT,inf,0.0000,0.0000,0.2145,0.0000,inf
+trappist1,SBayes,inf,0.0000,0.1800,0.9959,0.0000,inf
+trappist1,GDT,inf,0.0000,0.1200,0.9959,0.0000,inf
+trappist1,BM25-Bay,inf,0.0000,0.2500,0.9959,0.0000,inf
+trappist1,No-Pivot,5.0000,0.0000,0.4200,0.9971,0.5000,5

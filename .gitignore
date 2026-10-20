@@ -56,12 +56,37 @@ coverage.xml
 .env.*
 !.env.example
 
+# Research Plans, Framework Drafts & Temporary Document Exports
+Phase*.md
+*Plan*.md
+*plan*.md
+*plan*.html
+*Plan*.html
+*Google Gemini.pdf
+Untitled*.pdf
+
+# Scratch / Ad-hoc Test & Recovery Scripts
+recover*.py
+test_eigsh.py
+test_idx.py
+
+# Template / Backup Files
+*_backup.*
+*_backup_*
+*.bak
+
 # Large Data & Raw Datasets (avoids GitHub 100MB file limit)
 data/raw/
 data/scaling/
 data/scaling_prepared/
 data/processed/corpus.jsonl
 data/processed_spd_test/corpus.jsonl
+**/data/raw/
+**/data/scaling/
+**/data/scaling_prepared/
+**/data/processed/corpus.jsonl
+**/data/processed_spd_test/corpus.jsonl
+
 *.tar.gz
 *.zip
 *.7z

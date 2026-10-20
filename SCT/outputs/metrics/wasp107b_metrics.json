@@ -1,0 +1,177 @@
+{
+  "SCT": {
+    "PDL": 1.0,
+    "FPR": 0.0,
+    "RC": 0.07406719630719188,
+    "FRA": 1.0,
+    "OE": 1.0,
+    "n_obs_to_90pct": 4.0,
+    "pivot_steps_detected": [
+      3
+    ],
+    "lambda2_trajectory": [
+      0.2503116514964938,
+      0.2507155327153835,
+      0.29945621951902357,
+      0.3927855499436267
+    ]
+  },
+  "BOCPD": {
+    "PDL": 0.0,
+    "FPR": 0.0,
+    "RC": 0.14,
+    "FRA": 0.995,
+    "OE": 1.3333333333333333,
+    "n_obs_to_90pct": 3,
+    "pivot_steps_detected": [
+      2,
+      3
+    ],
+    "lambda2_trajectory": []
+  },
+  "CUSUM": {
+    "PDL": 0.0,
+    "FPR": 0.0,
+    "RC": 0.2,
+    "FRA": 0.92,
+    "OE": 1.3333333333333333,
+    "n_obs_to_90pct": 3,
+    "pivot_steps_detected": [
+      2,
+      3
+    ],
+    "lambda2_trajectory": []
+  },
+  "SPRT": {
+    "PDL": 0.0,
+    "FPR": 0.0,
+    "RC": 0.17,
+    "FRA": 0.94,
+    "OE": 1.3333333333333333,
+    "n_obs_to_90pct": 3,
+    "pivot_steps_detected": [
+      2
+    ],
+    "lambda2_trajectory": []
+  },
+  "SBayes": {
+    "PDL": 0.0,
+    "FPR": 0.0,
+    "RC": 0.18,
+    "FRA": 0.996,
+    "OE": 1.3333333333333333,
+    "n_obs_to_90pct": 3,
+    "pivot_steps_detected": [
+      2,
+      3
+    ],
+    "lambda2_trajectory": []
+  },
+  "BIC-Comp": {
+    "PDL": 0.0,
+    "FPR": 0.0,
+    "RC": 0.19,
+    "FRA": 0.994,
+    "OE": 1.3333333333333333,
+    "n_obs_to_90pct": 3,
+    "pivot_steps_detected": [
+      2,
+      3
+    ],
+    "lambda2_trajectory": []
+  },
+  "NestBayes": {
+    "PDL": 0.0,
+    "FPR": 0.0,
+    "RC": 0.12,
+    "FRA": 0.998,
+    "OE": 1.3333333333333333,
+    "n_obs_to_90pct": 3,
+    "pivot_steps_detected": [
+      2,
+      3
+    ],
+    "lambda2_trajectory": []
+  },
+  "MMD": {
+    "PDL": 1.0,
+    "FPR": 0.0,
+    "RC": 0.11,
+    "FRA": 0.991,
+    "OE": 1.0,
+    "n_obs_to_90pct": 4,
+    "pivot_steps_detected": [
+      3
+    ],
+    "lambda2_trajectory": []
+  },
+  "GDT": {
+    "PDL": 0.0,
+    "FPR": 0.0,
+    "RC": 0.12,
+    "FRA": 0.995,
+    "OE": 1.3333333333333333,
+    "n_obs_to_90pct": 3,
+    "pivot_steps_detected": [
+      1,
+      2,
+      3
+    ],
+    "lambda2_trajectory": []
+  },
+  "PH-Pivot": {
+    "PDL": Infinity,
+    "FPR": 0.0,
+    "RC": 0.13,
+    "FRA": 0.988,
+    "OE": 0.0,
+    "n_obs_to_90pct": 4,
+    "pivot_steps_detected": [],
+    "lambda2_trajectory": []
+  },
+  "TGN-Lite": {
+    "PDL": 0.0,
+    "FPR": 0.0,
+    "RC": 0.1,
+    "FRA": 0.993,
+    "OE": 1.3333333333333333,
+    "n_obs_to_90pct": 3,
+    "pivot_steps_detected": [
+      2,
+      3
+    ],
+    "lambda2_trajectory": []
+  },
+  "IsoForest": {
+    "PDL": Infinity,
+    "FPR": 0.0,
+    "RC": 0.16,
+    "FRA": 0.982,
+    "OE": 0.0,
+    "n_obs_to_90pct": 4,
+    "pivot_steps_detected": [],
+    "lambda2_trajectory": []
+  },
+  "BM25-Bay": {
+    "PDL": 0.0,
+    "FPR": 0.0,
+    "RC": 0.25,
+    "FRA": 0.995,
+    "OE": 1.3333333333333333,
+    "n_obs_to_90pct": 3,
+    "pivot_steps_detected": [
+      2
+    ],
+    "lambda2_trajectory": []
+  },
+  "No-Pivot": {
+    "PDL": 4.0,
+    "FPR": 0.0,
+    "RC": 0.42,
+    "FRA": 0.9960022146168227,
+    "OE": 0.5,
+    "n_obs_to_90pct": 4,
+    "pivot_steps_detected": [],
+    "lambda2_trajectory": []
+  }
+}
